@@ -1,0 +1,19 @@
+name: stretch_2c_sweep
+description: Six-node ring with leaves added at A, D, then C.
+seed: 20261106
+models:
+  # Model IDs are placeholders; check OpenAI's model list before Phase 4.
+  terra:
+    provider: openai
+    model_id: gpt-6.1-terra
+    price_input_per_m: 1.00
+    price_cached_input_per_m: 0.05
+    price_output_per_m: 5.00
+networks: [sweep0, sweep1, sweep2, sweep3]
+knowledge: [full_map]
+assignments:
+  - name: terra
+    default: terra
+settings:
+  rounds: 12
+  episodes_per_condition: 10

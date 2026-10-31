@@ -1,0 +1,38 @@
+{
+  "package_version": "0.1.0",
+  "theory_settings": {
+    "myerson_exact_max_nodes": 16,
+    "position_exact_max_links": 16,
+    "myerson_samples": 20000,
+    "myerson_seed": 0,
+    "position_value_samples": 4000,
+    "position_value_seed": 0,
+    "nucleolus_max_nodes": 10
+  },
+  "networks": [
+    "pair",
+    "line3",
+    "line4",
+    "line5",
+    "line6",
+    "line7",
+    "star3",
+    "star4",
+    "star5",
+    "stem",
+    "triangle",
+    "sweep0",
+    "sweep1",
+    "sweep2",
+    "sweep3",
+    "no_exclusion_control",
+    "broker_parallel_1",
+    "broker_parallel_2",
+    "broker_parallel_3",
+    "broker_parallel_4",
+    "broker_serial_2",
+    "broker_serial_3"
+  ],
+  "git_commit": null,
+  "generated_at": "2026-10-31T15:16:07.617075+00:00"
+}

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.DS_Store
+
+# Project proposals and phase instructions stay local, including future versions.
+[Pp]roject_[Pp]roposal*
+[Pp]roject-[Pp]roposal*
+[Pp]hase*_[Pp]rompt*
+[Pp]hase*-[Pp]rompt*
+*[Pp]rompt*.md
+*[Pp]rompt*.txt

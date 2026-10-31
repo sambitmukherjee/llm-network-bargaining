@@ -1,0 +1,22 @@
+name: minimum_study
+description: Minimum study. Eight core networks, full map, Terra at every node.
+seed: 20261106
+budget_usd: null
+models:
+  # Model IDs are placeholders; check OpenAI's model list before Phase 4.
+  terra:
+    provider: openai
+    model_id: gpt-6.1-terra
+    reasoning_effort: "none"
+    max_completion_tokens: 300
+    price_input_per_m: 1.00
+    price_cached_input_per_m: 0.05
+    price_output_per_m: 5.00
+networks: [pair, line3, line4, line5, star3, star4, stem, triangle]
+knowledge: [full_map]
+assignments:
+  - name: terra
+    default: terra
+settings:
+  rounds: 12  # Set from the pilot's learning curves before the study.
+  episodes_per_condition: 10

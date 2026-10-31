@@ -1,0 +1,33 @@
+name: stretch_2f_h6
+description: Swap Terra and Luna between hubs and their neighbours.
+seed: 20261106
+models:
+  # Model IDs are placeholders; check OpenAI's model list before Phase 4.
+  terra:
+    provider: openai
+    model_id: gpt-6.1-terra
+    price_input_per_m: 1.00
+    price_cached_input_per_m: 0.05
+    price_output_per_m: 5.00
+  luna:
+    provider: openai
+    model_id: gpt-6-luna
+    price_input_per_m: 0.10
+    price_cached_input_per_m: 0.01
+    price_output_per_m: 0.50
+networks: [line3, star3]
+knowledge: [full_map]
+assignments:
+  - name: terra_hub
+    default: luna
+    per_network:
+      line3: {B: terra}
+      star3: {H: terra}
+  - name: luna_hub
+    default: terra
+    per_network:
+      line3: {B: luna}
+      star3: {H: luna}
+settings:
+  rounds: 12
+  episodes_per_condition: 10

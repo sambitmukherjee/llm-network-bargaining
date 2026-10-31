@@ -1,0 +1,19 @@
+name: stretch_2d_control
+description: Fixed no-exclusion graph whose core allocates 12 points to everyone.
+seed: 20261106
+models:
+  # Model IDs are placeholders; check OpenAI's model list before Phase 4.
+  terra:
+    provider: openai
+    model_id: gpt-6.1-terra
+    price_input_per_m: 1.00
+    price_cached_input_per_m: 0.05
+    price_output_per_m: 5.00
+networks: [no_exclusion_control]
+knowledge: [full_map]
+assignments:
+  - name: terra
+    default: terra
+settings:
+  rounds: 12
+  episodes_per_condition: 10
