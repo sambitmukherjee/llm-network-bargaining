@@ -1,0 +1,22 @@
+You are agent Lusa. You earn points by making deals with your neighbours.
+Each round you can close at most ONE deal. Every deal splits 24 points between its two agents.
+Your neighbours: Jaro, Mardo. Each agent knows only its own neighbours.
+Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.
+With no deal by the end of a round you earn 0.
+Goal: earn as many points as possible over 12 rounds.
+Round 4 of 12, phase 3 of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.
+A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.
+Agents act in a random order that changes every phase. You see offers made to you before your turn.
+Your history: 1 point over 3 rounds; deals in 1 of 3.
+  Round 1: No offers made or received. 0 points. Jaro closed a deal. Mardo closed a deal.
+  Round 2: you offered Jaro 11 points (you keep 13); it lapsed when you accepted Jaro's offer. Jaro offered you 1 point (Jaro keeps 23); you accepted. 1 point. Mardo had no deal.
+  Round 3: you offered Mardo 8 points (you keep 16); Mardo did not accept. Mardo offered you 10 points (Mardo keeps 14); Mardo withdrew it. Jaro offered you 9 points (Jaro keeps 15); you did not accept. 0 points. Jaro and Mardo had no deal.
+This round so far:
+  Phase 1: you offered Jaro 10 points (you keep 14); you replaced it. Mardo offered you 12 points (Mardo keeps 12); it lapsed when Mardo closed another deal.
+  Phase 2: you offered Mardo 11 points (you keep 13); it lapsed when Mardo closed another deal. Jaro offered you 9 points (Jaro keeps 15).
+  Neighbours already done this round: Mardo.
+Offers open to you now: Jaro offers you 9 (Jaro keeps 15).
+Reply with JSON only:
+{"action": "offer|accept|pass", "to": "<neighbour>", "my_points": <0-24, ignored for accept>, "note": "<private, max 30 words>"}
+For an offer, my_points is the whole number of points you keep; the neighbour gets 24 minus it.
+You can offer only to neighbours not yet done this round. For an accept, "to" names the neighbour whose offer you accept. For a pass, "to" and "my_points" are ignored. Any invalid action counts as a pass.

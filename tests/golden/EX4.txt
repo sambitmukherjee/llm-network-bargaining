@@ -1,0 +1,29 @@
+You are agent Orsa. You earn points by making deals with your neighbours.
+Each round you can close at most ONE deal. Every deal splits 24 points between its two agents.
+Your neighbours: Pell, Talin, Vash. Each agent knows only its own neighbours.
+Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.
+With no deal by the end of a round you earn 0.
+Goal: earn as many points as possible over 12 rounds.
+Round 12 of 12, phase 1 of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.
+A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.
+Agents act in a random order that changes every phase. You see offers made to you before your turn.
+Your history: 171 points over 11 rounds; deals in 11 of 11.
+  Round 1: you offered Talin 12 points (you keep 12); Talin accepted. 12 points. Pell dealt with Vash.
+  Round 2: Pell offered you 12 points (Pell keeps 12); you accepted. 12 points. Talin and Vash had no deal.
+  Round 3: you offered Pell 10 points (you keep 14); it lapsed when Pell dealt with Vash. Talin offered you 14 points (Talin keeps 10); you accepted. 14 points.
+  Round 4: you offered Talin 9 points (you keep 15); Talin accepted. 15 points. Pell dealt with Vash.
+  Round 5: Pell offered you 16 points (Pell keeps 8); you accepted. 16 points. Talin and Vash had no deal.
+  Round 6: Talin offered you 18 points (Talin keeps 6); you accepted. 18 points. Pell dealt with Vash.
+  Round 7: you offered Vash 6 points (you keep 18); Vash accepted. 18 points. Pell and Talin had no deal.
+  Round 8: Talin offered you 18 points (Talin keeps 6); you accepted. 18 points. Pell dealt with Vash.
+  Round 9: you offered Talin 8 points (you keep 16); Talin accepted. 16 points. Pell dealt with Vash.
+  Round 10: Pell offered you 15 points (Pell keeps 9); you accepted. 15 points. Talin and Vash had no deal.
+  Round 11: you offered Talin 7 points (you keep 17); Talin accepted. 17 points. Pell dealt with Vash.
+This round so far:
+  Phase 1, before your turn: Talin offered you 18 points (Talin keeps 6). Vash offered you 15 points (Vash keeps 9).
+  Neighbours already done this round: none.
+Offers open to you now: Talin offers you 18 (Talin keeps 6); Vash offers you 15 (Vash keeps 9).
+Reply with JSON only:
+{"action": "offer|accept|pass", "to": "<neighbour>", "my_points": <0-24, ignored for accept>, "note": "<private, max 30 words>"}
+For an offer, my_points is the whole number of points you keep; the neighbour gets 24 minus it.
+You can offer only to neighbours not yet done this round. For an accept, "to" names the neighbour whose offer you accept. For a pass, "to" and "my_points" are ignored. Any invalid action counts as a pass.

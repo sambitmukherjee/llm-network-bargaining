@@ -61,10 +61,24 @@ benchmarks, plus trading efficiency; it writes no result files:
 python -m llm_network_bargaining.simulate --network star3 --bot aspiration
 ```
 
+Phase 3 adds display names, the versioned prompt renderer, the response schema
+and parser, and `JsonBotAdapter` for offline checks through the language layer.
+Review the nine scripted prompt examples with:
+
+```sh
+python -m llm_network_bargaining.prompts examples --out docs/prompt_examples.md
+```
+
+The review copy stays local under the prompt-file ignore rules. Expected
+stimuli are retained as test fixtures in `tests/golden/`. Prompt history keeps
+every offer and has no word limit. The renderer uses only the supplied
+observation; it never consults the network registry to infer hidden information.
+
 Model IDs and token prices in the examples are placeholders supplied in the
 brief. Check them before Phase 4. Implementation decisions and public interfaces
 are recorded in [the Phase 1 notes](docs/phase1_notes.md) and
-[the Phase 2 notes](docs/phase2_notes.md).
+[the Phase 2 notes](docs/phase2_notes.md), with language-layer details in
+[the Phase 3 notes](docs/phase3_notes.md).
 
 ## Pre-existing work
 
@@ -74,3 +88,5 @@ on **31 October 2026**. The original script is preserved unchanged; the package
 ports its mathematics without importing it.
 Phase 2, including the engine, observations, and scripted bots, was also written
 on **31 October 2026**, before the sprint.
+Phase 3, including the language layer and golden prompt fixtures, was written
+on **1 November 2026**, before the sprint.

@@ -1,0 +1,27 @@
+You are agent Pell. You earn points by making deals with your neighbours.
+Each round you can close at most ONE deal. Every deal splits 24 points between its two agents.
+Your neighbours: Orsa, Vash. The whole network: Orsa–Pell, Orsa–Talin, Orsa–Vash, Pell–Vash. Every agent is shown this same map.
+Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.
+With no deal by the end of a round you earn 0.
+Goal: earn as many points as possible over 12 rounds.
+Round 9 of 12, phase 3 of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.
+A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.
+Agents act in a random order that changes every phase. You see offers made to you before your turn.
+Your history: 86 points over 8 rounds; deals in 7 of 8.
+  Round 1: Vash offered you 12 points (Vash keeps 12); you accepted. 12 points. Orsa dealt with Talin.
+  Round 2: you offered Orsa 11 points (you keep 13); Orsa accepted. 13 points. Vash had no deal.
+  Round 3: you offered Orsa 10 points (you keep 14); it lapsed when Orsa dealt with Talin. Vash offered you 12 points (Vash keeps 12); you accepted. 12 points.
+  Round 4: you offered Vash 10 points (you keep 14); Vash accepted. 14 points. Orsa dealt with Talin.
+  Round 5: Orsa offered you 11 points (Orsa keeps 13); you accepted. 11 points. Vash had no deal.
+  Round 6: you offered Vash 12 points (you keep 12); Vash accepted. 12 points. Orsa dealt with Talin.
+  Round 7: Vash offered you 12 points (Vash keeps 12); you accepted. 12 points. Orsa dealt with Talin.
+  Round 8: you offered Vash 12 points (you keep 12); it lapsed when Vash dealt with Orsa. No offers received. 0 points.
+This round so far:
+  Phase 1: you offered Orsa 11 points (you keep 13); it lapsed when Orsa dealt with Talin.
+  Phase 2: you passed. Vash offered you 10 points (Vash keeps 14).
+  Neighbours already done this round: Orsa (with Talin).
+Offers open to you now: Vash offers you 10 (Vash keeps 14).
+Reply with JSON only:
+{"action": "offer|accept|pass", "to": "<neighbour>", "my_points": <0-24, ignored for accept>, "note": "<private, max 30 words>"}
+For an offer, my_points is the whole number of points you keep; the neighbour gets 24 minus it.
+You can offer only to neighbours not yet done this round. For an accept, "to" names the neighbour whose offer you accept. For a pass, "to" and "my_points" are ignored. Any invalid action counts as a pass.

@@ -7,6 +7,8 @@ dist/
 .DS_Store
 
 # Project proposals and phase instructions stay local, including future versions.
+/older_proposals/
+/older_prompts/
 [Pp]roject_[Pp]roposal*
 [Pp]roject-[Pp]roposal*
 [Pp]hase*_[Pp]rompt*
