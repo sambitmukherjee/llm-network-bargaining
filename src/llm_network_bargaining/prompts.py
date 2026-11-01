@@ -5,7 +5,8 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from .names import _name_lookup
-from .observation import Observation, OfferView, PastRound
+from .networks import Network
+from .observation import KnowledgeSetting, Observation, OfferView, PastRound
 
 PROMPT_VERSION = "v1"
 
@@ -178,6 +179,57 @@ def _current_block(obs: Observation, names: Mapping[str, str]) -> list[str]:
             f"  Neighbours already done this round: {', '.join(done) if done else 'none' }."]
 
 
+def rules_block(network: Network | Observation, node: str, names: Mapping[str, str], *,
+                knowledge: KnowledgeSetting, n_rounds: int) -> list[str]:
+    """Return the nine opening rules, using round 1/phase 1 for a network.
+
+    The renderer passes an Observation instead, so the same text can show its
+    current round and phase without consulting a network or any hidden data.
+    """
+    if knowledge not in ("full_map", "own_links"):
+        raise ValueError("knowledge must be 'full_map' or 'own_links'.")
+    if n_rounds < 1:
+        raise ValueError("n_rounds must be positive.")
+    if isinstance(network, Observation):
+        if (node, knowledge, n_rounds) != (network.agent, network.knowledge, network.n_rounds):
+            raise ValueError("Rule settings must match the observation.")
+        neighbours = network.neighbours
+        network_edges = network.network_edges if knowledge == "full_map" else None
+        pie, round_number, phase = network.pie, network.round, network.phase
+    else:
+        if network.kind != "exchange":
+            raise ValueError("Bargaining rules require an exchange network.")
+        neighbours = network.neighbours(node)
+        network_edges = network.edges if knowledge == "full_map" else None
+        pie, round_number, phase = network.pie, 1, 1
+    _name_lookup(names)
+    visible = {node, *neighbours}
+    if network_edges is not None:
+        visible.update(endpoint for edge in network_edges for endpoint in edge)
+    missing = visible - names.keys()
+    if missing:
+        raise ValueError(f"Missing display names for observed nodes: {', '.join(sorted(missing))}.")
+    neighbour_text = ", ".join(sorted(names[node] for node in neighbours))
+    if knowledge == "full_map":
+        assert network_edges is not None
+        edges = sorted(tuple(sorted((names[a], names[b]))) for a, b in network_edges)
+        links = ", ".join(f"{a}–{b}" for a, b in edges)
+        map_sentence = f"The whole network: {links}. Every agent is shown this same map."
+    else:
+        map_sentence = "Each agent knows only its own neighbours."
+    return [
+        f"You are agent {names[node]}. You earn points by making deals with your neighbours.",
+        f"Each round you can close at most ONE deal. Every deal splits {pie} points between its two agents.",
+        f"Your neighbours: {neighbour_text}. {map_sentence}",
+        "Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.",
+        "With no deal by the end of a round you earn 0.",
+        f"Goal: earn as many points as possible over {n_rounds} rounds.",
+        f"Round {round_number} of {n_rounds}, phase {phase} of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.",
+        "A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.",
+        "Agents act in a random order that changes every phase. You see offers made to you before your turn.",
+    ]
+
+
 def render_prompt(obs: Observation, names: Mapping[str, str], *, version: str = "v1") -> str:
     """Render v1 exactly, requiring names only for nodes this observation mentions."""
     if version != PROMPT_VERSION:
@@ -188,26 +240,8 @@ def render_prompt(obs: Observation, names: Mapping[str, str], *, version: str = 
     missing = _referenced_nodes(obs) - names.keys()
     if missing:
         raise ValueError(f"Missing display names for observed nodes: {', '.join(sorted(missing))}.")
-    neighbours = ", ".join(sorted(names[node] for node in obs.neighbours))
-    if obs.knowledge == "full_map":
-        assert obs.network_edges is not None
-        edges = sorted(tuple(sorted((names[a], names[b]))) for a, b in obs.network_edges)
-        links = ", ".join(f"{a}–{b}" for a, b in edges)
-        map_sentence = f"The whole network: {links}. Every agent is shown this same map."
-    else:
-        map_sentence = "Each agent knows only its own neighbours."
-    lines = [
-        f"You are agent {names[obs.agent]}. You earn points by making deals with your neighbours.",
-        f"Each round you can close at most ONE deal. Every deal splits {obs.pie} points between its two agents.",
-        f"Your neighbours: {neighbours}. {map_sentence}",
-        "Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.",
-        "With no deal by the end of a round you earn 0.",
-        f"Goal: earn as many points as possible over {obs.n_rounds} rounds.",
-        f"Round {obs.round} of {obs.n_rounds}, phase {obs.phase} of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.",
-        "A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.",
-        "Agents act in a random order that changes every phase. You see offers made to you before your turn.",
-        *_history_block(obs, names), *_current_block(obs, names),
-    ]
+    lines = rules_block(obs, obs.agent, names, knowledge=obs.knowledge, n_rounds=obs.n_rounds)
+    lines.extend([*_history_block(obs, names), *_current_block(obs, names)])
     offers = [f"{names[offer.maker]} offers you {offer.recipient_points} "
               f"({names[offer.maker]} keeps {offer.maker_points})" for offer in obs.open_offers_to_me]
     lines.extend([

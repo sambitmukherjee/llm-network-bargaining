@@ -5,6 +5,8 @@ __pycache__/
 build/
 dist/
 .DS_Store
+.env
+.env.*
 
 # Project proposals and phase instructions stay local, including future versions.
 /older_proposals/
@@ -15,3 +17,4 @@ dist/
 [Pp]hase*-[Pp]rompt*
 *[Pp]rompt*.md
 *[Pp]rompt*.txt
+!docs/prompt_examples.md

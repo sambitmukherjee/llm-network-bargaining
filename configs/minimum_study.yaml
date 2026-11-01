@@ -3,7 +3,7 @@ description: Minimum study. Eight core networks, full map, Terra at every node.
 seed: 20261106
 budget_usd: null
 models:
-  # Model IDs are placeholders; check OpenAI's model list before Phase 4.
+  # Model IDs and prices checked against OpenAI's model pages on 1 November 2026.
   terra:
     provider: openai
     model_id: gpt-6.1-terra
@@ -11,6 +11,7 @@ models:
     max_completion_tokens: 300
     price_input_per_m: 1.00
     price_cached_input_per_m: 0.05
+    price_cache_write_per_m: 1.25
     price_output_per_m: 5.00
 networks: [pair, line3, line4, line5, star3, star4, stem, triangle]
 knowledge: [full_map]

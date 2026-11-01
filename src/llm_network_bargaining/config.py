@@ -23,12 +23,15 @@ class ModelSpec(_ConfigModel):
 
     provider: Literal["openai"]
     model_id: str
-    reasoning_effort: Literal["none", "low", "medium", "high"] = "none"
+    reasoning_effort: Literal["none", "minimal", "low", "medium", "high", "xhigh", "max"] = "none"
     max_completion_tokens: int = Field(default=300, ge=1)
     temperature: float | None = None
     price_input_per_m: float = Field(ge=0, allow_inf_nan=False)
     price_cached_input_per_m: float = Field(ge=0, allow_inf_nan=False)
     price_output_per_m: float = Field(ge=0, allow_inf_nan=False)
+    price_cache_write_per_m: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    prompt_cache: Literal["off", "implicit"] = "off"
+    timeout_s: float = Field(default=60.0, gt=0, allow_inf_nan=False)
 
 
 class ModelAssignment(_ConfigModel):
