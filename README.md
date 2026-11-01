@@ -157,11 +157,13 @@ python -m llm_network_bargaining.replay runs_dry
 ```
 
 Re-run the same command and output folder to resume: completed episodes are
-skipped; interrupted partial logs are replaced and their episodes start again.
+skipped; interrupted partial logs are archived as `interrupted1`, `interrupted2`,
+and so on, and their episodes start again with a new attempt number.
 A recoverable failure produces `failed1`, `failed2`, or `failed3` logs and
 restarts with the same seed. After three failed attempts, an episode is
 `abandoned`; other jobs continue. A bad key or another fatal API error stops
-the run and preserves partial logs. Summaries include failed-attempt costs.
+the run and preserves partial logs. Summaries include failed and interrupted
+attempt costs. Interruptions do not count towards the three-failure limit.
 Keep one runner per output root. Dry and live logs cannot share a root, and a
 config or prompt-version mismatch requires a separate output folder.
 
@@ -171,6 +173,53 @@ covers all logs for the config, including earlier invocations and conditions
 outside the current filter. Replay rebuilds game outcomes and verifies prompt
 hashes. See [the Phase 5 notes](docs/phase5_notes.md) for the schema and Python
 interfaces.
+
+## Analysing saved episodes
+
+Phase 6 turns completed logs into tidy tables, episode metrics, benchmark
+comparisons and the pre-registered statistical tests. It makes no model calls.
+Install the updated dependencies with `pip install -e ".[dev]"` if needed.
+
+```sh
+python -m llm_network_bargaining.analyse runs --out analysis
+```
+
+To exercise the analysis offline, first generate two episodes per condition:
+
+```sh
+python -m llm_network_bargaining.run run configs/minimum_study.yaml configs/own_links_arm.yaml configs/pilot_own_links.yaml --dry-run aspiration --max-episodes 2
+python -m llm_network_bargaining.analyse runs_dry --out analysis_dry --include-dry
+```
+
+`analysis_dry/` stays ignored by Git. Dry and live logs cannot be analysed
+together; dry logs require `--include-dry`. Select configs with
+`--configs minimum_study own_links_arm`; set `--boot` and `--seed` to control
+the episode bootstrap. Repeating an analysis with the same data, seed and
+dependency versions produces identical files, including the compressed CSVs.
+
+The output includes the five source tables, class summaries, power use,
+learning-curve numbers, H2 benchmark RMSEs and ordering accuracy, H1/H3–H6
+tests with Holm decisions, four mixed models, operational diagnostics and the
+pilot game-length decision when available. Missing hypothesis inputs are
+reported as `not_run`. Separate `_no_last` class summaries and hypotheses
+check whether the last round changes the findings. The primary outcome is
+the second half; `--window all` is available for exploratory summaries.
+These files contain numbers only; figures and note coding come in Phase 7.
+
+```python
+from llm_network_bargaining.analysis import load_dataset
+from llm_network_bargaining.analysis.metrics import condition_class_summary
+from llm_network_bargaining.analysis.hypotheses import run_hypotheses
+
+data = load_dataset(["runs"])
+classes = condition_class_summary(data)
+tests = run_hypotheses(data).to_dict()
+```
+
+Every class has equal weight in the RMSE comparison. Degree and betweenness
+enter only ordering accuracy, since they have no points scale. All hypothesis
+tests use episodes as observations. See [the Phase 6 notes](docs/phase6_notes.md)
+for the exact output columns, interfaces and analysis decisions.
 
 ## Pre-existing work
 
@@ -186,3 +235,5 @@ Phase 4, including the model client, LLM agent, costs, quiz and smoke CLI, was
 also written on **1 November 2026**, before the sprint.
 Phase 5, including experiment execution, logs, recovery, replay and the CLI,
 was written on **1 November 2026**, before the sprint.
+Phase 6, including the offline analysis library and preservation of interrupted
+attempts, was written on **1 November 2026**, before the sprint.

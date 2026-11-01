@@ -114,7 +114,7 @@ def test_resume_only_new_episodes(tmp_path: Path, monkeypatch: pytest.MonkeyPatc
 
 
 @pytest.mark.parametrize("prior_failed", [False, True])
-def test_resume_partial_uses_failed_count(tmp_path: Path, prior_failed: bool) -> None:
+def test_resume_partial_counts_failed_and_interrupted(tmp_path: Path, prior_failed: bool) -> None:
     config = small_config(tmp_path)
     jobs = runner.plan_jobs([config])
     root = tmp_path / "out"
@@ -127,10 +127,13 @@ def test_resume_partial_uses_failed_count(tmp_path: Path, prior_failed: bool) ->
                   "cost_usd": 0.0, "cost_by_alias": {}, "usage_by_alias": {}}
         write_records(episode_path(path.parent, 0, status="failed", attempt=1), [records.header, footer])
     partial = episode_path(path.parent, 0, status="partial")
-    partial.write_text(json.dumps(records.header) + '\n{"torn":')
+    header = {**records.header, "attempt": 2 if prior_failed else 1}
+    partial.write_text(json.dumps(header) + '\n{"torn":')
     assert runner.job_status(jobs[0], root) == "interrupted"
     asyncio.run(runner.run_jobs(jobs, out_root=root, dry_run_bot="aspiration"))
-    assert read_log(path).header["attempt"] == (2 if prior_failed else 1)
+    assert read_log(path).header["attempt"] == (3 if prior_failed else 2)
+    archived = episode_path(path.parent, 0, status="interrupted", attempt=1)
+    assert read_log(archived).header == header
     assert not partial.exists()
 
 

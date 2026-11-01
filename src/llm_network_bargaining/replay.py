@@ -63,22 +63,29 @@ def replay_log(path: str | Path) -> ReplayResult:
 
         orders = {}
         rng = make_rng(derive_seed(seed, "turn_order"))
+        seeded_orders = {(r, p): [network.nodes[int(i)] for i in rng.permutation(len(network.nodes))]
+                         for r in range(1, settings["rounds"] + 1)
+                         for p in range(1, settings["phases"] + 1)}
         for event in records.events:
             if event["type"] == "phase_start":
                 position = (event["round"], event["phase"])
                 orders[position] = event["order"]
-                expected = [network.nodes[int(i)] for i in rng.permutation(len(network.nodes))]
+                expected = seeded_orders[position]
                 if event["order"] != expected:
                     mismatches.append(f"phase_start order differs from seed at round {position[0]} phase {position[1]}")
 
         if records.events:
             episode = Episode(network, knowledge=header["knowledge"], n_rounds=settings["rounds"],
                               n_phases=settings["phases"], episode_seed=seed,
-                              turn_order=lambda round_number, phase: orders[round_number, phase])
+                              turn_order=lambda r, p: orders.get((r, p), seeded_orders[r, p]))
 
             def compare_events() -> None:
                 nonlocal event_count, turn_count
                 for actual in episode.events_since(event_count):
+                    # One engine step can emit several events. An interrupted
+                    # writer may have flushed only the beginning of that step.
+                    if event_count >= len(records.events) and records.footer is None:
+                        return
                     if actual["type"] == "turn":
                         turn_count += 1
                     if event_count >= len(records.events):

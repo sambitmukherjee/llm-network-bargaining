@@ -1,6 +1,7 @@
 """Keep every in-process test offline, including accidental future requests."""
 
 import socket
+import asyncio
 import gzip
 import os
 from typing import Any
@@ -49,3 +50,27 @@ def no_sdk_clients(monkeypatch: pytest.MonkeyPatch) -> None:
 
     monkeypatch.setattr(openai, "OpenAI", refuse)
     monkeypatch.setattr(openai, "AsyncOpenAI", refuse)
+
+
+@pytest.fixture(scope="session")
+def analysis_logs(tmp_path_factory: pytest.TempPathFactory, dummy_key_and_log_scan):
+    """Generate the required 36 aspiration-bot episodes once, fully offline."""
+    from pathlib import Path
+    from llm_network_bargaining.config import load_configs
+    from llm_network_bargaining.runner import plan_jobs, run_jobs
+
+    def refuse(*args, **kwargs):
+        raise AssertionError("Analysis fixture must stay offline.")
+
+    root = tmp_path_factory.mktemp("analysis_logs")
+    configs = load_configs([Path(__file__).resolve().parents[1] / "configs" / name
+                            for name in ("minimum_study.yaml", "own_links_arm.yaml", "pilot_own_links.yaml")])
+    with pytest.MonkeyPatch.context() as guard:
+        guard.setattr(socket.socket, "connect", refuse)
+        guard.setattr(socket, "create_connection", refuse)
+        guard.setattr(openai, "OpenAI", refuse)
+        guard.setattr(openai, "AsyncOpenAI", refuse)
+        summary = asyncio.run(run_jobs(plan_jobs(configs, max_episodes=2), out_root=root,
+                                        dry_run_bot="aspiration"))
+    assert summary.done == 36
+    return root

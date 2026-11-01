@@ -24,7 +24,8 @@ from .model_client import FatalAPIError, ModelClient, OpenAIChatClient, Usage
 from .names import assign_names
 from .networks import get_network
 from .quiz import QUIZ_VERSION, run_rules_quiz
-from .runlog import LOG_SCHEMA, EpisodeLogWriter, LogRecords, episode_path, find_logs, read_log, utc_now
+from .runlog import (LOG_SCHEMA, EpisodeLogWriter, archive_interrupted, attempt_costs,
+                     episode_path, find_logs, read_attempt_logs, read_log, utc_now)
 
 
 @dataclass(frozen=True)
@@ -255,18 +256,6 @@ async def run_episode_attempt(job: Job, attempt: int, *, client: ModelClient | N
         writer.close()
 
 
-def _log_costs(records: LogRecords) -> dict[str, Any]:
-    if records.footer:
-        return {name: records.footer[name] for name in ("cost_usd", "cost_by_alias", "usage_by_alias")}
-    tracker = CostTracker()
-    for record in [*records.quizzes, *records.events, *records.failures]:
-        node = record.get("node", record.get("agent"))
-        meta = record if record["type"] == "failure" else record.get("meta", {})
-        if node is not None and meta.get("attempts"):
-            _add_attempts(tracker, records.header["node_models"][node], meta["attempts"])
-    return _cost_fields(tracker)
-
-
 def validate_logs(configs: Sequence[ExperimentConfig], out_root: str | Path,
                   dry_run: bool | None = None) -> None:
     """Refuse mixed modes or changed configs before creating any new log."""
@@ -310,30 +299,24 @@ def write_summaries(configs: Sequence[ExperimentConfig], out_root: str | Path,
         conditions: dict[str, dict[str, Any]] = {}
         for condition in expand_conditions(config):
             conditions[condition.key] = {**_empty_counts(), "failed_attempts": 0, "cost_usd": 0.0,
-                                         "cost_by_alias": {}, "usage_by_alias": {}, "quiz_scores": []}
+                                         "interrupted_attempts": 0, "cost_by_alias": {}, "usage_by_alias": {}, "quiz_scores": []}
         for job in plan_jobs([config]):
             conditions[job.condition.key][job_status(job, root, max_episode_attempts)] += 1
         folder = root / config.name
         dry_run = False
-        logs = [(path, read_log(path)) for path in find_logs([folder])] if folder.exists() else []
-        finalized = {(path.parent, records.header["episode_index"], records.header["attempt"])
-                     for path, records in logs if records.footer and path.suffix == ".gz"}
+        logs = read_attempt_logs([folder]) if folder.exists() else []
         for path, records in logs:
-            if not records.header:
-                continue
-            identity = (path.parent, records.header["episode_index"], records.header["attempt"])
-            if path.name.endswith(".partial.jsonl") and identity in finalized:
-                continue  # A crash after gzip replacement must not bill the same data twice.
             condition = conditions[records.header["condition_key"]]
             dry_run |= records.header.get("dry_run_bot") is not None
             condition["failed_attempts"] += bool(records.footer and records.footer["status"] == "failed")
-            fields = _log_costs(records)
+            condition["interrupted_attempts"] += ".interrupted" in path.name or path.name.endswith(".partial.jsonl")
+            fields = attempt_costs(records)
             condition["cost_usd"] += fields["cost_usd"]
             for alias, cost in fields["cost_by_alias"].items():
                 condition["cost_by_alias"][alias] = condition["cost_by_alias"].get(alias, 0.0) + cost
             _add_usage(condition["usage_by_alias"], fields["usage_by_alias"])
             condition["quiz_scores"].extend(quiz["score"] for quiz in records.quizzes)
-        totals = {**_empty_counts(), "failed_attempts": 0, "cost_usd": 0.0,
+        totals = {**_empty_counts(), "failed_attempts": 0, "interrupted_attempts": 0, "cost_usd": 0.0,
                   "cost_by_alias": {}, "usage_by_alias": {}}
         all_scores = []
         for condition in conditions.values():
@@ -342,7 +325,7 @@ def write_summaries(configs: Sequence[ExperimentConfig], out_root: str | Path,
             condition["n_quizzes"] = len(scores)
             condition["mean_quiz_score"] = sum(scores) / len(scores) if scores else None
             condition["quiz_perfect_share"] = scores.count(3) / len(scores) if scores else None
-            for name in (*_empty_counts(), "failed_attempts", "cost_usd"):
+            for name in (*_empty_counts(), "failed_attempts", "interrupted_attempts", "cost_usd"):
                 totals[name] += condition[name]
             for alias, cost in condition["cost_by_alias"].items():
                 totals["cost_by_alias"][alias] = totals["cost_by_alias"].get(alias, 0.0) + cost
@@ -395,10 +378,9 @@ async def run_jobs(jobs: Sequence[Job], *, out_root: str | Path, dry_run_bot: st
     running_cost = 0.0
     root = Path(out_root)
     if root.exists():
-        for path in find_logs([root]):
-            records = read_log(path)
-            if records.footer and path.suffix == ".gz":
-                running_cost += records.footer["cost_usd"]
+        for path, records in read_attempt_logs([root]):
+            if path.suffix == ".gz":
+                running_cost += attempt_costs(records)["cost_usd"]
     started = time.monotonic()
 
     async def run_one(job: Job) -> None:
@@ -407,13 +389,19 @@ async def run_jobs(jobs: Sequence[Job], *, out_root: str | Path, dry_run_bot: st
             if stopping.is_set():
                 return
             partial = episode_path(root / job.log_dir, job.episode_index, status="partial")
+            if partial.exists():
+                records = read_log(partial)
+                archived = [read_log(path) for path in partial.parent.glob(f"episode_{job.episode_index:03d}*.jsonl.gz")]
+                if any(log.header.get("attempt") == records.header.get("attempt") for log in archived):
+                    partial.unlink()  # Already retained: crash between gzip replacement and cleanup.
+                else:
+                    archive_interrupted(partial.parent, job.episode_index)
+                    running_cost += attempt_costs(records)["cost_usd"]
             if job_status(job, root, max_episode_attempts) in ("done", "abandoned"):
-                # A crash can happen after gzip replacement but before partial cleanup.
-                partial.unlink(missing_ok=True)
                 return
-            partial.unlink(missing_ok=True)
-            attempt = len(_failed_paths(job, root)) + 1
-            while attempt <= max_episode_attempts and not stopping.is_set():
+            interruptions = list(partial.parent.glob(f"episode_{job.episode_index:03d}.interrupted*.jsonl.gz"))
+            attempt = len(_failed_paths(job, root)) + len(interruptions) + 1
+            while len(_failed_paths(job, root)) < max_episode_attempts and not stopping.is_set():
                 writer = EpisodeLogWriter(root / job.log_dir, job.episode_index, attempt, clock=clock)
                 try:
                     outcome = await run_episode_attempt(job, attempt, client=client, writer=writer, dry_run_bot=dry_run_bot)

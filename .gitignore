@@ -8,6 +8,7 @@ dist/
 .env
 .env.*
 runs_dry/
+analysis_dry/
 *.partial.jsonl
 
 # Project proposals and phase instructions stay local, including future versions.

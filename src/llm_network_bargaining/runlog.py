@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import gzip
 import json
 from pathlib import Path
+import re
 import shutil
 from typing import Any
 
@@ -21,7 +22,7 @@ def utc_now() -> datetime:
 
 def episode_path(folder: str | Path, index: int, *, status: str = "completed",
                  attempt: int = 1) -> Path:
-    """Return one of the three documented filenames within a condition folder."""
+    """Return a completed, failed, partial or archived-interruption filename."""
     stem = f"episode_{index:03d}"
     if status == "completed":
         suffix = ".jsonl.gz"
@@ -29,9 +30,35 @@ def episode_path(folder: str | Path, index: int, *, status: str = "completed",
         suffix = f".failed{attempt}.jsonl.gz"
     elif status == "partial":
         suffix = ".partial.jsonl"
+    elif status == "interrupted":
+        suffix = f".interrupted{attempt}.jsonl.gz"
     else:
         raise ValueError(f"Unknown log status: {status!r}.")
     return Path(folder) / (stem + suffix)
+
+
+def _compress_partial(source: Path, destination: Path) -> Path:
+    """Replace a partial atomically, using a reproducible gzip header."""
+    if destination.exists():
+        raise FileExistsError(destination)
+    temporary = destination.with_name(destination.name + ".tmp")
+    try:
+        with source.open("rb") as input_file, temporary.open("wb") as output:
+            with gzip.GzipFile(filename="", mode="wb", fileobj=output, mtime=0) as compressed:
+                shutil.copyfileobj(input_file, compressed)
+        temporary.replace(destination)
+        source.unlink()
+    finally:
+        temporary.unlink(missing_ok=True)
+    return destination
+
+
+def archive_interrupted(folder: str | Path, index: int) -> Path:
+    """Retain an interrupted attempt before its episode starts over."""
+    folder = Path(folder)
+    number = len(list(folder.glob(f"episode_{index:03d}.interrupted*.jsonl.gz"))) + 1
+    return _compress_partial(episode_path(folder, index, status="partial"),
+                             episode_path(folder, index, status="interrupted", attempt=number))
 
 
 class EpisodeLogWriter:
@@ -64,18 +91,7 @@ class EpisodeLogWriter:
             raise ValueError("Only completed or failed attempts can be finalized.")
         self.close()
         destination = episode_path(self.folder, self.episode_index, status=status, attempt=self.attempt)
-        if destination.exists():
-            raise FileExistsError(destination)
-        temporary = destination.with_name(destination.name + ".tmp")
-        try:
-            with self.path.open("rb") as source, temporary.open("wb") as output:
-                with gzip.GzipFile(filename="", mode="wb", fileobj=output, mtime=0) as compressed:
-                    shutil.copyfileobj(source, compressed)
-            temporary.replace(destination)
-            self.path.unlink()
-        finally:
-            temporary.unlink(missing_ok=True)
-        return destination
+        return _compress_partial(self.path, destination)
 
 
 @dataclass
@@ -96,8 +112,9 @@ class LogRecords:
 
 
 def read_log(path: str | Path) -> LogRecords:
-    """Read gzip or plain JSONL; tolerate only a torn final line in a partial file."""
+    """Read JSONL, tolerating a torn final line only on interrupted attempts."""
     path = Path(path)
+    interrupted = path.name.endswith(".partial.jsonl") or bool(re.search(r"\.interrupted\d+\.jsonl\.gz$", path.name))
     opener = gzip.open if path.suffix == ".gz" else open
     # JSON accepts bytes, so even a torn UTF-8 character in the last line can
     # be handled below without losing the earlier complete records.
@@ -109,7 +126,7 @@ def read_log(path: str | Path) -> LogRecords:
         try:
             record = json.loads(line)
         except ValueError as exc:
-            if path.name.endswith(".partial.jsonl") and number == len(lines) and not line.endswith(b"\n"):
+            if interrupted and number == len(lines) and not line.endswith(b"\n"):
                 break
             raise ValueError(f"Invalid JSON in {path}, line {number}.") from exc
         if not isinstance(record, dict):
@@ -135,9 +152,9 @@ def read_log(path: str | Path) -> LogRecords:
             result.footer = record
         else:
             raise ValueError(f"Unexpected record {kind!r} in {path}, line {number}.")
-    if not result.header and not path.name.endswith(".partial.jsonl"):
+    if not result.header and not interrupted:
         raise ValueError(f"Missing header in {path}.")
-    if path.suffix == ".gz" and result.footer is None:
+    if path.suffix == ".gz" and not interrupted and result.footer is None:
         raise ValueError(f"Missing footer in finalized log {path}.")
     return result
 
@@ -154,3 +171,32 @@ def find_logs(paths: Iterable[str | Path]) -> list[Path]:
             if candidate.is_file() and (candidate.name.endswith(".jsonl.gz") or candidate.name.endswith(".jsonl")):
                 found.add(candidate)
     return sorted(found)
+
+
+def attempt_costs(records: LogRecords) -> dict[str, Any]:
+    """Read finalized totals or reconstruct known costs from an interrupted log."""
+    from .costs import CostTracker
+    from .model_client import Usage
+
+    if records.footer:
+        return {name: records.footer[name] for name in ("cost_usd", "cost_by_alias", "usage_by_alias")}
+    tracker = CostTracker()
+    for record in [*records.quizzes, *records.events, *records.failures]:
+        node = record.get("node", record.get("agent"))
+        meta = record if record["type"] == "failure" else record.get("meta", {})
+        for attempt in meta.get("attempts", []):
+            tracker.add(records.header["node_models"][node], Usage(**attempt["usage"]), attempt["cost_usd"])
+    totals = tracker.to_dict()
+    return dict(cost_usd=tracker.total_usd,
+                cost_by_alias={alias: entry["cost_usd"] for alias, entry in totals.items()},
+                usage_by_alias={alias: {"calls": entry["calls"], **entry["usage"]} for alias, entry in totals.items()})
+
+
+def read_attempt_logs(roots: Iterable[str | Path]) -> list[tuple[Path, LogRecords]]:
+    """Read attempts once, ignoring a leftover partial already archived as gzip."""
+    logs = [(path, read_log(path)) for path in find_logs(roots)]
+    archived = {(path.parent, record.header.get("episode_index"), record.header.get("attempt"))
+                for path, record in logs if path.suffix == ".gz"}
+    return [(path, record) for path, record in logs if record.header and not
+            (path.name.endswith(".partial.jsonl") and
+             (path.parent, record.header.get("episode_index"), record.header.get("attempt")) in archived)]
