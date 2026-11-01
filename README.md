@@ -121,9 +121,56 @@ Use `await agent.aact(observation)` and `await run_rules_quiz(...)` in one event
 loop with a shared client; close it with `await client.aclose()`. `act()` is a
 synchronous convenience and refuses to run inside an existing event loop.
 API/model failures raise exceptions rather than becoming game passes. The quiz
-does not enter subsequent turn messages. Phase 5 will add experiment execution
-and persistent logs. See [the Phase 4 notes](docs/phase4_notes.md) for interfaces
+does not enter subsequent turn messages. The experiment runner below adds
+persistent logs and recovery. See [the Phase 4 notes](docs/phase4_notes.md) for interfaces
 and implementation decisions.
+
+## Running experiments
+
+Try the pilot offline through the complete LLM path, with simulated costs:
+
+```sh
+python -m llm_network_bargaining.run run configs/pilot_full_map.yaml configs/pilot_own_links.yaml --dry-run aspiration --max-episodes 1
+```
+
+This plays ten 24-round episodes and writes to `runs_dry/`, which stays ignored
+by Git. Every agent answers the rules quiz before play. No key is needed.
+
+For a live experiment, export `OPENAI_API_KEY` as described above (the runner
+does not load `.env` automatically), inspect the estimate, then start the run:
+
+```sh
+python -m llm_network_bargaining.run estimate configs/pilot_full_map.yaml configs/pilot_own_links.yaml
+python -m llm_network_bargaining.run run configs/pilot_full_map.yaml configs/pilot_own_links.yaml --concurrency 8
+```
+
+The live command prints a plan and asks you to type `yes` before spending.
+Use `--yes` for an explicitly approved noninteractive run. There is no spending
+cap; actual usage and costs are recorded. Old configs containing `budget_usd`
+are rejected. Live output defaults to `runs/`, which remains eligible for Git.
+
+Inspect progress and verify saved logs without making API calls:
+
+```sh
+python -m llm_network_bargaining.run status configs/pilot_full_map.yaml configs/pilot_own_links.yaml --out runs_dry
+python -m llm_network_bargaining.replay runs_dry
+```
+
+Re-run the same command and output folder to resume: completed episodes are
+skipped; interrupted partial logs are replaced and their episodes start again.
+A recoverable failure produces `failed1`, `failed2`, or `failed3` logs and
+restarts with the same seed. After three failed attempts, an episode is
+`abandoned`; other jobs continue. A bad key or another fatal API error stops
+the run and preserves partial logs. Summaries include failed-attempt costs.
+Keep one runner per output root. Dry and live logs cannot share a root, and a
+config or prompt-version mismatch requires a separate output folder.
+
+Each completed attempt is a `.jsonl.gz` file. Each record is a JSON object:
+header, quizzes, engine events, any failures, then a footer. `summary.json`
+covers all logs for the config, including earlier invocations and conditions
+outside the current filter. Replay rebuilds game outcomes and verifies prompt
+hashes. See [the Phase 5 notes](docs/phase5_notes.md) for the schema and Python
+interfaces.
 
 ## Pre-existing work
 
@@ -137,3 +184,5 @@ Phase 3, including the language layer and golden prompt fixtures, was written
 on **1 November 2026**, before the sprint.
 Phase 4, including the model client, LLM agent, costs, quiz and smoke CLI, was
 also written on **1 November 2026**, before the sprint.
+Phase 5, including experiment execution, logs, recovery, replay and the CLI,
+was written on **1 November 2026**, before the sprint.

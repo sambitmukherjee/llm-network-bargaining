@@ -108,6 +108,8 @@ INVALID = [
     (("assignments", 0, "per_network"), {"line3": {"B": "missing"}}, "Unknown model alias"),
     (("assignments", 0, "per_network"), {"line3": {"A|C": "terra", "A": "luna"}}, "Conflicting"),
     (("blocks",), [], "Extra inputs"),
+    (("budget_usd",), 1.0, "Extra inputs"),
+    (("budget_usd",), None, "Extra inputs"),
     (("settings", "typo"), 1, "Extra inputs"),
     (("models", "terra", "typo"), 1, "Extra inputs"),
     (("assignments", 0, "typo"), 1, "Extra inputs"),

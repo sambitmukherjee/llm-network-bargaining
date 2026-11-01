@@ -40,7 +40,18 @@ def test_dry_run_prints_bodies_counts_and_costs_without_key(monkeypatch: pytest.
         assert data["estimated_input_usd"] > 0
         assert data["kwargs"]["store"] is False
         assert data["kwargs"]["extra_body"] == {"prompt_cache_options": {"mode": "explicit"}}
+        if label == "quiz":
+            assert data["quiz_key"] == {"q1": "A", "q2": "B", "q3": "A"}
+            assert data["quiz_answers"] is None and data["quiz_score"] is None
+            assert data["quiz_score_status"] == "not_run"
     assert "Estimated input total" in output
+    assert "INFO: quiz score not run" in output
+
+
+def test_quiz_display_keeps_answers_key_and_nonperfect_score_together() -> None:
+    answers = {"q1": "A", "q2": "B", "q3": "A"}
+    assert smoke._quiz_display(answers, {"q1": "A", "q2": "C", "q3": "B"}, 1) == (
+        '{"q1": "A", "q2": "B", "q3": "A"} key A/C/B score 1/3')
 
 
 @pytest.mark.parametrize("mode,code", [(["--dry-run"], 0), ([], 2), (["--live"], 1),

@@ -180,6 +180,15 @@ class Episode:
         self._steps = self._play()
 
     @property
+    def events(self) -> tuple[dict[str, Any], ...]:
+        """Return independent copies of the events emitted so far."""
+        return self.events_since(0)
+
+    def events_since(self, start: int) -> tuple[dict[str, Any], ...]:
+        """Copy only new events, so incremental logging need not copy history."""
+        return tuple(deepcopy(self._events[start:]))
+
+    @property
     def finished(self) -> bool:
         """Whether all rounds and final bookkeeping have completed."""
         return self._finished

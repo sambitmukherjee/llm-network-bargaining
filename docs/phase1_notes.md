@@ -63,8 +63,10 @@ the project context and terminology. No later-phase components were built.
   actually used by the supplied configs.
 - Configs use Pydantic v2 with unknown fields forbidden at every schema level.
   Empty model/network/knowledge/assignment collections are rejected. Prices
-  and budgets must be finite and non-negative; token limits are positive;
+  must be finite and non-negative; token limits are positive;
   config seeds are non-negative, as required by NumPy generators.
+- Phase 5 removed the unused `budget_usd` field. Configs containing it are
+  now rejected; experiment costs are recorded without a spending cap.
 - Model overrides may repeat a node with the same alias, but conflicting
   aliases are rejected. Defaults are replaced by explicit overrides. The
   `Condition.node_models` dictionary follows canonical node order and contains

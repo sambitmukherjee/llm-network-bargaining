@@ -7,6 +7,8 @@ dist/
 .DS_Store
 .env
 .env.*
+runs_dry/
+*.partial.jsonl
 
 # Project proposals and phase instructions stay local, including future versions.
 /older_proposals/

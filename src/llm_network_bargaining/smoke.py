@@ -67,13 +67,23 @@ def _print_dry_run(requests: list[tuple[str, ChatRequest]], spec: ModelSpec) -> 
         prompt_tokens = sum((count + 3) // 4 for count in counts)
         estimate = cost_of(Usage(prompt_tokens=prompt_tokens), spec)
         total += estimate
-        print(f"{label}: " + json.dumps({
+        fields = {
             "kwargs": preview, "message_characters": counts,
             "estimated_prompt_tokens": prompt_tokens, "estimated_input_usd": estimate,
-        }, ensure_ascii=False))
+        }
+        if request.purpose == "quiz":
+            fields.update(quiz_key=request.context["quiz_key"], quiz_answers=None,
+                          quiz_score=None, quiz_score_status="not_run")
+        print(f"{label}: " + json.dumps(fields, ensure_ascii=False))
     print(f"Estimated input total (4 characters/token): ${total:.6f}")
     print(f"Output adds up to ${4 * spec.max_completion_tokens * spec.price_output_per_m / 1_000_000:.6f} "
           f"at the configured limit of {spec.max_completion_tokens} completion tokens per request.")
+    print("INFO: quiz score not run (dry-run request preview)")
+
+
+def _quiz_display(answers: dict[str, str], key: dict[str, str], score: int) -> str:
+    """Keep the answer, key and score together without making score a pass check."""
+    return json.dumps(answers) + " key " + "/".join(key[q] for q in ("q1", "q2", "q3")) + f" score {score}/3"
 
 
 async def _run_live(requests: list[tuple[str, ChatRequest]], alias: str, spec: ModelSpec) -> int:
@@ -89,7 +99,7 @@ async def _run_live(requests: list[tuple[str, ChatRequest]], alias: str, spec: M
                         knowledge="full_map", n_rounds=12, episode_seed=1, model_alias=alias,
                         spec=spec, client=client, retry=retry,
                     )
-                    meta, parsed = result.meta, json.dumps(result.answers)
+                    meta, parsed = result.meta, _quiz_display(result.answers, result.key, result.score)
                 else:
                     agent = LLMAgent(
                         node=request.context["node"], names=request.context["names"],
@@ -97,7 +107,10 @@ async def _run_live(requests: list[tuple[str, ChatRequest]], alias: str, spec: M
                     )
                     decision = await agent.aact(request.context["observation"])
                     meta, parsed = dict(decision.meta), json.dumps(asdict(decision.action))
-                rows.append({"label": label, "meta": meta, "parsed": parsed, "ok": True})
+                row = {"label": label, "meta": meta, "parsed": parsed, "ok": True}
+                if request.purpose == "quiz":
+                    row["quiz_score"] = result.score
+                rows.append(row)
             except AgentTurnFailure as exc:
                 last = exc.attempts[-1]
                 usage = {name: sum(a["usage"][name] for a in exc.attempts) for name in asdict(Usage())}
@@ -136,6 +149,9 @@ async def _run_live(requests: list[tuple[str, ChatRequest]], alias: str, spec: M
     }
     for label, passed in checks.items():
         print(f"{'PASS' if passed else 'FAIL'}: {label}")
+    for row in rows:
+        if "quiz_score" in row:
+            print(f"INFO: quiz score {row['quiz_score']}/3")
     print(f"Total cost: ${sum(row['meta']['cost_usd'] for row in rows):.6f}")
     return 0 if all(checks.values()) else 1
 

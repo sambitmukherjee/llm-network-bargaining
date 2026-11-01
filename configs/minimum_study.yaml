@@ -1,7 +1,6 @@
 name: minimum_study
 description: Minimum study. Eight core networks, full map, Terra at every node.
 seed: 20261106
-budget_usd: null
 models:
   # Model IDs and prices checked against OpenAI's model pages on 1 November 2026.
   terra:

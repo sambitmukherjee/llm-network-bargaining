@@ -1,10 +1,11 @@
 """Validated YAML configs and deterministic expansion into conditions."""
 
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 from typing import Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, model_validator
 import yaml
 
 from .networks import Network, get_network
@@ -86,12 +87,22 @@ class ExperimentConfig(_ConfigModel):
     name: str = Field(pattern=r"^[a-z0-9_]+$")
     description: str = ""
     seed: int = Field(ge=0)
-    budget_usd: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     models: dict[str, ModelSpec] = Field(min_length=1)
     networks: list[str] = Field(min_length=1)
     knowledge: list[KnowledgeSetting] = Field(min_length=1)
     assignments: list[ModelAssignment] = Field(min_length=1)
     settings: GameSettings = Field(default_factory=GameSettings)
+    _source_sha256: str | None = PrivateAttr(default=None)
+
+    @property
+    def source_sha256(self) -> str:
+        """Hash the loaded file bytes, or canonical JSON for an in-memory config."""
+        if self._source_sha256 is not None:
+            return self._source_sha256
+        import json
+
+        data = json.dumps(self.model_dump(), sort_keys=True, ensure_ascii=False).encode("utf-8")
+        return hashlib.sha256(data).hexdigest()
 
     @model_validator(mode="after")
     def validate_references(self) -> Self:
@@ -141,13 +152,14 @@ class Condition:
 def load_config(path: str | Path) -> ExperimentConfig:
     """Load and validate a YAML config whose name must match its file stem."""
     path = Path(path)
-    with path.open(encoding="utf-8") as source:
-        data = yaml.safe_load(source)
+    source = path.read_bytes()
+    data = yaml.safe_load(source.decode("utf-8"))
     if not isinstance(data, dict):
         raise ValueError(f"Config {path} must contain a YAML mapping.")
     config = ExperimentConfig.model_validate(data)
     if config.name != path.stem:
         raise ValueError(f"Config name {config.name!r} must match file name {path.stem!r}.")
+    config._source_sha256 = hashlib.sha256(source).hexdigest()
     return config
 
 
