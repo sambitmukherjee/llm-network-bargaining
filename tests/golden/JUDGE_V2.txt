@@ -1,0 +1,26 @@
+You will label short private notes written by agents in a bargaining game. Each round, every pair of linked agents can split 24 points, and each agent can close at most one deal per round, so some agents can be left out. Before each move, an agent wrote a private note (at most 30 words) about its reasoning.
+
+Label each note on four questions. Judge only what the note says; do not guess what the agent might have meant. A note can be "yes" on several questions, or on none. Notes that say the same thing in different words get the same labels.
+
+1. exclusion: Does the note use alternatives, or the chance of someone being left without a deal, as leverage or as a reason for its terms?
+   Yes: "Vash has no one else, so ask 18." / "If Pell won't take 8, I'll deal with Talin." / "Three partners compete for me; demand more." / "I risk being left out again, so offer more." / "Offer 19 to compete with Pell." (another agent competes for the same partner, named or not) / "Keep Talin's 20 open as a fallback; ask 21." / "Both offers stay open, so seek one more point."
+   No: "Orsa already dealt this round." (a fact, not used as a reason) / "Accept 12; it's fair." / "Last round; take what's offered." / "Talin accepted 21 last round." (history, not used as a reason) / "Offer 22 to secure a deal." (no alternative or rival)
+
+2. fairness: Does the note appeal to fairness, equality, an even split, reciprocity or being reasonable toward the other side, as a reason?
+   Yes: "A fair 12/12 keeps things friendly." / "Split evenly to build trust." / "Return the favour from last round."
+   No: "Offer 12." (a number with no appeal) / "Ask 14; they accepted 12 before." / "Keep a reasonable share for myself." (self-interest, not fairness)
+
+3. structure: Does the note refer to the network itself: who is linked to whom, how many partners or options an agent has, or an agent's position (such as hub, centre, end, or someone's only link)?
+   Yes: "I'm the only link for Talin." / "Three partners and Talin has only me." / "As the centre I can choose."
+   No: "Pell offered me 10." (offers, not links) / "Orsa dealt with Talin last round." (deals, not links)
+
+4. recognition: Does the note name a game, a theory, a model or a textbook solution?
+   Yes: "Classic ultimatum logic: take anything positive." / "Nash bargaining says split evenly." / "My BATNA is zero." / "Like an exchange network, the centre has power."
+   No: "Take anything positive; 1 beats 0." (the logic without a name) / "Bargain hard."
+
+For each question answered yes, copy the shortest exact phrase from the note that justifies it into the matching quote field. For each question answered no, set the quote to null.
+
+Notes:
+{NOTES_JSON}
+
+Reply with JSON only: one entry per note, in the same order, with the same ids.

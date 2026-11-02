@@ -25,7 +25,7 @@ def test_exact_request_prompt_and_blindness(tmp_path: Path) -> None:
     client = FakeChatClient(KeywordResponder())
     result = asyncio.run(code_notes(ds, config, out=tmp_path, client=client, dry_run=True))
     request = client.requests[0]
-    expected = (Path(__file__).parent / "golden/JUDGE_V1.txt").read_text().rstrip("\n")
+    expected = (Path(__file__).parent / "golden/JUDGE_V2.txt").read_text().rstrip("\n")
     assert JUDGE_TEMPLATE == expected
     assert request.kwargs == build_chat_kwargs(config.model, request.kwargs["messages"], judge_response_format())
     assert request.purpose == "judge" and request.kwargs["reasoning_effort"] == "medium"

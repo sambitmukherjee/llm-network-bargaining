@@ -7,10 +7,18 @@ dist/
 .DS_Store
 .env
 .env.*
-runs_dry/
-analysis_dry/
-reports_dry/
 *.partial.jsonl
+
+# Generated output folders stay local, now and for future runs.
+# Commit their contents only when explicitly requested.
+analysis*/
+notes*/
+reports*/
+runs*/
+
+# These are package source directories, not generated output.
+!src/llm_network_bargaining/analysis/
+!src/llm_network_bargaining/notes/
 
 # Project proposals and phase instructions stay local, including future versions.
 /older_proposals/

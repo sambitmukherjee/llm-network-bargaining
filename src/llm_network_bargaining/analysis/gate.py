@@ -12,6 +12,9 @@ from .metrics import (attempt_diagnostics, episode_pair_proposer_share,
                       invalid_action_rates, quiz_summary)
 from .stats import json_ready
 
+STUDY_CONFIGS = ("minimum_study", "own_links_arm", "stretch_2c_sweep",
+                 "stretch_2d_control", "stretch_2f_h6")
+
 
 def select_configs(ds: Dataset, names: Sequence[str]) -> Dataset:
     """Copy a Dataset restricted to config names, preserving table schemas."""
@@ -109,8 +112,7 @@ def pilot_gate(ds: Dataset, roots: Iterable[str | Path], *, full_map: str = "pil
                               length, length is not None, length_detail if length else "missing data")
     overall = "PASS" if all(checks[key].passed for key in ("G1", "G2", "G3", "G4")) else "FAIL"
     if overall == "PASS" and length is not None:
-        steps = [f"Set `settings.rounds: {length}` in the five study configs (minimum_study, own_links_arm, "
-                 "stretch_2c_sweep, stretch_2d_control, stretch_2f_h6), keep the pilot configs at 24, "
+        steps = [f"Set `settings.rounds: {length}` in the five study configs ({', '.join(STUDY_CONFIGS)}), keep the pilot configs at 24, "
                  "then run the minimum study."]
     elif overall == "PASS":
         steps = ["Complete the 24-round own-links pilot to obtain the game-length decision before starting the study."]

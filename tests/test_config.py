@@ -98,7 +98,7 @@ def test_cartesian_order_and_class_overrides() -> None:
 # Paths identify one field in the otherwise valid config; each case tests one error.
 INVALID = [
     (("networks",), ["missing"], "Unknown network"),
-    (("networks",), ["broker_parallel_1"], "Phase 8"),
+    (("networks",), ["broker_parallel_1"], "future work"),
     (("networks",), ["pair", "pair"], "at most once"),
     (("knowledge",), ["full_map", "full_map"], "at most once"),
     (("knowledge",), ["local"], "full_map"),

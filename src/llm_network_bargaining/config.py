@@ -121,8 +121,7 @@ class ExperimentConfig(_ConfigModel):
             except KeyError:
                 raise ValueError(f"Unknown network ID: {identifier!r}.") from None
             if net.kind == "broker":
-                raise ValueError("Broker networks are not supported by configs yet; "
-                                 "the broker protocol arrives in Phase 8.")
+                raise ValueError("Broker networks are not supported: the broker protocol is future work.")
             networks.append(net)
         for assignment in self.assignments:
             for identifier in assignment.per_network:

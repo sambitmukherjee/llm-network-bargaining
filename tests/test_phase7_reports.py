@@ -42,9 +42,11 @@ def test_reports_link_figures_and_reproduce_tables(report_logs: Path, tmp_path: 
     assert len(gate_rows) == 5
     for row, (key, value) in zip(gate_rows, gate.checks.items()):
         assert row["Check"].startswith(key)
-        assert row["PASS/FAIL"] == ("PASS" if value.passed else "FAIL")
+        assert row["PASS/FAIL"] == ("INFO" if key == "G5" else "PASS" if value.passed else "FAIL")
         if key == "G1":
-            assert row["Value"] == f"{value.value['abandoned']:.2f} abandoned; failed share {value.value['failed_share']:.2f}"
+            assert row["Value"] == f"{value.value['abandoned']} abandoned; failed share {value.value['failed_share']:.2f}"
+        elif key == "G5":
+            assert row["Value"] == f"{value.value} rounds"
         else:
             assert row["Value"] == f"{value.value:.2f}"
     test_rows = read_markdown_table(paths[2].read_text(), "Hypothesis")

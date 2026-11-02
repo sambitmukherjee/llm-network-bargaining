@@ -30,7 +30,7 @@ def main(argv: Sequence[str] | None = None) -> None:
     except KeyError as error:
         parser.error(str(error))
     if network.kind != "exchange":
-        parser.error("The broker protocol arrives in Phase 8.")
+        parser.error("Broker networks are not supported: the broker protocol is future work.")
     results = []
     for i in range(arguments.episodes):
         seed = derive_seed(arguments.seed, "simulate", network.id, i)

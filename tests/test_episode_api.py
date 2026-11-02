@@ -86,7 +86,7 @@ def test_episode_rejects_invalid_settings(kwargs: dict[str, Any], message: str) 
 
 def test_broker_protocol_and_agent_coverage() -> None:
     """The current engine rejects brokers and incomplete or excessive agent sets."""
-    with pytest.raises(ValueError, match="Phase 8"):
+    with pytest.raises(ValueError, match="future work"):
         Episode(get_network("broker_parallel_1"), knowledge="full_map", n_rounds=1, episode_seed=0)
     for names in (("A",), ("A", "B", "C")):
         with pytest.raises(ValueError, match="every network node exactly"):

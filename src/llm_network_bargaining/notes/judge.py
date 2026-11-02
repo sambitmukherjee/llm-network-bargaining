@@ -19,14 +19,14 @@ from ..analysis.cli import _write_csv, _write_json
 from ..config import ModelSpec
 from ..costs import CostTracker
 from ..llm_agent import AgentTurnFailure, RetryPolicy, _complete_with_retries
-from ..model_client import ChatRequest, ChatResponse, ModelClient, Usage, build_chat_kwargs
+from ..model_client import ChatRequest, ChatResponse, ModelClient, Usage, FatalAPIError, build_chat_kwargs
 from ..networks import get_network
 from ..seeds import derive_seed, make_rng
 from ..structure import class_of
 from . import LABELS
 from .consistency import consistency_ids, consistency_summary
 
-JUDGE_TEMPLATE = '''You will label short private notes written by agents in a bargaining game. Each round, every pair of linked agents can split 24 points, and each agent can close at most one deal per round, so some agents can be left out. Before each move, an agent wrote a private note (at most 30 words) about its reasoning.
+JUDGE_V1 = '''You will label short private notes written by agents in a bargaining game. Each round, every pair of linked agents can split 24 points, and each agent can close at most one deal per round, so some agents can be left out. Before each move, an agent wrote a private note (at most 30 words) about its reasoning.
 
 Label each note on four questions. Judge only what the note says; do not guess what the agent might have meant. A note can be "yes" on several questions, or on none.
 
@@ -53,6 +53,37 @@ Notes:
 
 Reply with JSON only: one entry per note, in the same order, with the same ids.'''
 
+
+JUDGE_V2 = '''You will label short private notes written by agents in a bargaining game. Each round, every pair of linked agents can split 24 points, and each agent can close at most one deal per round, so some agents can be left out. Before each move, an agent wrote a private note (at most 30 words) about its reasoning.
+
+Label each note on four questions. Judge only what the note says; do not guess what the agent might have meant. A note can be "yes" on several questions, or on none. Notes that say the same thing in different words get the same labels.
+
+1. exclusion: Does the note use alternatives, or the chance of someone being left without a deal, as leverage or as a reason for its terms?
+   Yes: "Vash has no one else, so ask 18." / "If Pell won't take 8, I'll deal with Talin." / "Three partners compete for me; demand more." / "I risk being left out again, so offer more." / "Offer 19 to compete with Pell." (another agent competes for the same partner, named or not) / "Keep Talin's 20 open as a fallback; ask 21." / "Both offers stay open, so seek one more point."
+   No: "Orsa already dealt this round." (a fact, not used as a reason) / "Accept 12; it's fair." / "Last round; take what's offered." / "Talin accepted 21 last round." (history, not used as a reason) / "Offer 22 to secure a deal." (no alternative or rival)
+
+2. fairness: Does the note appeal to fairness, equality, an even split, reciprocity or being reasonable toward the other side, as a reason?
+   Yes: "A fair 12/12 keeps things friendly." / "Split evenly to build trust." / "Return the favour from last round."
+   No: "Offer 12." (a number with no appeal) / "Ask 14; they accepted 12 before." / "Keep a reasonable share for myself." (self-interest, not fairness)
+
+3. structure: Does the note refer to the network itself: who is linked to whom, how many partners or options an agent has, or an agent's position (such as hub, centre, end, or someone's only link)?
+   Yes: "I'm the only link for Talin." / "Three partners and Talin has only me." / "As the centre I can choose."
+   No: "Pell offered me 10." (offers, not links) / "Orsa dealt with Talin last round." (deals, not links)
+
+4. recognition: Does the note name a game, a theory, a model or a textbook solution?
+   Yes: "Classic ultimatum logic: take anything positive." / "Nash bargaining says split evenly." / "My BATNA is zero." / "Like an exchange network, the centre has power."
+   No: "Take anything positive; 1 beats 0." (the logic without a name) / "Bargain hard."
+
+For each question answered yes, copy the shortest exact phrase from the note that justifies it into the matching quote field. For each question answered no, set the quote to null.
+
+Notes:
+{NOTES_JSON}
+
+Reply with JSON only: one entry per note, in the same order, with the same ids.'''
+
+JUDGE_TEMPLATES = {"judge-v1": JUDGE_V1, "judge-v2": JUDGE_V2}
+JUDGE_TEMPLATE = JUDGE_TEMPLATES["judge-v2"]
+
 OUTPUT_COLUMNS = ["episode_uid", "turn_index", "round", "phase", "node", "node_class", "network_id",
                   "knowledge", "config_name", "note", "note_id", *LABELS,
                   *(f"{label}_quote" for label in LABELS), "status", "flags", "dry_run"]
@@ -62,7 +93,7 @@ class JudgeConfig(BaseModel):
     """The note judge has its own schema, separate from experiment configs."""
 
     model_config = ConfigDict(extra="forbid", frozen=True)
-    judge_version: str = "judge-v1"
+    judge_version: str = "judge-v2"
     seed: int = Field(default=20261106, ge=0)
     batch_size: int = Field(default=20, ge=1)
     consistency_share: float = Field(default=.10, ge=0, le=1, allow_inf_nan=False)
@@ -74,17 +105,17 @@ def load_judge_config(path: str | Path = "configs/note_judge.yaml") -> JudgeConf
     return JudgeConfig.model_validate(yaml.safe_load(Path(path).read_text(encoding="utf-8")))
 
 
-def note_id(note: str, judge_version: str = "judge-v1") -> str:
+def note_id(note: str, judge_version: str = "judge-v2") -> str:
     """Return the specified versioned hash, without disclosing note metadata."""
     return "n" + hashlib.sha256((judge_version + "\n" + note).encode("utf-8")).hexdigest()[:10]
 
 
-def judge_prompt(notes: Sequence[dict[str, str]], version: str = "judge-v1") -> str:
+def judge_prompt(notes: Sequence[dict[str, str]], version: str = "judge-v2") -> str:
     """Fill the exact registered template with only the IDs and note texts."""
-    if version != "judge-v1":
+    if version not in JUDGE_TEMPLATES:
         raise ValueError(f"Unsupported judge prompt version: {version}.")
     blind = [{"id": note["id"], "note": note["note"]} for note in notes]
-    return JUDGE_TEMPLATE.replace("{NOTES_JSON}", json.dumps(blind, ensure_ascii=False))
+    return JUDGE_TEMPLATES[version].replace("{NOTES_JSON}", json.dumps(blind, ensure_ascii=False))
 
 
 def judge_response_format() -> dict[str, Any]:
@@ -136,7 +167,7 @@ def quote_flags(row: dict, note: str) -> list[str]:
     return flags
 
 
-def collect_notes(ds: Dataset, judge_version: str = "judge-v1") -> pd.DataFrame:
+def collect_notes(ds: Dataset, judge_version: str = "judge-v2") -> pd.DataFrame:
     """Collect asked turns; recover the engine's zero-based index before filtering."""
     turns = ds.turns.copy()
     turns["turn_index"] = turns.groupby("episode_uid", sort=False).cumcount()
@@ -170,8 +201,10 @@ def _append(path: Path, row: dict) -> None:
 
 
 def estimate_notes(ds: Dataset, config: JudgeConfig, out: str | Path = "notes_out", *,
-                    dry_run: bool | None = None) -> dict:
+                    dry_run: bool | None = None, concurrency: int = 8) -> dict:
     """Count primary notes and apply the brief's batch-token cost estimate."""
+    if concurrency < 1:
+        raise ValueError("concurrency must be at least 1.")
     turns = collect_notes(ds, config.judge_version)
     unique = set(turns.loc[turns.note != "", "note_id"])
     path = Path(out) / "judge_cache.jsonl"
@@ -188,7 +221,8 @@ def estimate_notes(ds: Dataset, config: JudgeConfig, out: str | Path = "notes_ou
     cost = calls * ((1200 + 40 * config.batch_size) * config.model.price_input_per_m
                     + 3000 * config.model.price_output_per_m) / 1e6
     return dict(non_empty=int((turns.note != "").sum()), empty=int((turns.note == "").sum()), unique=len(unique),
-                already_cached=len(unique & cached), new=new, estimated_calls=calls, estimated_cost_usd=cost)
+                already_cached=len(unique & cached), new=new, estimated_calls=calls, estimated_cost_usd=cost,
+                concurrency=concurrency, estimated_minutes=ceil(ceil(calls / concurrency) * 20 / 60))
 
 
 class KeywordResponder:
@@ -233,8 +267,13 @@ class JudgeRun:
 
 async def code_notes(ds: Dataset, config: JudgeConfig, *, out: str | Path, client: ModelClient,
                       dry_run: bool = False, retry: RetryPolicy = RetryPolicy(),
-                      sleep: Callable[[float], Awaitable[None]] = asyncio.sleep) -> JudgeRun:
+                      sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
+                      concurrency: int = 8) -> JudgeRun:
     """Judge unique notes, cache successes/failures, and code a separate repeat sample."""
+    if concurrency < 1:
+        raise ValueError("concurrency must be at least 1.")
+    semaphore = asyncio.Semaphore(concurrency)
+    stopped = asyncio.Event()
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     costs_path = out / "judge_costs.json"
@@ -255,8 +294,12 @@ async def code_notes(ds: Dataset, config: JudgeConfig, *, out: str | Path, clien
         """Rebuild cumulative usage from the append-only logical-call ledger."""
         tracker = CostTracker()
         if ledger.exists():
-            for line in ledger.read_text(encoding="utf-8").splitlines():
-                entry = json.loads(line)
+            entries = [json.loads(line) for line in ledger.read_text(encoding="utf-8").splitlines()]
+            # Completion order can vary. Sum floating-point costs in logical batch order.
+            for index, entry in enumerate(entries):
+                entry.setdefault("batch_order", f"legacy/{index:010d}")
+            entries.sort(key=lambda entry: (entry["batch_order"], tuple(entry["ids"])))
+            for entry in entries:
                 if entry["judge_version"] == config.judge_version:
                     for attempt in entry["attempts"]:
                         tracker.add("judge", Usage(**attempt["usage"]), attempt["cost_usd"])
@@ -267,7 +310,7 @@ async def code_notes(ds: Dataset, config: JudgeConfig, *, out: str | Path, clien
         return costs
 
     async def batch(notes: list[dict[str, str]], cache: dict, path: Path,
-                    kind: str, allow_split: bool = True) -> None:
+                    kind: str, batch_order: str, allow_split: bool = True) -> None:
         """Apply Phase 4 retries, then split once on exhausted model failures."""
         last_reason = "parse_error"
 
@@ -287,18 +330,30 @@ async def code_notes(ds: Dataset, config: JudgeConfig, *, out: str | Path, clien
         policy = retry if allow_split else replace(retry, max_model_attempts=1)
         rows, failure = [], None
         try:
-            response, meta = await _complete_with_retries(request, model_alias="judge", spec=config.model,
-                prompt_version=config.judge_version, client=client, retry=policy, sleep=sleep, parse_ok=valid)
+            async with semaphore:
+                if stopped.is_set():
+                    return
+                try:
+                    response, meta = await _complete_with_retries(request, model_alias="judge", spec=config.model,
+                        prompt_version=config.judge_version, client=client, retry=policy, sleep=sleep, parse_ok=valid)
+                except FatalAPIError:
+                    # Set this before releasing the slot so no waiting batch starts.
+                    stopped.set()
+                    raise
             rows = validate_labels(response.content, notes)
             attempts = meta["attempts"]
         except AgentTurnFailure as exc:
             attempts = exc.attempts
             failure = f"{exc.category}:{last_reason}" if exc.category == "parse_error" else exc.category
-        _append(ledger, dict(judge_version=config.judge_version, kind=kind, ids=[n["id"] for n in notes], attempts=attempts))
+        _append(ledger, dict(judge_version=config.judge_version, kind=kind, batch_order=batch_order, ids=[n["id"] for n in notes], attempts=attempts))
         if failure and allow_split and len(notes) > 1:
             middle = len(notes) // 2
-            await batch(notes[:middle], cache, path, kind, False)
-            await batch(notes[middle:], cache, path, kind, False)
+            children = await asyncio.gather(batch(notes[:middle], cache, path, kind, batch_order + "/0", False),
+                                            batch(notes[middle:], cache, path, kind, batch_order + "/1", False),
+                                            return_exceptions=True)
+            for child in children:
+                if isinstance(child, BaseException):
+                    raise child
             return
         for index, note in enumerate(notes):
             row = dict(note_id=note["id"], note=note["note"], judge_version=config.judge_version,
@@ -318,9 +373,16 @@ async def code_notes(ds: Dataset, config: JudgeConfig, *, out: str | Path, clien
         ordered = sorted(ids)
         rng = make_rng(derive_seed(config.seed, "judge", "order" if kind == "main" else "consistency-order"))
         ordered = [ordered[int(i)] for i in rng.permutation(len(ordered))]
+        positions = {key: index for index, key in enumerate(ordered)}
         ordered = [key for key in ordered if key not in cache]
-        for start in range(0, len(ordered), batch_size):
-            await batch([dict(id=key, note=unique[key]) for key in ordered[start:start + batch_size]], cache, path, kind)
+        tasks = [batch([dict(id=key, note=unique[key]) for key in ordered[start:start + batch_size]],
+                       cache, path, kind, f"{0 if kind == 'main' else 1}/{positions[ordered[start]]:010d}")
+                 for start in range(0, len(ordered), batch_size)]
+        # Fatal errors stop waiting batches; finish the in-flight requests before returning.
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        for result in results:
+            if isinstance(result, BaseException):
+                raise result
 
     try:
         await judge_pending(list(unique), main, primary_path, "main", config.batch_size)

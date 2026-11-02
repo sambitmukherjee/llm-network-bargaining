@@ -226,14 +226,14 @@ for the exact output columns, interfaces and analysis decisions.
 After the live pilot finishes, generate its report without making model calls:
 
 ```sh
-python -m llm_network_bargaining.report pilot runs --out reports/pilot
+python -m llm_network_bargaining.report pilot runs_pilot --out reports/pilot
 ```
 
 `pilot_report.md` contains provenance, five gate rows, learning curves, outcomes
 and diagnostics. The first four checks must pass: no abandoned episodes and at
 most 10% failed attempts; at most 2% invalid asked turns in every condition;
 at least 90% perfect quizzes; and pair proposer share between 35% and 65%.
-The fifth check reports the 12- or 24-round game-length decision. Interrupted
+The fifth check reports the 12- or 24-round game-length decision as INFO. Interrupted
 attempts are excluded from the failed-attempt fraction.
 
 Follow the report's next steps. On PASS, set `settings.rounds` to the recommended
@@ -255,8 +255,11 @@ python -m llm_network_bargaining.report study runs --out reports/study
 ```
 
 `study_report.md` brings together the registered hypothesis tests, H1's secondary
-network tests, H2 RMSEs and ordering accuracy, four headline figures, mixed
-models, the no-last-round check and diagnostics. It reads the same Phase 6
+network tests, second-half class outcomes beside the benchmarks, H2 RMSEs and
+ordering accuracy, four headline figures, mixed models, exploratory stretch
+results, the no-last-round check and diagnostics. Exploratory tables and figures
+cover the sweep and no-exclusion control; H6 has class tables and its registered
+test. It reads the same Phase 6
 analysis results; it introduces no alternative statistical tests. H3 includes
 the 3-line centre at k=2, star3 at k=3 and star4 at k=4 (plus star5 if present).
 
@@ -266,10 +269,32 @@ banner stating that scripted-bot data are not study results. Set `--seed` and
 `--boot` to control reproducible jitter and bootstraps. Generated dry reports
 under `reports_dry/` stay ignored by Git.
 
+By default the study report selects the five study configs present in its roots,
+leaving out the pilots. Use `--configs minimum_study own_links_arm` to choose an
+exact selection; unknown names report the available configs. All analysis files,
+diagnostics and costs use that selection. Provenance lists excluded configs.
+
+Keep pilot and study runs in separate folders so the notebook's default root
+`runs` holds the study:
+
+```sh
+python -m llm_network_bargaining.run run configs/pilot_full_map.yaml configs/pilot_own_links.yaml --out runs_pilot
+python -m llm_network_bargaining.report pilot runs_pilot --out reports/pilot
+# Set settings.rounds in the study configs from the pilot decision, then:
+python -m llm_network_bargaining.run run configs/minimum_study.yaml configs/own_links_arm.yaml configs/stretch_2c_sweep.yaml configs/stretch_2d_control.yaml configs/stretch_2f_h6.yaml --out runs
+python -m llm_network_bargaining.notes code runs --out notes_results --live
+python -m llm_network_bargaining.report study runs --out reports/study --notes notes_results/note_labels.csv
+```
+
+The sprint order is pilot, pilot report, set rounds, study runs, live note coding,
+then the study report with notes. Note coding defaults to concurrency 8.
+
 ## Coding private notes
 
 The separate `configs/note_judge.yaml` config uses Terra at medium reasoning
-effort. Its blind prompt sees only note text and a hash ID. Four labels cover
+effort. Its `judge-v2` blind prompt sees only note text and a hash ID. It clarifies
+competitive offers and fallbacks as exclusion reasoning, and distinguishes
+self-interest from fairness toward the other side. Four labels cover
 exclusion, fairness, structure and recognition. Repeated identical notes share
 one primary judgment; a separate sample is judged again for consistency.
 Consistency is not correctness: validation against hand labels is future work.
@@ -278,7 +303,24 @@ Consistency is not correctness: validation against hand labels is future work.
 python -m llm_network_bargaining.notes estimate runs --out notes_results
 python -m llm_network_bargaining.notes code runs_dry --out reports_dry/notes --include-dry --dry-run
 python -m llm_network_bargaining.notes code runs --out notes_results --live
+python -m llm_network_bargaining.notes compare notes_test/note_labels.csv notes_test_v2/note_labels.csv
 ```
+
+Before the sprint, check the revised judge on the test episode:
+
+```sh
+python -m llm_network_bargaining.notes code runs_test --out notes_test_v2 --live
+python -m llm_network_bargaining.notes compare notes_test/note_labels.csv notes_test_v2/note_labels.csv
+```
+
+`notes compare` is read-only: it matches coded turns and prints agreement,
+Cohen's kappa and every changed label. It needs no key. Versioned IDs keep v1
+caches valid for `judge-v1` and make v2 judge the notes again.
+
+`--concurrency N` controls simultaneous batches in both coding passes (default
+8; use 1 for sequential requests). Estimates include an approximate duration
+at 20 seconds per batch. Fatal API errors stop new batches, let in-flight calls
+finish, and retain cached results so a rerun sends only uncached notes.
 
 The live mode requires an exported `OPENAI_API_KEY` and an interactive `yes`
 (or an explicitly chosen `--yes`). Reasoning tokens make costs uncertain;
@@ -309,6 +351,8 @@ model calls. Edit its first cell, or set `LNB_ROOTS`, `LNB_OUT` and
 platform's path separator. It uses matplotlib's non-interactive Agg backend.
 Jupyter and nbformat are not package dependencies. See
 [the Phase 7 notes](docs/phase7_notes.md) for schemas and Python interfaces.
+See [the Phase 7.1 notes](docs/phase7_1_notes.md) for the revised report layout,
+judge versions, concurrency and label comparison.
 
 ## Pre-existing work
 
@@ -328,3 +372,7 @@ Phase 6, including the offline analysis library and preservation of interrupted
 attempts, was written on **1 November 2026**, before the sprint.
 Phase 7, including reports, figures, the notebook, note coding and the H3
 correction, was written on **1 November 2026**, before the sprint.
+Phase 7.1, including report fixes, judge-v2, concurrent note coding and label
+comparison, was written on **2 November 2026**, before the sprint. Protocol
+variants such as brokers, attached messages, leaf unions and framing are future
+work.

@@ -141,7 +141,7 @@ class Episode:
                  n_rounds: int, episode_seed: int, n_phases: int = 3,
                  turn_order: TurnOrder | None = None) -> None:
         if network.kind != "exchange":
-            raise ValueError("The broker protocol arrives in Phase 8.")
+            raise ValueError("Broker networks are not supported: the broker protocol is future work.")
         if knowledge not in ("full_map", "own_links"):
             raise ValueError("Knowledge setting must be 'full_map' or 'own_links'.")
         if n_rounds < 1:

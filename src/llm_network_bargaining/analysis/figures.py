@@ -95,6 +95,9 @@ def fig_observed_vs_predicted(ds: Dataset, config: str = "minimum_study", window
     summary = condition_class_summary(selected, window, n_boot, seed)
     networks = _networks(list(episodes.network_id.unique()))
     fig, axes = _panels(networks)
+    if len(networks) <= 1:
+        # The control has one panel: leave room for all six legend entries.
+        fig.set_size_inches(7.5, 4.5)
     for ax, network in zip(axes, networks):
         group = summary[summary.network_id == network]
         classes = list(class_predictions(network).node_class)
@@ -117,7 +120,7 @@ def fig_observed_vs_predicted(ds: Dataset, config: str = "minimum_study", window
         ax.set_xlim(-.5, len(classes) - .5)
     fig.legend(handles=[Line2D([], [], color="black", marker="o", label="Observed mean and 95% CI"),
                         *_benchmark_handles(), Line2D([], [], color="#777777", marker="|", linestyle="none", label="Core interval")],
-               loc="outside lower center", ncol=3)
+               loc="outside lower center", ncol=2 if len(networks) <= 1 else 3)
     return fig
 
 

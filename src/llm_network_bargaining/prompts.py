@@ -304,7 +304,7 @@ def _sample_prompt(args: argparse.Namespace, parser: argparse.ArgumentParser) ->
     except KeyError as error:
         parser.error(str(error))
     if network.kind != "exchange":
-        parser.error("The broker protocol arrives in Phase 8.")
+        parser.error("Broker networks are not supported: the broker protocol is future work.")
     if args.agent not in network.nodes:
         parser.error("agent must be a node in the selected network")
     if args.rounds < 1 or not 1 <= args.round <= args.rounds or not 1 <= args.phase <= 3:
