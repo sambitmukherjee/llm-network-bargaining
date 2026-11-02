@@ -20,6 +20,7 @@ def test_h1_intersection_union_and_missing_family_members() -> None:
     assert h1["per_network"]["line3"]["p_value"] == 1/1024
     assert not h1["reject"]
     assert set(report.family) == {"H1", "H3"}
+    assert {row["k"] for row in report.results["H3"]["per_network"].values()} == {2, 3, 4}
     assert report.results["H4"]["status"] == report.results["H5"]["status"] == "not_run"
     assert report.results["H6"]["status"] == "not_run"
     assert report.h1_per_network["line3"]["reject"]

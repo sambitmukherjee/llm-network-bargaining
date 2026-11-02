@@ -18,7 +18,7 @@ class ChatRequest:
 
     kwargs: Mapping[str, Any]
     timeout_s: float
-    purpose: Literal["turn", "quiz", "smoke"]
+    purpose: Literal["turn", "quiz", "smoke", "judge"]
     context: Mapping[str, Any] = field(default_factory=dict)
 
 

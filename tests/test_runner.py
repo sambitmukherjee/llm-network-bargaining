@@ -31,7 +31,8 @@ def test_plans_and_estimates() -> None:
     assert [job.episode_index for job in selected] == list(range(10))
     assert [job.episode_seed for job in selected] == selected[0].condition.episode_seeds
     assert config.source_sha256 == hashlib.sha256((ROOT / "configs/minimum_study.yaml").read_bytes()).hexdigest()
-    configs = load_configs(sorted((ROOT / "configs").glob("*.yaml")))
+    configs = load_configs(sorted(path for path in (ROOT / "configs").glob("*.yaml")
+                                  if path.name != "note_judge.yaml"))
     assert len(runner.plan_jobs(configs)) == sum(total_episodes(config) for config in configs)
     h6 = load_config(ROOT / "configs/stretch_2f_h6.yaml")
     job = runner.plan_jobs([h6])[0]

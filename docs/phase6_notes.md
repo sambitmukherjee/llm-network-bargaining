@@ -1,5 +1,10 @@
 # Phase 6 implementation notes
 
+**Phase 7 correction:** H3 now includes the 3-line's centre as the hub with
+two leaves, alongside star3, star4 and optional star5. It needs two distinct
+leaf counts. The historical Phase 6 results below predate this correction;
+the corrected dry-run result is recorded in `phase7_notes.md`.
+
 Implemented on **1 November 2026**, before the Apart Research sprint.
 This phase adds numerical analysis only. No figures, notebooks, study reports,
 note coding, commits or pushes were made. Phase 7 has not started.
@@ -307,7 +312,8 @@ throughout. Test sample counts are unchanged. `HypothesisReport` exposes
   Holm adjustment, reject flag and decision across those four only. It never
   expands the primary family. Constructing `HypothesisReport` from injected
   test dictionaries also exercises this reporting path in the specified test.
-- H3 permutes hub shares over numeric leaf counts, requiring two star sizes.
+- H3 permutes hub shares over numeric leaf counts, requiring two distinct
+  counts; Phase 7 added line3 at k=2 to star3/star4 (and optional star5).
   H4 supplies line5 ends as sample a and line4 ends as b, so a positive
   statistic is the registered direction.
 - H5 uses every common eligible network from the named full-map and own-links

@@ -221,6 +221,95 @@ enter only ordering accuracy, since they have no points scale. All hypothesis
 tests use episodes as observations. See [the Phase 6 notes](docs/phase6_notes.md)
 for the exact output columns, interfaces and analysis decisions.
 
+## Pilot gate and report
+
+After the live pilot finishes, generate its report without making model calls:
+
+```sh
+python -m llm_network_bargaining.report pilot runs --out reports/pilot
+```
+
+`pilot_report.md` contains provenance, five gate rows, learning curves, outcomes
+and diagnostics. The first four checks must pass: no abandoned episodes and at
+most 10% failed attempts; at most 2% invalid asked turns in every condition;
+at least 90% perfect quizzes; and pair proposer share between 35% and 65%.
+The fifth check reports the 12- or 24-round game-length decision. Interrupted
+attempts are excluded from the failed-attempt fraction.
+
+Follow the report's next steps. On PASS, set `settings.rounds` to the recommended
+length in the five study configs, leaving both pilots at 24 rounds. On FAIL,
+inspect the named diagnostic, revise the prompt under a new version, and rerun
+the pilot. The report does not edit configs or start another experiment.
+
+Exercise the same path with scripted bots:
+
+```sh
+python -m llm_network_bargaining.run run configs/pilot_full_map.yaml configs/pilot_own_links.yaml --dry-run aspiration --max-episodes 2
+python -m llm_network_bargaining.report pilot runs_dry --out reports_dry/pilot --include-dry
+```
+
+## Study report and figures
+
+```sh
+python -m llm_network_bargaining.report study runs --out reports/study
+```
+
+`study_report.md` brings together the registered hypothesis tests, H1's secondary
+network tests, H2 RMSEs and ordering accuracy, four headline figures, mixed
+models, the no-last-round check and diagnostics. It reads the same Phase 6
+analysis results; it introduces no alternative statistical tests. H3 includes
+the 3-line centre at k=2, star3 at k=3 and star4 at k=4 (plus star5 if present).
+
+Figures in `figures/` have PNG and SVG copies, episode dots, bootstrap intervals,
+colour-safe colours and distinct benchmark markers. Dry reports begin with a
+banner stating that scripted-bot data are not study results. Set `--seed` and
+`--boot` to control reproducible jitter and bootstraps. Generated dry reports
+under `reports_dry/` stay ignored by Git.
+
+## Coding private notes
+
+The separate `configs/note_judge.yaml` config uses Terra at medium reasoning
+effort. Its blind prompt sees only note text and a hash ID. Four labels cover
+exclusion, fairness, structure and recognition. Repeated identical notes share
+one primary judgment; a separate sample is judged again for consistency.
+Consistency is not correctness: validation against hand labels is future work.
+
+```sh
+python -m llm_network_bargaining.notes estimate runs --out notes_results
+python -m llm_network_bargaining.notes code runs_dry --out reports_dry/notes --include-dry --dry-run
+python -m llm_network_bargaining.notes code runs --out notes_results --live
+```
+
+The live mode requires an exported `OPENAI_API_KEY` and an interactive `yes`
+(or an explicitly chosen `--yes`). Reasoning tokens make costs uncertain;
+the estimate covers primary batches, with repeat checks additional. No key is
+needed for estimates or dry runs. Keyword labels from `--dry-run` are test
+outputs and must never be used as study results.
+
+Outputs include per-turn `note_labels.csv`, `consistency.json`, cumulative
+`judge_costs.json`, and reusable JSONL caches. Use the same output directory
+to resume; cached notes make no new calls. Use `--out` on `estimate` to inspect
+that cache; its default is `notes_out/`. Dry and live caches cannot share a
+directory. Include labels in the study report with:
+
+```sh
+python -m llm_network_bargaining.report study runs --out reports/study --notes notes_results/note_labels.csv
+```
+
+## Rebuilding the notebook
+
+```sh
+python -m llm_network_bargaining.report notebook
+```
+
+This regenerates `notebooks/analysis.ipynb` as notebook JSON with no outputs.
+Its cells rebuild the analysis tables, five figures and diagnostics without
+model calls. Edit its first cell, or set `LNB_ROOTS`, `LNB_OUT` and
+`LNB_INCLUDE_DRY=1`. Multiple roots can be a JSON list or separated with the
+platform's path separator. It uses matplotlib's non-interactive Agg backend.
+Jupyter and nbformat are not package dependencies. See
+[the Phase 7 notes](docs/phase7_notes.md) for schemas and Python interfaces.
+
 ## Pre-existing work
 
 `preexisting/predict.py` and this harness were written before the Apart Research
@@ -237,3 +326,5 @@ Phase 5, including experiment execution, logs, recovery, replay and the CLI,
 was written on **1 November 2026**, before the sprint.
 Phase 6, including the offline analysis library and preservation of interrupted
 attempts, was written on **1 November 2026**, before the sprint.
+Phase 7, including reports, figures, the notebook, note coding and the H3
+correction, was written on **1 November 2026**, before the sprint.

@@ -102,15 +102,16 @@ def run_hypotheses(ds: Dataset, *, main: str = "minimum_study", own_links: str =
     results["H1"] = (_intersection(h1_tests) if len(h1_tests) == 4 else
                      _not_run("H1 requires line3, line5, star3 and star4 with observed deals.", h1_tests))
 
-    stars = advantages[advantages.network_id.isin(["star3", "star4", "star5"])].dropna(subset=["share_mean"])
-    inputs = {network: _summary(group.share_mean, derive_seed(seed, "H3", network), n_boot)
+    leaf_counts = {"line3": 2, "star3": 3, "star4": 4, "star5": 5}
+    stars = advantages[advantages.network_id.isin(leaf_counts)].dropna(subset=["share_mean"])
+    inputs = {network: {"k": leaf_counts[network], **_summary(group.share_mean, derive_seed(seed, "H3", network), n_boot)}
               for network, group in stars.groupby("network_id", sort=True)}
     if stars.network_id.nunique() >= 2:
-        test = slope_permutation_test(stars.share_mean, [int(name[4:]) for name in stars.network_id],
-                                      alternative="greater", seed=derive_seed(seed, "H3"))
+        test = slope_permutation_test(stars.share_mean, [leaf_counts[name] for name in stars.network_id],
+                                      alternative="greater", n_mc=200_000, seed=derive_seed(seed, "H3"))
         results["H3"] = dict(status="run", **test.to_dict(), per_network=inputs)
     else:
-        results["H3"] = _not_run("H3 requires at least two star sizes.", inputs)
+        results["H3"] = _not_run("H3 requires at least two distinct leaf counts (including line3 at k=2).", inputs)
 
     ends4 = main_rows[(main_rows.network_id == "line4") & (main_rows.node_class == "A|D")].points_mean.dropna()
     ends5 = main_rows[(main_rows.network_id == "line5") & (main_rows.node_class == "A|E")].points_mean.dropna()

@@ -7,7 +7,7 @@ name = "llm-network-bargaining"
 version = "0.1.0"
 description = "Reproducible network bargaining experiments and theory benchmarks"
 requires-python = ">=3.11"
-dependencies = ["networkx", "numpy", "scipy", "pydantic>=2", "pyyaml", "openai>=3.35.1,<4", "pandas>=2.2,<4", "statsmodels>=0.14.4"]
+dependencies = ["networkx", "numpy", "scipy", "pydantic>=2", "pyyaml", "openai>=3.35.1,<4", "pandas>=2.2,<4", "statsmodels>=0.14.4", "matplotlib>=3.9"]
 
 [project.optional-dependencies]
 dev = ["pytest"]

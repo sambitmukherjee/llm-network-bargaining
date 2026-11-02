@@ -48,7 +48,8 @@ def test_tracker_totals_are_independent_snapshots() -> None:
 def test_new_defaults_and_example_prices() -> None:
     spec = terra(price_cache_write_per_m=None)
     assert spec.prompt_cache == "off" and spec.timeout_s == 60.0 and spec.price_cache_write_per_m is None
-    paths = sorted((Path(__file__).resolve().parents[1] / "configs").glob("*.yaml"))
+    paths = sorted(path for path in (Path(__file__).resolve().parents[1] / "configs").glob("*.yaml")
+                   if path.name != "note_judge.yaml")
     assert len(paths) == 7
     for path in paths:
         config = load_config(path)

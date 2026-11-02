@@ -4,10 +4,15 @@ import socket
 import asyncio
 import gzip
 import os
+from pathlib import Path
+import tempfile
 from typing import Any
 
 import pytest
 import openai
+
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "lnb-matplotlib"))
+os.environ.setdefault("MPLBACKEND", "Agg")
 
 DUMMY_API_KEY = "phase5-dummy-key-must-never-appear-in-logs"
 
@@ -73,4 +78,26 @@ def analysis_logs(tmp_path_factory: pytest.TempPathFactory, dummy_key_and_log_sc
         summary = asyncio.run(run_jobs(plan_jobs(configs, max_episodes=2), out_root=root,
                                         dry_run_bot="aspiration"))
     assert summary.done == 36
+    return root
+
+
+@pytest.fixture(scope="session")
+def report_logs(analysis_logs, tmp_path_factory):
+    """Add two full-map pilot episodes per condition in an independent root."""
+    import shutil
+    from llm_network_bargaining.config import load_config
+    from llm_network_bargaining.runner import plan_jobs, run_jobs
+
+    root = tmp_path_factory.mktemp("report_logs")
+    shutil.copytree(analysis_logs, root, dirs_exist_ok=True)
+    config = load_config(Path(__file__).resolve().parents[1] / "configs/pilot_full_map.yaml")
+    with pytest.MonkeyPatch.context() as guard:
+        def refuse(*args, **kwargs):
+            raise AssertionError("Report fixtures must stay offline.")
+        guard.setattr(socket.socket, "connect", refuse)
+        guard.setattr(socket, "create_connection", refuse)
+        guard.setattr(openai, "OpenAI", refuse)
+        guard.setattr(openai, "AsyncOpenAI", refuse)
+        summary = asyncio.run(run_jobs(plan_jobs([config], max_episodes=2), out_root=root, dry_run_bot="aspiration"))
+    assert summary.done == 16
     return root
