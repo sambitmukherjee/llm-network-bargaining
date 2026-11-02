@@ -81,7 +81,14 @@ Notes:
 
 Reply with JSON only: one entry per note, in the same order, with the same ids.'''
 
-JUDGE_TEMPLATES = {"judge-v1": JUDGE_V1, "judge-v2": JUDGE_V2}
+JUDGE_V3 = JUDGE_V2.replace(
+    '"Both offers stay open, so seek one more point."',
+    '"Both offers stay open, so seek one more point." / "Take 3 rather than risk losing the deal." '
+    '(the risk of ending with no deal, with or without a rival)',
+    1,
+)
+
+JUDGE_TEMPLATES = {"judge-v1": JUDGE_V1, "judge-v2": JUDGE_V2, "judge-v3": JUDGE_V3}
 JUDGE_TEMPLATE = JUDGE_TEMPLATES["judge-v2"]
 
 OUTPUT_COLUMNS = ["episode_uid", "turn_index", "round", "phase", "node", "node_class", "network_id",

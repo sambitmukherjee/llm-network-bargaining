@@ -14,7 +14,7 @@ from llm_network_bargaining.model_client import build_chat_kwargs
 from llm_network_bargaining.notes import LABELS
 from llm_network_bargaining.notes import cli
 from llm_network_bargaining.notes.consistency import cohens_kappa, consistency_ids
-from llm_network_bargaining.notes.judge import (JUDGE_TEMPLATE, OUTPUT_COLUMNS, KeywordResponder, code_notes,
+from llm_network_bargaining.notes.judge import (JUDGE_TEMPLATES, OUTPUT_COLUMNS, KeywordResponder, code_notes,
     estimate_notes, judge_prompt, judge_response_format, load_judge_config, note_id, quote_flags, validate_labels)
 from phase7_helpers import note_dataset
 
@@ -25,14 +25,14 @@ def test_exact_request_prompt_and_blindness(tmp_path: Path) -> None:
     client = FakeChatClient(KeywordResponder())
     result = asyncio.run(code_notes(ds, config, out=tmp_path, client=client, dry_run=True))
     request = client.requests[0]
-    expected = (Path(__file__).parent / "golden/JUDGE_V2.txt").read_text().rstrip("\n")
-    assert JUDGE_TEMPLATE == expected
+    expected = (Path(__file__).parent / "golden/JUDGE_V3.txt").read_text().rstrip("\n")
+    assert JUDGE_TEMPLATES[config.judge_version] == expected
     assert request.kwargs == build_chat_kwargs(config.model, request.kwargs["messages"], judge_response_format())
     assert request.purpose == "judge" and request.kwargs["reasoning_effort"] == "medium"
     assert request.kwargs["max_completion_tokens"] == 12000
     prompt = request.kwargs["messages"][0]["content"]
     notes_json = json.dumps(request.context["notes"], ensure_ascii=False)
-    assert prompt.replace(notes_json, "") == JUDGE_TEMPLATE.replace("{NOTES_JSON}", "")
+    assert prompt.replace(notes_json, "") == expected.replace("{NOTES_JSON}", "")
     for hidden in ("line3", "full_map", "own_links", config.model.model_id):
         assert hidden not in prompt
     assert set(result.labels.columns) == set(OUTPUT_COLUMNS)

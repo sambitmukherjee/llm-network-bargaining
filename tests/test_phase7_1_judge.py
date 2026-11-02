@@ -29,7 +29,19 @@ def test_both_exact_templates_and_five_changed_lines():
     a, b = (JUDGE_TEMPLATES[version].splitlines() for version in ('judge-v1', 'judge-v2'))
     assert len(a) == len(b)
     assert [i for i, (old, new) in enumerate(zip(a, b)) if old != new] == [2, 5, 6, 8, 10]
-    assert load_judge_config().judge_version == 'judge-v2'
+    assert load_judge_config().judge_version == 'judge-v3'
+
+
+def test_v3_changes_only_exclusion_yes_line():
+    v2 = JUDGE_TEMPLATES['judge-v2'].splitlines()
+    v3 = JUDGE_TEMPLATES['judge-v3'].splitlines()
+    assert len(v3) == len(v2)
+    assert [i for i, (old, new) in enumerate(zip(v2, v3)) if old != new] == [5]
+    assert v3[5] == v2[5] + ' / "Take 3 rather than risk losing the deal." (the risk of ending with no deal, with or without a rival)'
+    golden = Path('tests/golden/JUDGE_V3.txt').read_text().rstrip('\n')
+    assert JUDGE_TEMPLATES['judge-v3'] == golden
+    notes = [dict(id='example', note='Take 3 rather than risk losing the deal.')]
+    assert judge_prompt(notes, 'judge-v3') == golden.replace('{NOTES_JSON}', json.dumps(notes))
 
 
 @pytest.mark.parametrize('text,v1,v2', [
@@ -125,7 +137,7 @@ def test_fatal_error_finishes_in_flight_and_resumes_only_uncached(tmp_path):
     asyncio.run(code_notes(ds, config, out=out, client=rerun, dry_run=True, concurrency=8))
     sent = {key for ids in rerun.started for key in ids}
     assert not sent & cached
-    assert sent | cached == {note_id(text) for text in ds.turns.note}
+    assert sent | cached == {note_id(text, config.judge_version) for text in ds.turns.note}
     asyncio.run(code_notes(ds, config, out=tmp_path / 'whole', client=DelayedFake(), dry_run=True, concurrency=8))
     assert (out / 'note_labels.csv').read_bytes() == (tmp_path / 'whole/note_labels.csv').read_bytes()
 

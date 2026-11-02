@@ -1,4 +1,4 @@
-judge_version: "judge-v2"
+judge_version: "judge-v3"
 seed: 20261106
 batch_size: 20
 consistency_share: 0.10
