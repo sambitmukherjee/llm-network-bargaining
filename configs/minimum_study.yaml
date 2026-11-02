@@ -18,5 +18,5 @@ assignments:
   - name: terra
     default: terra
 settings:
-  rounds: 12  # Set from the pilot's learning curves before the study.
+  rounds: 24  # Set from the pilot's learning curves before the study.
   episodes_per_condition: 10

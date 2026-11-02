@@ -88,7 +88,38 @@ JUDGE_V3 = JUDGE_V2.replace(
     1,
 )
 
-JUDGE_TEMPLATES = {"judge-v1": JUDGE_V1, "judge-v2": JUDGE_V2, "judge-v3": JUDGE_V3}
+JUDGE_V4 = JUDGE_V3.replace(
+    '"Keep a reasonable share for myself." (self-interest, not fairness)',
+    '"Keep a reasonable share for myself." (self-interest, not fairness) '
+    '/ "Offer an even split to secure a deal." (names the split, but gives no fairness reason)',
+    1,
+).replace(
+    '"As the centre I can choose."',
+    '"As the centre I can choose." / "Offer 17 to compete with Talin\'s other options." '
+    "(another agent's partners or options, even when inferred)",
+    1,
+)
+
+JUDGE_V5 = JUDGE_V4.replace(
+    ' / "Offer 17 to compete with Talin\'s other options." '
+    "(another agent's partners or options, even when inferred)",
+    ' / "Offer 17; Talin has other options." '
+    "(another agent's options or partners, stated in general)",
+    1,
+).replace(
+    '"Orsa dealt with Talin last round." (deals, not links)',
+    '"Orsa dealt with Talin last round." (deals, not links) '
+    '/ "Offer 19 to compete with Pell." (a named rival: that is exclusion, not structure)',
+    1,
+)
+
+JUDGE_TEMPLATES = {
+    "judge-v1": JUDGE_V1,
+    "judge-v2": JUDGE_V2,
+    "judge-v3": JUDGE_V3,
+    "judge-v4": JUDGE_V4,
+    "judge-v5": JUDGE_V5,
+}
 JUDGE_TEMPLATE = JUDGE_TEMPLATES["judge-v2"]
 
 OUTPUT_COLUMNS = ["episode_uid", "turn_index", "round", "phase", "node", "node_class", "network_id",

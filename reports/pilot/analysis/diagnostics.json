@@ -1,0 +1,618 @@
+{
+  "attempts": [
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/line3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/line4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/line5/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/pair/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/star3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/star4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/stem/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_full_map/triangle/full_map/terra",
+      "config_name": "pilot_full_map",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_own_links/line3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    },
+    {
+      "abandoned_episodes": 0,
+      "condition_key": "pilot_own_links/star3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "failed_attempts": 0,
+      "failed_by_category": {},
+      "interrupted_attempts": 0,
+      "non_completed_cost_usd": 0.0
+    }
+  ],
+  "costs": [
+    {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "calls": 2721,
+      "completion_tokens": 99800,
+      "config_name": "pilot_full_map",
+      "cost_usd": 3.2286839999999994,
+      "dry_run": false,
+      "model_alias": "terra",
+      "prompt_tokens": 2729684,
+      "reasoning_tokens": 0,
+      "status": "completed"
+    },
+    {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "calls": 558,
+      "completion_tokens": 20973,
+      "config_name": "pilot_own_links",
+      "cost_usd": 0.647793,
+      "dry_run": false,
+      "model_alias": "terra",
+      "prompt_tokens": 542928,
+      "reasoning_tokens": 0,
+      "status": "completed"
+    }
+  ],
+  "dry_run": false,
+  "efficiency": [
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line3"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line4"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line5/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line5"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/pair/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "pair"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "star3"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "star4"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/stem/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "stem"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/triangle/full_map/terra",
+      "config_name": "pilot_full_map",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "triangle"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/line3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "own_links",
+      "n_episodes": 3,
+      "network_id": "line3"
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/star3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "efficiency": 1.0,
+      "efficiency_ci_high": 1.0,
+      "efficiency_ci_low": 1.0,
+      "knowledge": "own_links",
+      "n_episodes": 3,
+      "network_id": "star3"
+    }
+  ],
+  "invalid_actions": [
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/line3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 285,
+      "n_invalid": 0,
+      "network_id": "line3"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/line4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 537,
+      "n_invalid": 0,
+      "network_id": "line4"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/line5/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 501,
+      "n_invalid": 0,
+      "network_id": "line5"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/pair/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 144,
+      "n_invalid": 0,
+      "network_id": "pair"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/star3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 283,
+      "n_invalid": 0,
+      "network_id": "star3"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/star4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 326,
+      "n_invalid": 0,
+      "network_id": "star4"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/stem/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 348,
+      "n_invalid": 0,
+      "network_id": "stem"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_full_map/triangle/full_map/terra",
+      "config_name": "pilot_full_map",
+      "invalid_rate": 0.0,
+      "knowledge": "full_map",
+      "model_alias": "terra",
+      "n_asked": 206,
+      "n_invalid": 0,
+      "network_id": "triangle"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_own_links/line3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "invalid_rate": 0.0,
+      "knowledge": "own_links",
+      "model_alias": "terra",
+      "n_asked": 245,
+      "n_invalid": 0,
+      "network_id": "line3"
+    },
+    {
+      "assignment": "terra",
+      "by_reason": {},
+      "condition_key": "pilot_own_links/star3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "invalid_rate": 0.0,
+      "knowledge": "own_links",
+      "model_alias": "terra",
+      "n_asked": 292,
+      "n_invalid": 0,
+      "network_id": "star3"
+    }
+  ],
+  "power_use": [
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line3",
+      "pui": 0.8657407407407408,
+      "pui_ci_high": 0.8819444444444443,
+      "pui_ci_low": 0.8472222222222223
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line4",
+      "pui": 0.20486111111111102,
+      "pui_ci_high": 0.25,
+      "pui_ci_low": 0.17708333333333304
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line5/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "line5",
+      "pui": 0.4097222222222221,
+      "pui_ci_high": 0.5,
+      "pui_ci_low": 0.24652777777777768
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "star3",
+      "pui": 0.9166666666666666,
+      "pui_ci_high": 0.9166666666666666,
+      "pui_ci_low": 0.9166666666666666
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "star4",
+      "pui": 0.9166666666666666,
+      "pui_ci_high": 0.9166666666666666,
+      "pui_ci_low": 0.9166666666666666
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/stem/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "n_episodes": 3,
+      "network_id": "stem",
+      "pui": 0.16666666666666666,
+      "pui_ci_high": 0.3333333333333333,
+      "pui_ci_low": 0.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/line3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "knowledge": "own_links",
+      "n_episodes": 3,
+      "network_id": "line3",
+      "pui": 0.5509259259259259,
+      "pui_ci_high": 0.6597222222222223,
+      "pui_ci_low": 0.3402777777777777
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/star3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "knowledge": "own_links",
+      "n_episodes": 3,
+      "network_id": "star3",
+      "pui": 0.7314814814814815,
+      "pui_ci_high": 0.8541666666666666,
+      "pui_ci_low": 0.49305555555555564
+    }
+  ],
+  "proposer_share": [
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/pair/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "method": "exact",
+      "n_episodes": 3,
+      "n_test": 3,
+      "network_id": "pair",
+      "p_value": 1.0,
+      "proposer_share": 0.5,
+      "proposer_share_ci_high": 0.5,
+      "proposer_share_ci_low": 0.5
+    }
+  ],
+  "quizzes": [
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 9,
+      "network_id": "line3",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 12,
+      "network_id": "line4",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/line5/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 15,
+      "network_id": "line5",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/pair/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 6,
+      "network_id": "pair",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star3/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 12,
+      "network_id": "star3",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/star4/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 15,
+      "network_id": "star4",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/stem/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 12,
+      "network_id": "stem",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/triangle/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 9,
+      "network_id": "triangle",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/line3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "knowledge": "own_links",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 9,
+      "network_id": "line3",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    },
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_own_links/star3/own_links/terra",
+      "config_name": "pilot_own_links",
+      "knowledge": "own_links",
+      "mean_score": 3.0,
+      "model_alias": "terra",
+      "n": 12,
+      "network_id": "star3",
+      "perfect_share": 1.0,
+      "q1_accuracy": 1.0,
+      "q2_accuracy": 1.0,
+      "q3_accuracy": 1.0
+    }
+  ],
+  "triangle_lock_in": [
+    {
+      "assignment": "terra",
+      "condition_key": "pilot_full_map/triangle/full_map/terra",
+      "config_name": "pilot_full_map",
+      "knowledge": "full_map",
+      "lock_in": 0.5833333333333334,
+      "lock_in_ci_high": 0.5833333333333334,
+      "lock_in_ci_low": 0.5833333333333333,
+      "n_episodes": 3,
+      "network_id": "triangle"
+    }
+  ]
+}

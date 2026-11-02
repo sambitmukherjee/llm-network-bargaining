@@ -1,0 +1,13 @@
+{
+  "best": null,
+  "config": "minimum_study",
+  "core_distances": [],
+  "n_boot": 2000,
+  "overall": [],
+  "overall_networks": [],
+  "per_network": [],
+  "ranking": [],
+  "seed": 1,
+  "status": "not_run",
+  "window": "second_half"
+}

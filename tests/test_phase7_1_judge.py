@@ -29,7 +29,7 @@ def test_both_exact_templates_and_five_changed_lines():
     a, b = (JUDGE_TEMPLATES[version].splitlines() for version in ('judge-v1', 'judge-v2'))
     assert len(a) == len(b)
     assert [i for i, (old, new) in enumerate(zip(a, b)) if old != new] == [2, 5, 6, 8, 10]
-    assert load_judge_config().judge_version == 'judge-v3'
+    assert load_judge_config().judge_version == 'judge-v5'
 
 
 def test_v3_changes_only_exclusion_yes_line():
@@ -42,6 +42,36 @@ def test_v3_changes_only_exclusion_yes_line():
     assert JUDGE_TEMPLATES['judge-v3'] == golden
     notes = [dict(id='example', note='Take 3 rather than risk losing the deal.')]
     assert judge_prompt(notes, 'judge-v3') == golden.replace('{NOTES_JSON}', json.dumps(notes))
+
+
+def test_v4_changes_only_fairness_no_and_structure_yes_lines():
+    v3 = JUDGE_TEMPLATES['judge-v3'].splitlines()
+    v4 = JUDGE_TEMPLATES['judge-v4'].splitlines()
+    assert len(v4) == len(v3)
+    assert [i for i, (old, new) in enumerate(zip(v3, v4)) if old != new] == [10, 13]
+    assert v4[10] == v3[10] + ' / "Offer an even split to secure a deal." (names the split, but gives no fairness reason)'
+    assert v4[13] == v3[13] + ' / "Offer 17 to compete with Talin\'s other options." (another agent\'s partners or options, even when inferred)'
+    golden = Path('tests/golden/JUDGE_V4.txt').read_text().rstrip('\n')
+    assert JUDGE_TEMPLATES['judge-v4'] == golden
+    notes = [dict(id='example', note='Offer an even split to secure a deal.')]
+    assert judge_prompt(notes, 'judge-v4') == golden.replace('{NOTES_JSON}', json.dumps(notes))
+
+
+def test_v5_changes_only_structure_yes_and_no_lines():
+    v4 = JUDGE_TEMPLATES['judge-v4'].splitlines()
+    v5 = JUDGE_TEMPLATES['judge-v5'].splitlines()
+    assert len(v5) == len(v4)
+    assert [i for i, (old, new) in enumerate(zip(v4, v5)) if old != new] == [13, 14]
+    assert v5[13] == v4[13].replace(
+        ' / "Offer 17 to compete with Talin\'s other options." (another agent\'s partners or options, even when inferred)',
+        ' / "Offer 17; Talin has other options." (another agent\'s options or partners, stated in general)',
+        1,
+    )
+    assert v5[14] == v4[14] + ' / "Offer 19 to compete with Pell." (a named rival: that is exclusion, not structure)'
+    golden = Path('tests/golden/JUDGE_V5.txt').read_text().rstrip('\n')
+    assert JUDGE_TEMPLATES['judge-v5'] == golden
+    notes = [dict(id='example', note='Offer 17; Talin has other options.')]
+    assert judge_prompt(notes, 'judge-v5') == golden.replace('{NOTES_JSON}', json.dumps(notes))
 
 
 @pytest.mark.parametrize('text,v1,v2', [

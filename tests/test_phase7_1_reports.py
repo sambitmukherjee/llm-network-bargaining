@@ -60,6 +60,10 @@ def reports71(report_logs, tmp_path_factory):
     root = tmp_path_factory.mktemp('reports71')
     stretch = root / 'stretch'
     configs = load_configs([Path('configs') / f'{name}.yaml' for name in STUDY_CONFIGS[2:]])
+    # The saved reference outcomes and costs use 12-round stretch episodes.
+    for index, config in enumerate(configs):
+        settings = config.settings.model_copy(update={'rounds': 12})
+        configs[index] = config.model_copy(update={'settings': settings})
     # Session fixture execution precedes function-scoped guards, so guard explicitly.
     import openai
     import socket

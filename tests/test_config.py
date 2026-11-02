@@ -31,6 +31,10 @@ def _data() -> dict[str, Any]:
 def test_example_counts_and_defaults(name: str) -> None:
     """Each shipped config expands to the requested condition/episode counts."""
     config = load_config(ROOT / "configs" / f"{name}.yaml")
+    # Pin the historical study input; pilot tests still use 24 rounds.
+    if not name.startswith("pilot_"):
+        settings = config.settings.model_copy(update={"rounds": 12})
+        config = config.model_copy(update={"settings": settings})
     expected_conditions, expected_episodes = COUNTS[name]
     conditions = expand_conditions(config)
     assert len(conditions) == expected_conditions

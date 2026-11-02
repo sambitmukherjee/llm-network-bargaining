@@ -21,6 +21,9 @@ from phase5_helpers import ROOT, install_fault, normalize, small_config, write_r
 
 def test_plans_and_estimates() -> None:
     config = load_config(ROOT / "configs/minimum_study.yaml")
+    # These reference cost estimates use 12-round study episodes.
+    settings = config.settings.model_copy(update={"rounds": 12})
+    config = config.model_copy(update={"settings": settings})
     assert len(runner.plan_jobs([config])) == 80
     assert len(runner.plan_jobs([config], max_episodes=2)) == 16
     selected = runner.plan_jobs([config], conditions="minimum_study/line3/*")
@@ -35,6 +38,8 @@ def test_plans_and_estimates() -> None:
                                   if path.name != "note_judge.yaml"))
     assert len(runner.plan_jobs(configs)) == sum(total_episodes(config) for config in configs)
     h6 = load_config(ROOT / "configs/stretch_2f_h6.yaml")
+    settings = h6.settings.model_copy(update={"rounds": 12})
+    h6 = h6.model_copy(update={"settings": settings})
     job = runner.plan_jobs([h6])[0]
     per_node = sum((25 * (862.5 * h6.models[alias].price_input_per_m + 45 * h6.models[alias].price_output_per_m))
                    / 1e6 for alias in job.condition.node_models.values())

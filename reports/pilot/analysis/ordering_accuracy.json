@@ -1,0 +1,64 @@
+{
+  "config": "minimum_study",
+  "n_boot": 2000,
+  "overall": [
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "degree"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "predictor": "betweenness"
+    }
+  ],
+  "per_network": [],
+  "seed": 1,
+  "status": "not_run",
+  "window": "second_half"
+}

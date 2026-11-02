@@ -1,0 +1,52 @@
+{
+  "family": {},
+  "h1_per_network": {},
+  "results": {
+    "H1": {
+      "decision": "not_run",
+      "per_network": {},
+      "reason": "H1 requires line3, line5, star3 and star4 with observed deals.",
+      "status": "not_run"
+    },
+    "H3": {
+      "decision": "not_run",
+      "per_network": {},
+      "reason": "H3 requires at least two distinct leaf counts (including line3 at k=2).",
+      "status": "not_run"
+    },
+    "H4": {
+      "decision": "not_run",
+      "per_network": {
+        "line4": {
+          "ci_high": null,
+          "ci_low": null,
+          "mean": null,
+          "n": 0
+        },
+        "line5": {
+          "ci_high": null,
+          "ci_low": null,
+          "mean": null,
+          "n": 0
+        }
+      },
+      "reason": "H4 requires both line4 and line5 end classes.",
+      "status": "not_run"
+    },
+    "H5": {
+      "decision": "not_run",
+      "per_network": {},
+      "reason": "H5 requires networks in both named knowledge configs.",
+      "status": "not_run"
+    },
+    "H6": {
+      "assignment_differences": {},
+      "decision": "not_run",
+      "per_network": {},
+      "reason": "H6 requires both hub assignments on line3 and star3.",
+      "status": "not_run"
+    }
+  },
+  "seed": 1,
+  "window": "second_half_no_last"
+}

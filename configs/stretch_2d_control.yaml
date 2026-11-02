@@ -16,5 +16,5 @@ assignments:
   - name: terra
     default: terra
 settings:
-  rounds: 12
+  rounds: 24
   episodes_per_condition: 10

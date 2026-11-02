@@ -70,6 +70,11 @@ def analysis_logs(tmp_path_factory: pytest.TempPathFactory, dummy_key_and_log_sc
     root = tmp_path_factory.mktemp("analysis_logs")
     configs = load_configs([Path(__file__).resolve().parents[1] / "configs" / name
                             for name in ("minimum_study.yaml", "own_links_arm.yaml", "pilot_own_links.yaml")])
+    # Preserve the 12-round regression data and the 24-round pilot windows.
+    for index, config in enumerate(configs):
+        if not config.name.startswith("pilot_"):
+            settings = config.settings.model_copy(update={"rounds": 12})
+            configs[index] = config.model_copy(update={"settings": settings})
     with pytest.MonkeyPatch.context() as guard:
         guard.setattr(socket.socket, "connect", refuse)
         guard.setattr(socket, "create_connection", refuse)

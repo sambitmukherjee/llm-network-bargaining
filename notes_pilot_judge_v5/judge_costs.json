@@ -1,0 +1,14 @@
+{
+  "dry_run": false,
+  "judge_version": "judge-v5",
+  "model_id": "gpt-6.1-terra",
+  "n_calls": 120,
+  "total_cost_usd": 1.0832140000000001,
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 0,
+    "completion_tokens": 181833,
+    "prompt_tokens": 174049,
+    "reasoning_tokens": 56990
+  }
+}
