@@ -268,6 +268,20 @@ def test_no_shared_benchmarks_missing_gate_and_count_checks():
         report._group_inputs(h6, 'H6')
 
 
+@pytest.mark.parametrize('balanced_rmse,ranking', [
+    (2.5, 'position_value, equal_split = balanced, myerson'),
+    (np.nextafter(2.5, np.inf), 'position_value, equal_split, balanced, myerson'),
+])
+def test_rmse_ranking_groups_only_exact_ties_in_predictor_order(balanced_rmse, ranking):
+    errors = dict(
+        overall=[dict(predictor=name, rmse=value, n_classes=2, ci_low=1, ci_high=4, p_best=0)
+                 for name, value in [('balanced', balanced_rmse), ('myerson', 3),
+                                     ('equal_split', 2.5), ('position_value', 1)]],
+        core_distances=[dict(network_id='line3')], overall_networks=['line3'],
+        ranking=['position_value', 'balanced', 'equal_split', 'myerson'], best='position_value')
+    assert report._rmse_section(errors)[-1] == f'Ranking: {ranking}. Best benchmark: **position_value**.'
+
+
 def test_no_numbered_future_protocol_references():
     phrase = 'Phase ' + '8'
     paths = [Path('README.md'), *Path('src').rglob('*.py'), *Path('configs').rglob('*.yaml'), *Path('tests').rglob('*.py')]

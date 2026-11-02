@@ -198,6 +198,15 @@ def test_compare_expected_values_and_read_only(tmp_path, monkeypatch, capsys):
     assert cli.main(['compare', *map(str, paths)]) == 2
 
 
+def test_compare_formats_round_and_phase_as_integers(tmp_path):
+    paths = comparison_files(tmp_path)
+    table = pd.read_csv(paths[0]).assign(round=12.0, phase=3.0)
+    table.to_csv(paths[0], index=False)
+    text = compare_labels(*paths)
+    assert read_markdown_table(text, 'round') == [dict(
+        round='12', phase='3', node='B', note='Note 1', changes='exclusion: yes → no')]
+
+
 def test_report_note_tables_follow_config_selection(tmp_path):
     from llm_network_bargaining.analysis.report import _notes_section
 

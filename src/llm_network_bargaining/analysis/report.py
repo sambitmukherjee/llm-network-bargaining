@@ -302,8 +302,14 @@ def _rmse_section(errors: dict) -> list[str]:
     excluded = list(dict.fromkeys(excluded.loc[~excluded.network_id.isin(errors["overall_networks"]), "network_id"]))
     reasons = [f"{network} (no balanced outcome)" for network in excluded]
     sentence = f"RMSE over the {n_classes} classes where all four benchmarks are defined; left out: {', '.join(reasons) or 'none'}."
+    rmses = {row["predictor"]: row["rmse"] for row in errors["overall"]}
+    tied: dict[float, list[str]] = {}
+    for predictor in PREDICTORS:
+        if predictor in rmses:
+            tied.setdefault(rmses[predictor], []).append(predictor)
+    ranking = ", ".join(" = ".join(tied[rmse]) for rmse in sorted(tied))
     return [markdown_table(_ordered(pd.DataFrame(errors["overall"])), RMSE_COLUMNS), sentence,
-            f"Ranking: {', '.join(errors['ranking'])}. Best benchmark: **{errors['best']}**."]
+            f"Ranking: {ranking}. Best benchmark: **{errors['best']}**."]
 
 
 def _ordering_section(orders: dict, filename: str = "ordering_accuracy.json") -> list[str]:

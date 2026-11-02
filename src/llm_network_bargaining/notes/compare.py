@@ -31,7 +31,8 @@ def compare_labels(labels_a: str | Path, labels_b: str | Path) -> str:
         changed = [f"{label}: {'yes' if row[f'{label}_a'] else 'no'} → {'yes' if row[f'{label}_b'] else 'no'}"
                    for label in LABELS if row[f"{label}_a"] != row[f"{label}_b"]]
         if changed:
-            changes.append({key: row[f"{key}_a"] for key in ("round", "phase", "node", "note")} | {"changes": "; ".join(changed)})
+            changes.append(dict(round=str(int(row["round_a"])), phase=str(int(row["phase_a"])),
+                                node=row["node_a"], note=row["note_a"], changes="; ".join(changed)))
     return "\n\n".join([f"Labels A: {labels_a}\n\nLabels B: {labels_b}\n\nMatched rows: {len(paired)}",
         markdown_table(pd.DataFrame(agreement), "label n agreement yes_rate_a yes_rate_b kappa".split()),
         markdown_table(pd.DataFrame(changes), "round phase node note changes".split())])
