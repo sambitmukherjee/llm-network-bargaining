@@ -1,0 +1,535 @@
+{
+  "config": "minimum_study",
+  "n_boot": 2000,
+  "overall": [
+    {
+      "accuracy": 0.75,
+      "ci_high": 0.75,
+      "ci_low": 0.75,
+      "correct": 7.5,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 0.9,
+      "ci_high": 0.9,
+      "ci_low": 0.9,
+      "correct": 9.0,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 0.9,
+      "ci_high": 0.9,
+      "ci_low": 0.9,
+      "correct": 9.0,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 0.95,
+      "ci_high": 0.95,
+      "ci_low": 0.95,
+      "correct": 9.5,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 0.85,
+      "ci_high": 0.85,
+      "ci_low": 0.85,
+      "correct": 8.5,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 0.75,
+      "ci_high": 0.75,
+      "ci_low": 0.75,
+      "correct": 7.5,
+      "n_pairs": 10,
+      "n_tied_observed": 0,
+      "predictor": "betweenness"
+    }
+  ],
+  "per_network": [
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 0.5,
+      "ci_high": 0.5,
+      "ci_low": 0.5,
+      "correct": 0.5,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 0.8333333333333334,
+      "ci_high": 0.8333333333333334,
+      "ci_low": 0.8333333333333334,
+      "correct": 2.5,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 0.5,
+      "ci_high": 0.5,
+      "ci_low": 0.5,
+      "correct": 1.5,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "triangle",
+      "predictor": "equal_split"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 0.6666666666666666,
+      "ci_high": 0.6666666666666666,
+      "ci_low": 0.6666666666666666,
+      "correct": 2.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 3.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "triangle",
+      "predictor": "myerson"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 0.6666666666666666,
+      "ci_high": 0.6666666666666666,
+      "ci_low": 0.6666666666666666,
+      "correct": 2.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 3.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "triangle",
+      "predictor": "position_value"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 0.8333333333333334,
+      "ci_high": 0.8333333333333334,
+      "ci_low": 0.8333333333333334,
+      "correct": 2.5,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 3.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "balanced"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 0.5,
+      "ci_high": 0.5,
+      "ci_low": 0.5,
+      "correct": 1.5,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 3.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "triangle",
+      "predictor": "degree"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line3",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "line4",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": 0.3333333333333333,
+      "ci_high": 0.3333333333333333,
+      "ci_low": 0.3333333333333333,
+      "correct": 1.0,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "line5",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "pair",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star3",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": 1.0,
+      "ci_high": 1.0,
+      "ci_low": 1.0,
+      "correct": 1.0,
+      "n_pairs": 1,
+      "n_tied_observed": 0,
+      "network_id": "star4",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": 0.8333333333333334,
+      "ci_high": 0.8333333333333334,
+      "ci_low": 0.8333333333333334,
+      "correct": 2.5,
+      "n_pairs": 3,
+      "n_tied_observed": 0,
+      "network_id": "stem",
+      "predictor": "betweenness"
+    },
+    {
+      "accuracy": null,
+      "ci_high": null,
+      "ci_low": null,
+      "correct": 0.0,
+      "n_pairs": 0,
+      "n_tied_observed": 0,
+      "network_id": "triangle",
+      "predictor": "betweenness"
+    }
+  ],
+  "seed": 1,
+  "status": "run",
+  "window": "second_half"
+}

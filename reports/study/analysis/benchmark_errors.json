@@ -1,0 +1,499 @@
+{
+  "best": "myerson",
+  "config": "minimum_study",
+  "core_distances": [
+    {
+      "core_max": 0.0,
+      "core_min": 0.0,
+      "distance": 1.0791666666666668,
+      "network_id": "line3",
+      "node_class": "A|C",
+      "observed": 1.0791666666666668
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 24.0,
+      "distance": 2.1583333333333314,
+      "network_id": "line3",
+      "node_class": "B",
+      "observed": 21.84166666666667
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 0.0,
+      "distance": 0.0,
+      "network_id": "line4",
+      "node_class": "A|D",
+      "observed": 11.820833333333335
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 0.0,
+      "distance": 0.0,
+      "network_id": "line4",
+      "node_class": "B|C",
+      "observed": 12.179166666666665
+    },
+    {
+      "core_max": 0.0,
+      "core_min": 0.0,
+      "distance": 6.125,
+      "network_id": "line5",
+      "node_class": "A|E",
+      "observed": 6.125
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 24.0,
+      "distance": 7.945833333333333,
+      "network_id": "line5",
+      "node_class": "B|D",
+      "observed": 16.054166666666667
+    },
+    {
+      "core_max": 0.0,
+      "core_min": 0.0,
+      "distance": 3.6416666666666666,
+      "network_id": "line5",
+      "node_class": "C",
+      "observed": 3.6416666666666666
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 0.0,
+      "distance": 0.0,
+      "network_id": "pair",
+      "node_class": "A|B",
+      "observed": 12.0
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 24.0,
+      "distance": 1.1000000000000014,
+      "network_id": "star3",
+      "node_class": "H",
+      "observed": 22.9
+    },
+    {
+      "core_max": 0.0,
+      "core_min": 0.0,
+      "distance": 0.3666666666666667,
+      "network_id": "star3",
+      "node_class": "L1|L2|L3",
+      "observed": 0.3666666666666667
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 24.0,
+      "distance": 1.0,
+      "network_id": "star4",
+      "node_class": "H",
+      "observed": 23.0
+    },
+    {
+      "core_max": 0.0,
+      "core_min": 0.0,
+      "distance": 0.25,
+      "network_id": "star4",
+      "node_class": "L1|L2|L3|L4",
+      "observed": 0.25
+    },
+    {
+      "core_max": 12.0,
+      "core_min": 0.0,
+      "distance": 0.0,
+      "network_id": "stem",
+      "node_class": "A",
+      "observed": 10.983333333333333
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 12.0,
+      "distance": 0.0,
+      "network_id": "stem",
+      "node_class": "B",
+      "observed": 13.01666666666667
+    },
+    {
+      "core_max": 24.0,
+      "core_min": 0.0,
+      "distance": 0.0,
+      "network_id": "stem",
+      "node_class": "C|D",
+      "observed": 12.0
+    },
+    {
+      "core_max": null,
+      "core_min": null,
+      "distance": null,
+      "network_id": "triangle",
+      "node_class": "A|B|C",
+      "observed": 8.0
+    }
+  ],
+  "n_boot": 2000,
+  "overall": [
+    {
+      "ci_high": 5.432369754141021,
+      "ci_low": 5.1720298057384975,
+      "n_classes": 15,
+      "p_best": 0.0,
+      "predictor": "equal_split",
+      "rmse": 5.308640755096041
+    },
+    {
+      "ci_high": 3.0297857954488436,
+      "ci_low": 2.7055531616657817,
+      "n_classes": 15,
+      "p_best": 1.0,
+      "predictor": "myerson",
+      "rmse": 2.867693614503939
+    },
+    {
+      "ci_high": 5.627217890588246,
+      "ci_low": 5.359619456889072,
+      "n_classes": 15,
+      "p_best": 0.0,
+      "predictor": "position_value",
+      "rmse": 5.500151513064587
+    },
+    {
+      "ci_high": 3.8252288117019564,
+      "ci_low": 3.508374737602094,
+      "n_classes": 15,
+      "p_best": 0.0,
+      "predictor": "balanced",
+      "rmse": 3.6606769258643346
+    }
+  ],
+  "overall_networks": [
+    "line3",
+    "line4",
+    "line5",
+    "pair",
+    "star3",
+    "star4",
+    "stem"
+  ],
+  "per_network": [
+    {
+      "ci_high": 8.294390779483312,
+      "ci_low": 7.108371954958702,
+      "condition_key": "minimum_study/line3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line3",
+      "predictor": "equal_split",
+      "rmse": 7.780520659705951
+    },
+    {
+      "ci_high": 5.1321131193149325,
+      "ci_low": 3.9460942947903233,
+      "condition_key": "minimum_study/line3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line3",
+      "predictor": "myerson",
+      "rmse": 4.618242999537571
+    },
+    {
+      "ci_high": 8.294390779483312,
+      "ci_low": 7.108371954958702,
+      "condition_key": "minimum_study/line3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line3",
+      "predictor": "position_value",
+      "rmse": 7.780520659705951
+    },
+    {
+      "ci_high": 2.3784610255464345,
+      "ci_low": 1.192442201021826,
+      "condition_key": "minimum_study/line3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line3",
+      "predictor": "balanced",
+      "rmse": 1.706312320799187
+    },
+    {
+      "ci_high": 0.37083333333333185,
+      "ci_low": 0.02083333333333215,
+      "condition_key": "minimum_study/line4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line4",
+      "predictor": "equal_split",
+      "rmse": 0.17916666666666536
+    },
+    {
+      "ci_high": 1.9833333333333325,
+      "ci_low": 1.6291666666666682,
+      "condition_key": "minimum_study/line4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line4",
+      "predictor": "myerson",
+      "rmse": 1.8208333333333346
+    },
+    {
+      "ci_high": 1.9833333333333325,
+      "ci_low": 1.6291666666666682,
+      "condition_key": "minimum_study/line4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line4",
+      "predictor": "position_value",
+      "rmse": 1.8208333333333346
+    },
+    {
+      "ci_high": 3.9833333333333325,
+      "ci_low": 3.629166666666668,
+      "condition_key": "minimum_study/line4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "line4",
+      "predictor": "balanced",
+      "rmse": 3.8208333333333346
+    },
+    {
+      "ci_high": 3.945028491323305,
+      "ci_low": 3.2619147217523676,
+      "condition_key": "minimum_study/line5/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "line5",
+      "predictor": "equal_split",
+      "rmse": 3.6030987499445324
+    },
+    {
+      "ci_high": 2.656463031780185,
+      "ci_low": 1.8064947094050052,
+      "condition_key": "minimum_study/line5/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "line5",
+      "predictor": "myerson",
+      "rmse": 2.1792171228490567
+    },
+    {
+      "ci_high": 4.760212756973498,
+      "ci_low": 4.0299088313022615,
+      "condition_key": "minimum_study/line5/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "line5",
+      "predictor": "position_value",
+      "rmse": 4.382932623213552
+    },
+    {
+      "ci_high": 6.532988534944533,
+      "ci_low": 5.835445549339199,
+      "condition_key": "minimum_study/line5/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "line5",
+      "predictor": "balanced",
+      "rmse": 6.162078341821105
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/pair/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "pair",
+      "predictor": "equal_split",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/pair/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "pair",
+      "predictor": "myerson",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/pair/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "pair",
+      "predictor": "position_value",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/pair/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "pair",
+      "predictor": "balanced",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 8.19891591749923,
+      "ci_low": 7.97530911974925,
+      "condition_key": "minimum_study/star3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star3",
+      "predictor": "equal_split",
+      "rmse": 8.124380318249235
+    },
+    {
+      "ci_high": 3.7267799624996494,
+      "ci_low": 3.50317316474967,
+      "condition_key": "minimum_study/star3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star3",
+      "predictor": "myerson",
+      "rmse": 3.6522443632496557
+    },
+    {
+      "ci_high": 8.19891591749923,
+      "ci_low": 7.97530911974925,
+      "condition_key": "minimum_study/star3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star3",
+      "predictor": "position_value",
+      "rmse": 8.124380318249235
+    },
+    {
+      "ci_high": 0.9689627902499094,
+      "ci_low": 0.7453559924999299,
+      "condition_key": "minimum_study/star3/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star3",
+      "predictor": "balanced",
+      "rmse": 0.8198915917499239
+    },
+    {
+      "ci_high": 8.017558855412288,
+      "ci_low": 8.017558855412288,
+      "condition_key": "minimum_study/star4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star4",
+      "predictor": "equal_split",
+      "rmse": 8.017558855412288
+    },
+    {
+      "ci_high": 2.7697021500515158,
+      "ci_low": 2.7697021500515158,
+      "condition_key": "minimum_study/star4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star4",
+      "predictor": "myerson",
+      "rmse": 2.7697021500515158
+    },
+    {
+      "ci_high": 8.017558855412288,
+      "ci_low": 8.017558855412288,
+      "condition_key": "minimum_study/star4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star4",
+      "predictor": "position_value",
+      "rmse": 8.017558855412288
+    },
+    {
+      "ci_high": 0.7288689868556626,
+      "ci_low": 0.7288689868556626,
+      "condition_key": "minimum_study/star4/full_map/terra",
+      "n_classes": 2,
+      "n_episodes": 10,
+      "network_id": "star4",
+      "predictor": "balanced",
+      "rmse": 0.7288689868556626
+    },
+    {
+      "ci_high": 1.2451572859147824,
+      "ci_low": 0.41505242863826036,
+      "condition_key": "minimum_study/stem/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "stem",
+      "predictor": "equal_split",
+      "rmse": 0.8301048572765228
+    },
+    {
+      "ci_high": 2.8509338950726435,
+      "ci_low": 2.0208290377961218,
+      "condition_key": "minimum_study/stem/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "stem",
+      "predictor": "myerson",
+      "rmse": 2.435881466434381
+    },
+    {
+      "ci_high": 2.0344373141449177,
+      "ci_low": 1.2043324568683955,
+      "condition_key": "minimum_study/stem/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "stem",
+      "predictor": "position_value",
+      "rmse": 1.6193848855066553
+    },
+    {
+      "ci_high": 4.483927056928096,
+      "ci_low": 3.653822199651574,
+      "condition_key": "minimum_study/stem/full_map/terra",
+      "n_classes": 3,
+      "n_episodes": 10,
+      "network_id": "stem",
+      "predictor": "balanced",
+      "rmse": 4.068874628289834
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/triangle/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "triangle",
+      "predictor": "equal_split",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/triangle/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "triangle",
+      "predictor": "myerson",
+      "rmse": 0.0
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "condition_key": "minimum_study/triangle/full_map/terra",
+      "n_classes": 1,
+      "n_episodes": 10,
+      "network_id": "triangle",
+      "predictor": "position_value",
+      "rmse": 0.0
+    }
+  ],
+  "ranking": [
+    "myerson",
+    "balanced",
+    "equal_split",
+    "position_value"
+  ],
+  "seed": 1,
+  "status": "run",
+  "window": "second_half"
+}

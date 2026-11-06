@@ -15,6 +15,7 @@ analysis*/
 notes*/
 reports*/
 runs*/
+/paper/
 
 # These are package source directories, not generated output.
 !src/llm_network_bargaining/analysis/

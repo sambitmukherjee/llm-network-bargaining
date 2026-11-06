@@ -1,0 +1,232 @@
+{
+  "conditions": {
+    "minimum_study/line3/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 1.0827020000000003
+      },
+      "cost_usd": 1.0827020000000003,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 30,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 911,
+          "completion_tokens": 34570,
+          "prompt_tokens": 909852,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/line4/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 2.2143599999999997
+      },
+      "cost_usd": 2.2143599999999997,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 40,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 1748,
+          "completion_tokens": 65542,
+          "prompt_tokens": 1886650,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/line5/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 1.9378699999999998
+      },
+      "cost_usd": 1.9378699999999998,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 50,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 1603,
+          "completion_tokens": 61019,
+          "prompt_tokens": 1632775,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/pair/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 0.4546050000000001
+      },
+      "cost_usd": 0.4546050000000001,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 20,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 500,
+          "completion_tokens": 16365,
+          "prompt_tokens": 372780,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/star3/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 1.0788189999999998
+      },
+      "cost_usd": 1.0788189999999998,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 40,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 946,
+          "completion_tokens": 34718,
+          "prompt_tokens": 905229,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/star4/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 1.213683
+      },
+      "cost_usd": 1.213683,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 50,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 1041,
+          "completion_tokens": 37789,
+          "prompt_tokens": 1024738,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/stem/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 1.694344
+      },
+      "cost_usd": 1.694344,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 40,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 1413,
+          "completion_tokens": 50901,
+          "prompt_tokens": 1439839,
+          "reasoning_tokens": 0
+        }
+      }
+    },
+    "minimum_study/triangle/full_map/terra": {
+      "abandoned": 0,
+      "cost_by_alias": {
+        "terra": 0.685295
+      },
+      "cost_usd": 0.685295,
+      "done": 10,
+      "failed_attempts": 0,
+      "interrupted": 0,
+      "interrupted_attempts": 0,
+      "mean_quiz_score": 3.0,
+      "n_quizzes": 30,
+      "quiz_perfect_share": 1.0,
+      "todo": 0,
+      "usage_by_alias": {
+        "terra": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "calls": 652,
+          "completion_tokens": 23114,
+          "prompt_tokens": 569725,
+          "reasoning_tokens": 0
+        }
+      }
+    }
+  },
+  "config_name": "minimum_study",
+  "cost_kind": "actual",
+  "dry_run": false,
+  "totals": {
+    "abandoned": 0,
+    "cost_by_alias": {
+      "terra": 10.361677999999998
+    },
+    "cost_usd": 10.361677999999998,
+    "done": 80,
+    "failed_attempts": 0,
+    "interrupted": 0,
+    "interrupted_attempts": 0,
+    "mean_quiz_score": 3.0,
+    "n_quizzes": 300,
+    "quiz_perfect_share": 1.0,
+    "todo": 0,
+    "usage_by_alias": {
+      "terra": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "calls": 8814,
+        "completion_tokens": 324018,
+        "prompt_tokens": 8741588,
+        "reasoning_tokens": 0
+      }
+    }
+  }
+}
