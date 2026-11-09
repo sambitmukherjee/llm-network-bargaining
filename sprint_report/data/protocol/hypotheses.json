@@ -1,0 +1,30 @@
+{
+  "columns": [
+    "Hypothesis or comparison",
+    "Question"
+  ],
+  "rows": [
+    [
+      "**H1. Placement power**",
+      "Does the mean conditional received share exceed 50% for B on the three-node line, the node class containing B and D on the five-node line, and the hub of each star? H1 requires this in all four networks."
+    ],
+    [
+      "**H2. Benchmark fit**",
+      "Which theoretical reference best matches observed mean earnings across node classes: the equal-split earnings reference, Myerson value, position value or the selected balanced outcome? H2 ranks prediction errors; it is not a significance test. Hence, it does not produce a hypothesis-test p-value."
+    ],
+    [
+      "**H3. Star dose-response**",
+      "Is there a positive linear trend in the hub's mean conditional received share as the number of leaves increases from two to four? The three-node line is treated as a two-leaf star, alongside the three- and four-leaf stars."
+    ],
+    [
+      "**H4. End-agent earnings**",
+      "Do agents at the ends of the four-node line earn more, on average, than agents at the ends of the five-node line?"
+    ],
+    [
+      "**H5. Network knowledge**",
+      "Does the mean power-use index differ between the full-map and own-links knowledge settings across the six eligible networks?"
+    ]
+  ],
+  "origin": "Original retained five-row table from paper/paper_sections/section_4_experimental_design_and_analysis.md, with author-requested H2 p-value clarification",
+  "copied_source_sha256": "73d88a5aa5e0d4b66afcda109897146d5f431bc39980c0b26f7aee8c88064edd"
+}

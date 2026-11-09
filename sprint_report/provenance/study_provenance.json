@@ -1,0 +1,28 @@
+{
+  "pre_sprint_revision": "e5e52ea46adf34297147dea7c8587e7cef762f8d",
+  "study_revision": "ff692b507bf1192d07c1e0ddd39b7e7b14382f3a",
+  "files": {
+    "configs/minimum_study.yaml": "41f96cc48af5760a57dd631d9c2cf3edb1737e76d4486fc996c24099e255f8fa",
+    "configs/own_links_arm.yaml": "5608aaee53343987401293d606cf0febe98bfcd22b4f36ee2159a3eb37c47152",
+    "predictions/class_predictions.csv": "4a5d839d2b0a107bf61242782885bb197a1ca9caa8d16e24b2f327b0579a5e28",
+    "predictions/node_predictions.csv": "135b760dde5dd4b331be11b3e725bda189ad9023be0a30d980dfce6743908726",
+    "predictions/metadata.json": "9b71dff866bad3a6bb2b552ab779814aba9b65b933bcf8ea11e1524125233aca",
+    "pyproject.toml": "01fe6c18f7ed7087336b4c0ac1efa4004844e16776cc7fe90bd0511f5c4b1baf"
+  },
+  "tracked_code_config_dependency_changes": [],
+  "commit_records": {
+    "e5e52ea46adf34297147dea7c8587e7cef762f8d": "e5e52ea46adf34297147dea7c8587e7cef762f8d\n2026-11-02T21:45:04+05:30\nPilot complete: gate PASS, study rounds 24, judge frozen at v5",
+    "ff692b507bf1192d07c1e0ddd39b7e7b14382f3a": "ff692b507bf1192d07c1e0ddd39b7e7b14382f3a\n2026-11-06T23:36:08+05:30\nRan main study: minimum study and own-links arm"
+  },
+  "pruned_omitted_judge_runtime_fingerprint": true,
+  "study_conditions": [
+    "minimum_study",
+    "own_links_arm"
+  ],
+  "author_accounts_not_machine_proven": [
+    "Local files were for pilot analysis",
+    "Pilot informed choices",
+    "Human oversight and literature preparation"
+  ],
+  "study_scope": "Historical pilot/author chronology is context, not new study data; default statistical reproduction uses the 160 study episodes only."
+}

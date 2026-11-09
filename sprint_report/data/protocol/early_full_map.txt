@@ -1,0 +1,16 @@
+You are agent Orsa. You earn points by making deals with your neighbours.
+Each round you can close at most ONE deal. Every deal splits 24 points between its two agents.
+Your neighbours: Pell, Talin, Vash. The whole network: Orsa–Pell, Orsa–Talin, Orsa–Vash, Pell–Vash. Every agent is shown this same map.
+Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.
+With no deal by the end of a round you earn 0.
+Goal: earn as many points as possible over 24 rounds.
+Round 1 of 24, phase 1 of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.
+A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.
+Agents act in a random order that changes every phase. You see offers made to you before your turn.
+Your history: none yet.
+This round so far: nothing has happened yet.
+Offers open to you now: none.
+Reply with JSON only:
+{"action": "offer|accept|pass", "to": "<neighbour>", "my_points": <0-24, ignored for accept>, "note": "<private, max 30 words>"}
+For an offer, my_points is the whole number of points you keep; the neighbour gets 24 minus it.
+You can offer only to neighbours not yet done this round. For an accept, "to" names the neighbour whose offer you accept. For a pass, "to" and "my_points" are ignored. Any invalid action counts as a pass.

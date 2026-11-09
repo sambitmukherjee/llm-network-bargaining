@@ -1,0 +1,786 @@
+{
+  "configs": {
+    "minimum_study": {
+      "conditions": [
+        {
+          "assignment_name": "terra",
+          "condition_seed": 1613902058911758255,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            3257209095720406288,
+            488916810428117931,
+            8071169358155274453,
+            6650999618498674780,
+            7653473148489257648,
+            1471898118692732234,
+            7872230099291362454,
+            2264000867925462664,
+            6129802431991978807,
+            841345971874684827
+          ],
+          "key": "minimum_study/pair/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "pair",
+          "node_models": {
+            "A": "terra",
+            "B": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 8965613859810702954,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            3213238944773680251,
+            5952750134459628555,
+            4549314558009791290,
+            603866754644621440,
+            4984324557971607204,
+            1884374549686728688,
+            4975764037503415523,
+            5632642351928996084,
+            856410078073975439,
+            8301651441195329319
+          ],
+          "key": "minimum_study/line3/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "line3",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 2494056634320611194,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            3441593834376996140,
+            8326021795178115001,
+            7934390649711400319,
+            6967296225110284616,
+            1480718099904177313,
+            7132851173423923561,
+            3047863644649463727,
+            5173797998858680798,
+            4995397061190312355,
+            5302626768356575945
+          ],
+          "key": "minimum_study/line4/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "line4",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 716171297838765429,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            1744227293735043032,
+            7415753935603837259,
+            6885934791532767217,
+            1948993795763671702,
+            1439357654365209162,
+            8748642945886703479,
+            1214759711459488331,
+            642084243157938874,
+            8706900846052907091,
+            421436397022435339
+          ],
+          "key": "minimum_study/line5/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "line5",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra",
+            "E": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 5892741418548180460,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            4286908692381958023,
+            8313994070440494283,
+            8552019876804283248,
+            6051309515704726676,
+            8536665099169227744,
+            856982541549084338,
+            1554398528893454702,
+            5588305259106249366,
+            635556046572657428,
+            7197091909055167115
+          ],
+          "key": "minimum_study/star3/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "star3",
+          "node_models": {
+            "H": "terra",
+            "L1": "terra",
+            "L2": "terra",
+            "L3": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 3613404104574966784,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            4907140570059819803,
+            3701481525581655910,
+            3039252356899953873,
+            5211152038750089265,
+            8461572649158565043,
+            7484299936230033375,
+            8317941293646763466,
+            7802878637180594042,
+            6650607867249905338,
+            2258034962859453749
+          ],
+          "key": "minimum_study/star4/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "star4",
+          "node_models": {
+            "H": "terra",
+            "L1": "terra",
+            "L2": "terra",
+            "L3": "terra",
+            "L4": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 6724784993638507023,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            7239161028293439152,
+            8262622093481596107,
+            8402257277229244719,
+            2982806581148952741,
+            688685435895853392,
+            1111941913340170143,
+            3306331045885052999,
+            6853108268829042720,
+            8358605453146261003,
+            3083285529044001632
+          ],
+          "key": "minimum_study/stem/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "stem",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 7320724860366443223,
+          "config_name": "minimum_study",
+          "episode_seeds": [
+            1212849133223438188,
+            4793984242965951688,
+            2398665539575030612,
+            3330429009926347464,
+            4598773515558120325,
+            5545884264031289880,
+            4090742582267846204,
+            311569668296847173,
+            933008003885764951,
+            42485993356350800
+          ],
+          "key": "minimum_study/triangle/full_map/terra",
+          "knowledge_setting": "full_map",
+          "network_id": "triangle",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        }
+      ],
+      "config_sha256": "41f96cc48af5760a57dd631d9c2cf3edb1737e76d4486fc996c24099e255f8fa",
+      "request_settings": {
+        "extra_body": {
+          "prompt_cache_options": {
+            "mode": "explicit"
+          }
+        },
+        "max_completion_tokens": 300,
+        "model": "gpt-6.1-terra",
+        "reasoning_effort": "none",
+        "store": false
+      },
+      "resolved": {
+        "assignments": [
+          {
+            "default": "terra",
+            "name": "terra",
+            "per_network": {}
+          }
+        ],
+        "description": "Minimum study. Eight core networks, full map, Terra at every node.",
+        "knowledge": [
+          "full_map"
+        ],
+        "models": {
+          "terra": {
+            "max_completion_tokens": 300,
+            "model_id": "gpt-6.1-terra",
+            "price_cache_write_per_m": 1.25,
+            "price_cached_input_per_m": 0.05,
+            "price_input_per_m": 1.0,
+            "price_output_per_m": 5.0,
+            "prompt_cache": "off",
+            "provider": "openai",
+            "reasoning_effort": "none",
+            "temperature": null,
+            "timeout_s": 60.0
+          }
+        },
+        "name": "minimum_study",
+        "networks": [
+          "pair",
+          "line3",
+          "line4",
+          "line5",
+          "star3",
+          "star4",
+          "stem",
+          "triangle"
+        ],
+        "seed": 20261106,
+        "settings": {
+          "communication": "none",
+          "episodes_per_condition": 10,
+          "framing": "neutral",
+          "outcome_window": "second_half",
+          "phase3_accept_only": true,
+          "phases": 3,
+          "prompt_version": "v1",
+          "rounds": 24
+        }
+      }
+    },
+    "own_links_arm": {
+      "conditions": [
+        {
+          "assignment_name": "terra",
+          "condition_seed": 4431539105825275340,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            2754439780529673506,
+            2716997040916102787,
+            6265600334006920169,
+            3535855968321362532,
+            3569382920789045462,
+            5506377673302409359,
+            5835792782189605230,
+            8508787912027101510,
+            5467800643061664303,
+            8746322001046034365
+          ],
+          "key": "own_links_arm/pair/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "pair",
+          "node_models": {
+            "A": "terra",
+            "B": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 1948040042445239120,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            8994650343615004784,
+            7002019999463320126,
+            6186855674802268818,
+            1768862775121280061,
+            9154931491257611810,
+            1914081285981952160,
+            5935787141253896695,
+            8137159811650614563,
+            358464361554142553,
+            4292186022735907169
+          ],
+          "key": "own_links_arm/line3/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "line3",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 349531468561946956,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            3528566652084534565,
+            7647694804985565717,
+            5191362426837186606,
+            8463095387403409252,
+            593481878227061241,
+            8945133803508641991,
+            8906659488469486762,
+            4084611682083200953,
+            6429292930184897370,
+            7558967305163183166
+          ],
+          "key": "own_links_arm/line4/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "line4",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 3349811272485917053,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            6197455937108334194,
+            231502043172371251,
+            8463146447052512987,
+            7268576399518417886,
+            7608051213245345752,
+            5097120221079002407,
+            3991319690884141168,
+            3141693700017074222,
+            7174480320267582776,
+            4177834025516542443
+          ],
+          "key": "own_links_arm/line5/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "line5",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra",
+            "E": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 5066763907211366460,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            1653523182907514341,
+            6282965399128450457,
+            449648965532221082,
+            8761977361969973721,
+            4853273433906227502,
+            2706919076267481393,
+            5443826053515145424,
+            3073349800470598411,
+            6272326340030381366,
+            1987852111919009776
+          ],
+          "key": "own_links_arm/star3/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "star3",
+          "node_models": {
+            "H": "terra",
+            "L1": "terra",
+            "L2": "terra",
+            "L3": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 3341022765689175769,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            6588969478162865948,
+            4321978293446736852,
+            4797666509666897740,
+            1541721796081833260,
+            5035796855992828060,
+            5703438683943180249,
+            3751620491209115629,
+            6493664452508701768,
+            8158084916514692945,
+            6556835636541880544
+          ],
+          "key": "own_links_arm/star4/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "star4",
+          "node_models": {
+            "H": "terra",
+            "L1": "terra",
+            "L2": "terra",
+            "L3": "terra",
+            "L4": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 1466416940269540125,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            9147269007447411297,
+            3654822644559715097,
+            8464236142891055303,
+            6249355058124879302,
+            6169030276950351556,
+            4100479371123419607,
+            2331014105938973443,
+            3353469956431732805,
+            1849766634257810734,
+            7883862449770988722
+          ],
+          "key": "own_links_arm/stem/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "stem",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra",
+            "D": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        },
+        {
+          "assignment_name": "terra",
+          "condition_seed": 1899494665918786422,
+          "config_name": "own_links_arm",
+          "episode_seeds": [
+            8768748413799827455,
+            1365731521244602578,
+            5232043707513080730,
+            3793239678865617853,
+            8957126791716930298,
+            6837380969329971442,
+            1254572452991779624,
+            5822699061408086363,
+            3758837668285266939,
+            3488062984277908313
+          ],
+          "key": "own_links_arm/triangle/own_links/terra",
+          "knowledge_setting": "own_links",
+          "network_id": "triangle",
+          "node_models": {
+            "A": "terra",
+            "B": "terra",
+            "C": "terra"
+          },
+          "settings": {
+            "communication": "none",
+            "episodes_per_condition": 10,
+            "framing": "neutral",
+            "outcome_window": "second_half",
+            "phase3_accept_only": true,
+            "phases": 3,
+            "prompt_version": "v1",
+            "rounds": 24
+          }
+        }
+      ],
+      "config_sha256": "5608aaee53343987401293d606cf0febe98bfcd22b4f36ee2159a3eb37c47152",
+      "request_settings": {
+        "extra_body": {
+          "prompt_cache_options": {
+            "mode": "explicit"
+          }
+        },
+        "max_completion_tokens": 300,
+        "model": "gpt-6.1-terra",
+        "reasoning_effort": "none",
+        "store": false
+      },
+      "resolved": {
+        "assignments": [
+          {
+            "default": "terra",
+            "name": "terra",
+            "per_network": {}
+          }
+        ],
+        "description": "Eight core networks, own links only, Terra at every node.",
+        "knowledge": [
+          "own_links"
+        ],
+        "models": {
+          "terra": {
+            "max_completion_tokens": 300,
+            "model_id": "gpt-6.1-terra",
+            "price_cache_write_per_m": 1.25,
+            "price_cached_input_per_m": 0.05,
+            "price_input_per_m": 1.0,
+            "price_output_per_m": 5.0,
+            "prompt_cache": "off",
+            "provider": "openai",
+            "reasoning_effort": "none",
+            "temperature": null,
+            "timeout_s": 60.0
+          }
+        },
+        "name": "own_links_arm",
+        "networks": [
+          "pair",
+          "line3",
+          "line4",
+          "line5",
+          "star3",
+          "star4",
+          "stem",
+          "triangle"
+        ],
+        "seed": 20261106,
+        "settings": {
+          "communication": "none",
+          "episodes_per_condition": 10,
+          "framing": "neutral",
+          "outcome_window": "second_half",
+          "phase3_accept_only": true,
+          "phases": 3,
+          "prompt_version": "v1",
+          "rounds": 24
+        }
+      }
+    }
+  },
+  "example_sha256": {
+    "early_full_map.txt": "7c5be5381926810dd40ea2213ed466186f7065f839642977a44655c7de72ec5f",
+    "early_own_links.txt": "a9916c153f54eba7a9af8d674f7cac05d822714d8e5ccfb5516f37f216404ae0",
+    "late_own_links.txt": "39732becc01a967b821a49322a7659ec17840dee77c11a306a2b6bd913292113",
+    "quiz_full_map.txt": "c47e63c3d77980c9c1e955e11ab9c21d2b87204fd6739e5b38b3a2ca93cc9b90"
+  },
+  "generator_sha256": "b21f263c49086d231cdeec44454f6c4c5ce05f72198504a60cfcd9d301c02ba2",
+  "git_head": "e5e52ea46adf34297147dea7c8587e7cef762f8d",
+  "kind": "Standalone protocol specification and scripted examples; study settings verified against configs and recorded headers",
+  "prompt_version": "v1",
+  "quiz_example_key": {
+    "q1": "A",
+    "q2": "B",
+    "q3": "C"
+  },
+  "quiz_version": "q1",
+  "retry_policy": {
+    "base_delay_s": 1.0,
+    "max_delay_s": 60.0,
+    "max_model_attempts": 3,
+    "max_transient_attempts": 8
+  },
+  "review_date": "2026-11-05",
+  "scripted_round_example": {
+    "offers": [
+      {
+        "maker": "A",
+        "maker_points": 8,
+        "offer_id": 0,
+        "phase": 1,
+        "recipient": "B",
+        "recipient_points": 16,
+        "round": 1,
+        "status": "accepted"
+      },
+      {
+        "maker": "B",
+        "maker_points": 12,
+        "offer_id": 1,
+        "phase": 1,
+        "recipient": "C",
+        "recipient_points": 12,
+        "round": 1,
+        "status": "maker_dealt"
+      }
+    ],
+    "totals": {
+      "A": 8,
+      "B": 16,
+      "C": 0
+    }
+  },
+  "software": {
+    "llm-network-bargaining": "0.1.0",
+    "networkx": "3.6.1",
+    "numpy": "2.5.0",
+    "openai": "3.42.0",
+    "pydantic": "2.13.4",
+    "python": "3.14.3"
+  },
+  "source_sha256": {
+    "src/llm_network_bargaining/actions.py": "5e9bae10a28f17f410b88b56d6845853fc75eccb044fd957cacc323a7d9e01f6",
+    "src/llm_network_bargaining/cli.py": "045900a2f18780ae886215b3036e89fb8a50451a29e78644bc4e9c245b4c04e8",
+    "src/llm_network_bargaining/config.py": "aff973842a5ab876c69526d92e330808ff397f5745f5e0cd43bb87750b0182e8",
+    "src/llm_network_bargaining/engine.py": "5997754298640b71f86e9d6df84e91434afa48ea44c62ad473820bb216ad1bec",
+    "src/llm_network_bargaining/llm_agent.py": "e9c2ab5d384d4dc415dac8f620cabcfe7d0613fcec747a612bdd54695aa6ddad",
+    "src/llm_network_bargaining/model_client.py": "7a6f765c0e40b2d6a92859ddfc2f234678b0b7075a04ab5aa91864263ed043ce",
+    "src/llm_network_bargaining/names.py": "a0f68a2dcbb746f8aa57ccd4c07afbe928490260b91d501cd32db1ddc8bac996",
+    "src/llm_network_bargaining/networks.py": "ed36d6a18db47c11739cc472e0bbf14ae00b2ce2f76d73c711c5fefa66932fa9",
+    "src/llm_network_bargaining/observation.py": "abe425075fd711decf45fd0f3471ead3f845bddbe3bb86e55a5fc2bc822d4eb8",
+    "src/llm_network_bargaining/prompts.py": "da6883142f927af25bc825f6c5320f7c9f1c4036f26f757df66bcadb9f9326bb",
+    "src/llm_network_bargaining/quiz.py": "85ae878c7f4aaaf1f4a43a7365578bd180999e433ac9f3db7ca510633431f57b",
+    "src/llm_network_bargaining/replay.py": "91098a169bad02b30a10f1f5b285c0bcbff44f02c19db19e8a89aac9644c7611",
+    "src/llm_network_bargaining/runlog.py": "519fd06d76ed3eff54bedcc98e460581c35df70f6a1c77ada12afb8a8cfaa641",
+    "src/llm_network_bargaining/runner.py": "3e86cb8f45f1030e40900272ef6a8dfc722ce968bcd665053584aaddb7c7ab4d",
+    "src/llm_network_bargaining/schema.py": "f2c60cefd7ad565e622942e84e7d5a433a2aca9de0f92d17693e0527bef3569e",
+    "src/llm_network_bargaining/seeds.py": "706e99c0fafc7d728541c59d3d40751cdaa5827bfb8f030458feb0cfb799c917"
+  }
+}

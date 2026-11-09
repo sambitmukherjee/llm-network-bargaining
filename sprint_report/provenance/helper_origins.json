@@ -1,0 +1,66 @@
+{
+  "statistics": [
+    {
+      "source": "sources/paper/analysis/study_observations/phase2/analyse.py",
+      "function": "independent_theory",
+      "sha256": "34b75026f1ccc74b212d48d83726d42d3831cdcfea230854bbffc822bf05932e"
+    },
+    {
+      "source": "sources/paper/analysis/study_observations/phase4/analyse.py",
+      "function": "ci",
+      "sha256": "6298ffb44b6008a1fe2afd1f252cb90698792dfd0166f038b780213449f1002e"
+    },
+    {
+      "source": "sources/paper/analysis/study_observations/phase4/analyse.py",
+      "function": "resample",
+      "sha256": "ae9f66736a5ad24559447bcf6b38ba7fddda7ee99f88c8a75dbcef088869940d"
+    },
+    {
+      "source": "sources/paper/analysis/study_observations/phase4/analyse.py",
+      "function": "independent_classes",
+      "sha256": "b35f57e945b7d3629144d70c648c2d9f7002fddc4727b2b4f4f6ce05b366f045"
+    },
+    {
+      "source": "sources/paper/analysis/study_observations/phase4/analyse.py",
+      "function": "audit_nulls",
+      "sha256": "5a83d24d0df642271b948d8894b82cfbfa2ce0b715f3d7d360cfae10a2e08de8"
+    }
+  ],
+  "drawings": [
+    {
+      "source": "sources/paper/analysis/appendix_c/phase2/figures.py",
+      "function": "save"
+    },
+    {
+      "source": "sources/paper/analysis/appendix_c/phase2/figures.py",
+      "function": "interval"
+    },
+    {
+      "source": "sources/paper/analysis/appendix_c/phase2/figures.py",
+      "function": "differences"
+    },
+    {
+      "source": "sources/phase4/paper/build_appendix_g_figures.py",
+      "function": "positions"
+    },
+    {
+      "source": "sources/phase4/paper/build_appendix_h_figures.py",
+      "function": "draw_graph"
+    },
+    {
+      "source": "sources/phase4/paper/build_appendix_i_figures.py",
+      "function": "outside_options"
+    },
+    {
+      "source": "sources/phase4/paper/build_appendix_i_figures.py",
+      "function": "save"
+    },
+    {
+      "source": "sources/phase4/paper/build_appendix_i_figures.py",
+      "function": "four_line_options"
+    }
+  ],
+  "late_prompt": "reproduction/late_prompt.py: capture_late adapted from paper/build_appendix_b_materials.py; copied before adaptation",
+  "network_diagram": "reproduction/draw_networks.py: created for the supplied layout using tracked network definitions",
+  "note": "Historical source paths are attribution only; those source/archive paths must never be read by public reproduction."
+}

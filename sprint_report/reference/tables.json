@@ -1,0 +1,713 @@
+{
+  "status": "Reviewed comparison targets and presentation specifications; empirical cells must be recomputed",
+  "policy": "Expected comparison cells only; fresh calculation must derive values from logs or declared scripted examples.",
+  "tables": [
+    {
+      "id": "Table 1",
+      "kind": "numbered",
+      "empirical": false,
+      "source": "manuscript/main_body.md",
+      "section": "4.2. Measurement and inference",
+      "caption": "**Table 1. Hypotheses and benchmark comparison.**",
+      "columns": [
+        "Hypothesis or comparison",
+        "Question"
+      ],
+      "rows": [
+        [
+          "**H1. Placement power**",
+          "Does the mean conditional received share exceed 50% for B on the three-node line, the node class containing B and D on the five-node line, and the hub of each star? H1 requires this in all four networks."
+        ],
+        [
+          "**H2. Benchmark fit**",
+          "Which theoretical reference best matches observed mean earnings across node classes: the equal-split earnings reference, Myerson value, position value or the selected balanced outcome? H2 ranks prediction errors; it is not a significance test. Hence, it does not produce a hypothesis-test p-value."
+        ],
+        [
+          "**H3. Star dose-response**",
+          "Is there a positive linear trend in the hub's mean conditional received share as the number of leaves increases from two to four? The three-node line is treated as a two-leaf star, alongside the three- and four-leaf stars."
+        ],
+        [
+          "**H4. End-agent earnings**",
+          "Do agents at the ends of the four-node line earn more, on average, than agents at the ends of the five-node line?"
+        ],
+        [
+          "**H5. Network knowledge**",
+          "Does the mean power-use index differ between the full-map and own-links knowledge settings across the six eligible networks?"
+        ]
+      ],
+      "source_sha256": "706b49686226164528e49fad977b7652d379a29c2dfc2ce75ded0cd78a807636"
+    },
+    {
+      "id": "Table 2",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/main_body.md",
+      "section": "5.1. Placement, access and division of gains",
+      "caption": "**Table 2. Hypothesis-test results over rounds 13–24.** H1 reports four separate class mean conditional received shares, not a pooled effect. ",
+      "columns": [
+        "Test",
+        "Observed estimate",
+        "Marginal 95% bootstrap interval",
+        "Main-family Holm-adjusted p-value"
+      ],
+      "rows": [
+        [
+          "H1",
+          "Three-node line B: 91.01%; Five-node line B/D: 66.89%; Three-leaf star H: 95.42%; Four-leaf star H: 95.83%",
+          "Four separate intervals: Appendix C.2",
+          "0.000977"
+        ],
+        [
+          "H3",
+          "2.413 percentage points per extra leaf",
+          "0.955–4.219",
+          "0.000060"
+        ],
+        [
+          "H4",
+          "5.696 points per agent per round",
+          "5.121–6.250",
+          "0.000022"
+        ]
+      ],
+      "source_sha256": "706b49686226164528e49fad977b7652d379a29c2dfc2ce75ded0cd78a807636"
+    },
+    {
+      "id": "B1_network_specification",
+      "kind": "specification_or_teaching",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_b.md",
+      "section": "B.1. Task and observation rules",
+      "caption": "",
+      "columns": [
+        "Network and code identifier",
+        "Nodes",
+        "Complete list of links"
+      ],
+      "rows": [
+        [
+          "Pair, `pair`",
+          "A, B",
+          "A–B"
+        ],
+        [
+          "Three-node line, `line3`",
+          "A, B, C",
+          "A–B, B–C"
+        ],
+        [
+          "Four-node line, `line4`",
+          "A, B, C, D",
+          "A–B, B–C, C–D"
+        ],
+        [
+          "Five-node line, `line5`",
+          "A, B, C, D, E",
+          "A–B, B–C, C–D, D–E"
+        ],
+        [
+          "Three-leaf star, `star3`",
+          "H, L1, L2, L3",
+          "H–L1, H–L2, H–L3"
+        ],
+        [
+          "Four-leaf star, `star4`",
+          "H, L1, L2, L3, L4",
+          "H–L1, H–L2, H–L3, H–L4"
+        ],
+        [
+          "Stem, `stem`",
+          "A, B, C, D",
+          "A–B, B–C, B–D, C–D"
+        ],
+        [
+          "Triangle, `triangle`",
+          "A, B, C",
+          "A–B, A–C, B–C"
+        ]
+      ],
+      "source_sha256": "f42034ddef48c1bd8afddb1cceb78113cc6a544bf1966b5dd07faf1762c118f8"
+    },
+    {
+      "id": "B3_request_settings",
+      "kind": "specification_or_teaching",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_b.md",
+      "section": "B.3. Requests, randomization and recovery",
+      "caption": "",
+      "columns": [
+        "Setting",
+        "Resolved value in both arms"
+      ],
+      "rows": [
+        [
+          "Provider and API interface",
+          "OpenAI, Chat Completions"
+        ],
+        [
+          "Requested model identifier",
+          "`gpt-6.1-terra`"
+        ],
+        [
+          "Requested reasoning effort",
+          "`\"none\"`"
+        ],
+        [
+          "Maximum completion tokens",
+          "300"
+        ],
+        [
+          "Temperature",
+          "Not supplied; no numerical value is imposed by the harness"
+        ],
+        [
+          "Other sampling controls",
+          "No `top_p` or model sampling seed is supplied"
+        ],
+        [
+          "Prompt cache setting",
+          "`off`; request uses explicit mode with no cache breakpoints"
+        ],
+        [
+          "Storage request",
+          "`store: false`"
+        ],
+        [
+          "Per-request timeout",
+          "60 seconds"
+        ],
+        [
+          "Decision-prompt version",
+          "`v1`"
+        ],
+        [
+          "Quiz version",
+          "`q1`"
+        ]
+      ],
+      "source_sha256": "f42034ddef48c1bd8afddb1cceb78113cc6a544bf1966b5dd07faf1762c118f8"
+    },
+    {
+      "id": "Table C1",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.1. Complete class earnings",
+      "caption": "**Table C1. Mean observed earnings by node class and knowledge setting.** Brackets contain marginal 95% bootstrap intervals. Every cell uses ten episodes and twelve rounds per episode.",
+      "columns": [
+        "Network",
+        "Node class",
+        "Full-map mean [95% interval]",
+        "Own-links mean [95% interval]"
+      ],
+      "rows": [
+        [
+          "Pair",
+          "A, B",
+          "12.000 [12.000–12.000]",
+          "12.000 [12.000–12.000]"
+        ],
+        [
+          "Three-node line",
+          "A, C",
+          "1.079 [0.750–1.529]",
+          "2.463 [2.013–2.975]"
+        ],
+        [
+          "Three-node line",
+          "B",
+          "21.842 [20.967–22.500]",
+          "19.075 [18.133–20.000]"
+        ],
+        [
+          "Four-node line",
+          "A, D",
+          "11.821 [11.633–11.979]",
+          "11.992 [11.850–12.142]"
+        ],
+        [
+          "Four-node line",
+          "B, C",
+          "12.179 [12.021–12.379]",
+          "12.008 [11.858–12.150]"
+        ],
+        [
+          "Five-node line",
+          "A, E",
+          "6.125 [5.587–6.659]",
+          "6.350 [5.779–6.900]"
+        ],
+        [
+          "Five-node line",
+          "B, D",
+          "16.054 [15.567–16.508]",
+          "15.071 [14.650–15.463]"
+        ],
+        [
+          "Five-node line",
+          "C",
+          "3.642 [2.958–4.275]",
+          "5.158 [4.400–5.942]"
+        ],
+        [
+          "Three-leaf star",
+          "H",
+          "22.900 [22.700–23.000]",
+          "21.358 [20.742–21.925]"
+        ],
+        [
+          "Three-leaf star",
+          "Leaves L1–L3",
+          "0.367 [0.333–0.433]",
+          "0.881 [0.683–1.086]"
+        ],
+        [
+          "Four-leaf star",
+          "H",
+          "23.000 [23.000–23.000]",
+          "22.308 [21.792–22.692]"
+        ],
+        [
+          "Four-leaf star",
+          "Leaves L1–L4",
+          "0.250 [0.250–0.250]",
+          "0.373 [0.323–0.429]"
+        ],
+        [
+          "Stem",
+          "A",
+          "10.983 [10.475–11.492]",
+          "11.300 [10.600–11.800]"
+        ],
+        [
+          "Stem",
+          "B",
+          "13.017 [12.508–13.533]",
+          "12.700 [12.200–13.400]"
+        ],
+        [
+          "Stem",
+          "C, D",
+          "12.000 [12.000–12.000]",
+          "12.000 [12.000–12.000]"
+        ],
+        [
+          "Triangle",
+          "A, B, C",
+          "8.000 [8.000–8.000]",
+          "8.000 [8.000–8.000]"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C2",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.2. Benchmark fit and hypothesis evidence",
+      "caption": "**Table C2. Overall H2 numerical fit under both windows.** RMSE is measured in points per agent per round. Each knowledge setting uses the same fifteen classes in seven networks, based on seventy episodes: the pair is included, and the triangle is excluded from every four-reference overall comparison. Full map remains the primary H2 comparison and own links supplementary.",
+      "columns": [
+        "Knowledge setting",
+        "Theoretical reference",
+        "Rounds 13–24 RMSE [95% interval]",
+        "Rounds 13–23 RMSE [95% interval]"
+      ],
+      "rows": [
+        [
+          "Full map",
+          "Equal-split earnings reference",
+          "5.309 [5.172–5.432]",
+          "5.279 [5.137–5.406]"
+        ],
+        [
+          "Full map",
+          "Myerson value",
+          "2.868 [2.706–3.030]",
+          "2.839 [2.671–3.002]"
+        ],
+        [
+          "Full map",
+          "Position value",
+          "5.500 [5.360–5.627]",
+          "5.469 [5.323–5.603]"
+        ],
+        [
+          "Full map",
+          "Balanced outcome reference",
+          "3.661 [3.508–3.825]",
+          "3.696 [3.544–3.861]"
+        ],
+        [
+          "Own links",
+          "Equal-split earnings reference",
+          "4.429 [4.242–4.603]",
+          "4.356 [4.169–4.534]"
+        ],
+        [
+          "Own links",
+          "Myerson value",
+          "2.159 [1.961–2.354]",
+          "2.101 [1.903–2.302]"
+        ],
+        [
+          "Own links",
+          "Position value",
+          "4.654 [4.462–4.826]",
+          "4.581 [4.390–4.758]"
+        ],
+        [
+          "Own links",
+          "Balanced outcome reference",
+          "4.288 [4.116–4.468]",
+          "4.340 [4.173–4.519]"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C3",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.2. Benchmark fit and hypothesis evidence",
+      "caption": "**Table C3. All hypothesis tests under both windows.** Rounds 13–24 are primary; rounds 13–23 omit the final round as a sensitivity check on the same episodes. H3's estimate and interval are percentage points of conditional received share per extra leaf; H4's are points per endpoint agent per round; H5's are power-use-index units, full map minus own links. Sample sizes (n, episodes) and p-values are identical in both windows.",
+      "columns": [
+        "Test",
+        "13–24 estimate [95% interval]",
+        "13–23 estimate [95% interval]",
+        "n",
+        "Raw p-value",
+        "Main-family Holm-adjusted p-value"
+      ],
+      "rows": [
+        [
+          "H1",
+          "Four constituent shares: Table C4",
+          "Four constituent shares: Table C4",
+          "40",
+          "0.000976562",
+          "0.000976562"
+        ],
+        [
+          "H3",
+          "2.413 [0.955–4.219]",
+          "2.576 [1.174–4.451]",
+          "30",
+          "0.000030000",
+          "0.000060000"
+        ],
+        [
+          "H4",
+          "5.696 [5.121–6.250]",
+          "5.727 [5.164–6.255]",
+          "20",
+          "0.000005413",
+          "0.000021650"
+        ],
+        [
+          "H5",
+          "0.099 [0.067–0.132]",
+          "0.102 [0.069–0.134]",
+          "120",
+          "0.000010000",
+          "0.000030000"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C4",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.2. Benchmark fit and hypothesis evidence",
+      "caption": "**Table C4. H1 constituent estimates and the separate H1-network correction.** Shares and intervals are percentages. Every row uses ten full-map episodes. The separate four-network Holm correction gives every constituent an adjusted p-value of \\(4/1,024=0.00390625\\).",
+      "columns": [
+        "Network",
+        "Node class",
+        "13–24 share, % [95% interval]",
+        "13–23 share, % [95% interval]"
+      ],
+      "rows": [
+        [
+          "Three-node line",
+          "B",
+          "91.01 [87.15–93.82]",
+          "90.68 [86.70–93.64]"
+        ],
+        [
+          "Five-node line",
+          "B, D",
+          "66.89 [64.86–68.82]",
+          "66.52 [64.49–68.45]"
+        ],
+        [
+          "Three-leaf star",
+          "H",
+          "95.42 [94.58–95.83]",
+          "95.38 [94.47–95.83]"
+        ],
+        [
+          "Four-leaf star",
+          "H",
+          "95.83 [95.83–95.83]",
+          "95.83 [95.83–95.83]"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C5",
+      "kind": "numbered",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.3. Network knowledge and bargaining power {#appendix-c3}",
+      "caption": "**Table C5. Designated classes and balanced anchors.** Each arm contributes ten episodes per network.",
+      "columns": [
+        "Network",
+        "Designated node class",
+        "Balanced reference b"
+      ],
+      "rows": [
+        [
+          "Three-node line",
+          "B",
+          "24"
+        ],
+        [
+          "Four-node line",
+          "B, C",
+          "16"
+        ],
+        [
+          "Five-node line",
+          "B, D",
+          "24"
+        ],
+        [
+          "Three-leaf star",
+          "H",
+          "24"
+        ],
+        [
+          "Four-leaf star",
+          "H",
+          "24"
+        ],
+        [
+          "Stem",
+          "B",
+          "18"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C6",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.4. Sensitivity, operational checks and pair control",
+      "caption": "**Table C6. Protocol and request checks.**",
+      "columns": [
+        "Quantity or check",
+        "Recorded result"
+      ],
+      "rows": [
+        [
+          "Completed episodes",
+          "160 / 160"
+        ],
+        [
+          "Episode replays matching the saved records",
+          "160 / 160"
+        ],
+        [
+          "Invalid requested game actions",
+          "0 / 17,001"
+        ],
+        [
+          "Rules quizzes scoring 3/3",
+          "600 / 600"
+        ],
+        [
+          "Requested game decisions",
+          "17,001"
+        ],
+        [
+          "Automatic passes without a model request",
+          "8,503"
+        ],
+        [
+          "Participant API attempts, including quizzes",
+          "17,601"
+        ],
+        [
+          "Participant API retries recorded",
+          "0"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C7",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.4. Sensitivity, operational checks and pair control",
+      "caption": "**Table C7. Pair deal splits over rounds 13–24.**",
+      "columns": [
+        "Knowledge setting",
+        "Completed deals",
+        "12–12 deals",
+        "13–11 deals: maker receives thirteen"
+      ],
+      "rows": [
+        [
+          "Full map",
+          "120",
+          "120",
+          "0"
+        ],
+        [
+          "Own links",
+          "120",
+          "116",
+          "4"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "Table C8",
+      "kind": "numbered",
+      "empirical": true,
+      "source": "manuscript/appendices/appendix_c.md",
+      "section": "C.5. Individual histories and accepted-offer authors",
+      "caption": "**Table C8. Own-links triangle episode 005, rounds 13–24.** Mean earnings divide its total points by all twelve analyzed rounds, including rounds without a deal.",
+      "columns": [
+        "Agent",
+        "Mean points per round"
+      ],
+      "rows": [
+        [
+          "A",
+          "13.083"
+        ],
+        [
+          "B",
+          "4.250"
+        ],
+        [
+          "C",
+          "6.667"
+        ]
+      ],
+      "source_sha256": "aa89497ca6d72c320ecb4e023e7db3848cb769a19ad7447e6a1003da83600a7f"
+    },
+    {
+      "id": "D1_four_round_example",
+      "kind": "specification_or_teaching",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_d.md",
+      "section": "D.1. Feasible deals and outcome measures",
+      "caption": "",
+      "columns": [
+        "Round",
+        "Completed deal",
+        "A's points",
+        "B's points",
+        "C's points"
+      ],
+      "rows": [
+        [
+          "1",
+          "A–B",
+          "6",
+          "18",
+          "0"
+        ],
+        [
+          "2",
+          "A–B",
+          "6",
+          "18",
+          "0"
+        ],
+        [
+          "3",
+          "A–B",
+          "6",
+          "18",
+          "0"
+        ],
+        [
+          "4",
+          "B–C",
+          "0",
+          "6",
+          "18"
+        ]
+      ],
+      "source_sha256": "dcb346874aa57ff324b0fd4923c1e313188917c93eff4ba4102c302b4bb61b55"
+    },
+    {
+      "id": "D2_link_contributions",
+      "kind": "specification_or_teaching",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_d.md",
+      "section": "D.2. Agent and link contribution allocations",
+      "caption": "",
+      "columns": [
+        "Link order",
+        "A–B's contribution",
+        "B–C's contribution"
+      ],
+      "rows": [
+        [
+          "A–B → B–C",
+          "24",
+          "0"
+        ],
+        [
+          "B–C → A–B",
+          "0",
+          "24"
+        ]
+      ],
+      "source_sha256": "dcb346874aa57ff324b0fd4923c1e313188917c93eff4ba4102c302b4bb61b55"
+    },
+    {
+      "id": "D4_episode_example",
+      "kind": "specification_or_teaching",
+      "empirical": false,
+      "source": "manuscript/appendices/appendix_d.md",
+      "section": "D.4. Episode-based uncertainty and tests",
+      "caption": "",
+      "columns": [
+        "Episode",
+        "End-class earnings: A and C",
+        "Centre earnings: B"
+      ],
+      "rows": [
+        [
+          "1",
+          "2",
+          "20"
+        ],
+        [
+          "2",
+          "3",
+          "18"
+        ],
+        [
+          "3",
+          "1",
+          "22"
+        ]
+      ],
+      "source_sha256": "dcb346874aa57ff324b0fd4923c1e313188917c93eff4ba4102c302b4bb61b55"
+    }
+  ]
+}

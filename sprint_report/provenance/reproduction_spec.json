@@ -1,0 +1,63 @@
+{
+  "configs": [
+    "minimum_study",
+    "own_links_arm"
+  ],
+  "networks": [
+    "pair",
+    "line3",
+    "line4",
+    "line5",
+    "star3",
+    "star4",
+    "stem",
+    "triangle"
+  ],
+  "scope": "160 recorded study episodes, both knowledge settings; no pilot pooling, mixed models, H6, judge coding or costs",
+  "seed": 1,
+  "bootstrap_repetitions": 2000,
+  "confidence": 0.95,
+  "windows": {
+    "primary": [
+      13,
+      24
+    ],
+    "sensitivity": [
+      13,
+      23
+    ]
+  },
+  "main_holm_family": [
+    "H1_joint",
+    "H3",
+    "H4",
+    "H5"
+  ],
+  "secondary_holm_family": [
+    "H1_line3",
+    "H1_line5",
+    "H1_star3",
+    "H1_star4"
+  ],
+  "h1_joint": "Maximum constituent raw p-value; separate main-family adjustment",
+  "directions": {
+    "H1": "one-sided greater",
+    "H3": "one-sided greater",
+    "H4": "one-sided greater",
+    "H5": "two-sided"
+  },
+  "averaging": "Rounds within node, equally weighted members within node class, equally weighted episodes within condition; keep undefined conditional received shares missing, not zero; do not replace mean earnings with a product of separately averaged participation and shares.",
+  "h2": "Common 15-class comparison across 7 networks; exclude triangle for every predictor, include pair; not a test",
+  "h3_mc_assignments": 200000,
+  "h5_mc_assignments": 100000,
+  "h1_sign_patterns": 1024,
+  "h4_exact_assignments": 184756,
+  "h5_weights": "One sixth per eligible network; independent arms; two-sided within-network label permutations",
+  "monte_carlo_tail": "(R+1)/(B+1)",
+  "tail_tolerance": 1e-12,
+  "numerical_acceptance": {
+    "atol": 1e-10,
+    "rtol": 0
+  },
+  "immutable_stream_policy": "Preserve every existing derive_seed label, row/class/episode order and batching detail. Do not replace keyed streams with a newly seeded global RNG."
+}

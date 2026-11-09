@@ -1,0 +1,42 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "bargaining_action",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "offer",
+            "accept",
+            "pass"
+          ]
+        },
+        "to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "my_points": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "to",
+        "my_points",
+        "note"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

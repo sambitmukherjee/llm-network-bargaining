@@ -1,0 +1,2489 @@
+{
+  "policy": "Comparison evidence only. Public figure generation must consume freshly recomputed values.",
+  "primary_coordinates": [
+    {
+      "figure": "completed_links",
+      "network_id": "pair",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "pair",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 0.425,
+      "reference": 0.5
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "edge": "B–C",
+      "observed": 0.575,
+      "reference": 0.5
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line3",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 0.425,
+      "reference": 0.5
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line3",
+      "knowledge": "own_links",
+      "edge": "B–C",
+      "observed": 0.575,
+      "reference": 0.5
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "edge": "B–C",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "edge": "C–D",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "own_links",
+      "edge": "B–C",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line4",
+      "knowledge": "own_links",
+      "edge": "C–D",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 0.7166666666666667,
+      "reference": 0.6666666666666666
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "edge": "B–C",
+      "observed": 0.2833333333333333,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "edge": "C–D",
+      "observed": 0.2,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "edge": "D–E",
+      "observed": 0.8,
+      "reference": 0.6666666666666666
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 0.75,
+      "reference": 0.6666666666666666
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "own_links",
+      "edge": "B–C",
+      "observed": 0.25,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "own_links",
+      "edge": "C–D",
+      "observed": 0.3416666666666667,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "line5",
+      "knowledge": "own_links",
+      "edge": "D–E",
+      "observed": 0.6583333333333333,
+      "reference": 0.6666666666666666
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "edge": "H–L1",
+      "observed": 0.3333333333333333,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "edge": "H–L2",
+      "observed": 0.36666666666666664,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "edge": "H–L3",
+      "observed": 0.3,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "own_links",
+      "edge": "H–L1",
+      "observed": 0.38333333333333336,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "own_links",
+      "edge": "H–L2",
+      "observed": 0.3416666666666667,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star3",
+      "knowledge": "own_links",
+      "edge": "H–L3",
+      "observed": 0.275,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "edge": "H–L1",
+      "observed": 0.20833333333333334,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "edge": "H–L2",
+      "observed": 0.275,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "edge": "H–L3",
+      "observed": 0.23333333333333334,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "edge": "H–L4",
+      "observed": 0.2833333333333333,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "own_links",
+      "edge": "H–L1",
+      "observed": 0.18333333333333332,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "own_links",
+      "edge": "H–L2",
+      "observed": 0.25,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "own_links",
+      "edge": "H–L3",
+      "observed": 0.275,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "star4",
+      "knowledge": "own_links",
+      "edge": "H–L4",
+      "observed": 0.2833333333333333,
+      "reference": 0.25
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "edge": "B–C",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "edge": "B–D",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "edge": "C–D",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "own_links",
+      "edge": "B–C",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "own_links",
+      "edge": "B–D",
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "stem",
+      "knowledge": "own_links",
+      "edge": "C–D",
+      "observed": 1.0,
+      "reference": 1.0
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "full_map",
+      "edge": "A–B",
+      "observed": 0.38333333333333336,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "full_map",
+      "edge": "A–C",
+      "observed": 0.21666666666666667,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "full_map",
+      "edge": "B–C",
+      "observed": 0.4,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "own_links",
+      "edge": "A–B",
+      "observed": 0.38333333333333336,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "own_links",
+      "edge": "A–C",
+      "observed": 0.2916666666666667,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "completed_links",
+      "network_id": "triangle",
+      "knowledge": "own_links",
+      "edge": "B–C",
+      "observed": 0.325,
+      "reference": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/000",
+      "value": 1.6666666666666665
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/001",
+      "value": 1.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/002",
+      "value": 0.9166666666666667
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/003",
+      "value": 0.9166666666666667
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/004",
+      "value": 0.9166666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/005",
+      "value": 0.5
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/006",
+      "value": 0.5
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/007",
+      "value": 0.6666666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/008",
+      "value": 2.75
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "episode_uid": "minimum_study/line3/full_map/terra/009",
+      "value": 0.9583333333333334
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "A|C",
+      "value": 1.0791666666666666
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "A|C",
+      "reference": "equal_split",
+      "value": 6.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "A|C",
+      "reference": "myerson",
+      "value": 4.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "A|C",
+      "reference": "position_value",
+      "value": 6.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "A|C",
+      "reference": "balanced",
+      "value": 0.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/000",
+      "value": 20.666666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/001",
+      "value": 22.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/002",
+      "value": 22.166666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/003",
+      "value": 22.166666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/004",
+      "value": 22.166666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/005",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/006",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/007",
+      "value": 22.666666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/008",
+      "value": 18.5
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/line3/full_map/terra/009",
+      "value": 22.083333333333332
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line3",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "value": 21.84166666666667
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "B",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "B",
+      "reference": "myerson",
+      "value": 16.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "B",
+      "reference": "position_value",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line3",
+      "node_class": "B",
+      "reference": "balanced",
+      "value": 24.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/000",
+      "value": 12.083333333333332
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/001",
+      "value": 11.791666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/002",
+      "value": 11.791666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/003",
+      "value": 11.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/004",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/005",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/006",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/007",
+      "value": 11.291666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/008",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "episode_uid": "minimum_study/line4/full_map/terra/009",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "A|D",
+      "value": 11.820833333333335
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "A|D",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "A|D",
+      "reference": "myerson",
+      "value": 10.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "A|D",
+      "reference": "position_value",
+      "value": 10.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "A|D",
+      "reference": "balanced",
+      "value": 8.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/000",
+      "value": 11.916666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/001",
+      "value": 12.208333333333332
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/002",
+      "value": 12.208333333333332
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/003",
+      "value": 12.75
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/004",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/005",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/006",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/007",
+      "value": 12.708333333333332
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/008",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "episode_uid": "minimum_study/line4/full_map/terra/009",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line4",
+      "knowledge": "full_map",
+      "node_class": "B|C",
+      "value": 12.179166666666665
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "B|C",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "B|C",
+      "reference": "myerson",
+      "value": 14.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "B|C",
+      "reference": "position_value",
+      "value": 14.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line4",
+      "node_class": "B|C",
+      "reference": "balanced",
+      "value": 16.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/000",
+      "value": 6.291666666666667
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/001",
+      "value": 6.833333333333334
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/002",
+      "value": 5.375
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/003",
+      "value": 4.958333333333334
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/004",
+      "value": 7.541666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/005",
+      "value": 6.041666666666667
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/006",
+      "value": 5.208333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/007",
+      "value": 5.083333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/008",
+      "value": 6.916666666666667
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "episode_uid": "minimum_study/line5/full_map/terra/009",
+      "value": 7.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "A|E",
+      "value": 6.125
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "A|E",
+      "reference": "equal_split",
+      "value": 8.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "A|E",
+      "reference": "myerson",
+      "value": 5.200000000000001
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "A|E",
+      "reference": "position_value",
+      "value": 7.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "A|E",
+      "reference": "balanced",
+      "value": 0.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/000",
+      "value": 15.666666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/001",
+      "value": 15.791666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/002",
+      "value": 17.125
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/003",
+      "value": 16.625
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/004",
+      "value": 15.833333333333334
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/005",
+      "value": 16.375
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/006",
+      "value": 16.541666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/007",
+      "value": 16.875
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/008",
+      "value": 14.541666666666668
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "episode_uid": "minimum_study/line5/full_map/terra/009",
+      "value": 15.166666666666666
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "B|D",
+      "value": 16.054166666666667
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "B|D",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "B|D",
+      "reference": "myerson",
+      "value": 15.200000000000003
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "B|D",
+      "reference": "position_value",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "B|D",
+      "reference": "balanced",
+      "value": 24.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/000",
+      "value": 4.083333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/001",
+      "value": 2.75
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/002",
+      "value": 3.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/003",
+      "value": 4.833333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/004",
+      "value": 1.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/005",
+      "value": 3.1666666666666665
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/006",
+      "value": 4.5
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/007",
+      "value": 4.083333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/008",
+      "value": 5.083333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "episode_uid": "minimum_study/line5/full_map/terra/009",
+      "value": 3.6666666666666665
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "line5",
+      "knowledge": "full_map",
+      "node_class": "C",
+      "value": 3.6416666666666666
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "C",
+      "reference": "equal_split",
+      "value": 8.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "C",
+      "reference": "myerson",
+      "value": 7.200000000000001
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "C",
+      "reference": "position_value",
+      "value": 10.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "line5",
+      "node_class": "C",
+      "reference": "balanced",
+      "value": 0.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/000",
+      "value": 22.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/001",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/002",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/003",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/004",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/005",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/006",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/007",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/008",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star3/full_map/terra/009",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "value": 22.9
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "H",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "H",
+      "reference": "myerson",
+      "value": 18.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "H",
+      "reference": "position_value",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "H",
+      "reference": "balanced",
+      "value": 24.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/000",
+      "value": 0.6666666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/001",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/002",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/003",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/004",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/005",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/006",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/007",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/008",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "episode_uid": "minimum_study/star3/full_map/terra/009",
+      "value": 0.3333333333333333
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "star3",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3",
+      "value": 0.3666666666666667
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "L1|L2|L3",
+      "reference": "equal_split",
+      "value": 4.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "L1|L2|L3",
+      "reference": "myerson",
+      "value": 2.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "L1|L2|L3",
+      "reference": "position_value",
+      "value": 4.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star3",
+      "node_class": "L1|L2|L3",
+      "reference": "balanced",
+      "value": 0.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/000",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/001",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/002",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/003",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/004",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/005",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/006",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/007",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/008",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "episode_uid": "minimum_study/star4/full_map/terra/009",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "H",
+      "value": 23.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "H",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "H",
+      "reference": "myerson",
+      "value": 19.200000000000003
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "H",
+      "reference": "position_value",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "H",
+      "reference": "balanced",
+      "value": 24.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/000",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/001",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/002",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/003",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/004",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/005",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/006",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/007",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/008",
+      "value": 0.24999999999999997
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "episode_uid": "minimum_study/star4/full_map/terra/009",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "star4",
+      "knowledge": "full_map",
+      "node_class": "L1|L2|L3|L4",
+      "value": 0.25
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "L1|L2|L3|L4",
+      "reference": "equal_split",
+      "value": 3.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "L1|L2|L3|L4",
+      "reference": "myerson",
+      "value": 1.2000000000000002
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "L1|L2|L3|L4",
+      "reference": "position_value",
+      "value": 3.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "star4",
+      "node_class": "L1|L2|L3|L4",
+      "reference": "balanced",
+      "value": 0.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/000",
+      "value": 11.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/001",
+      "value": 9.916666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/002",
+      "value": 11.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/003",
+      "value": 11.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/004",
+      "value": 10.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/005",
+      "value": 11.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/006",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/007",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/008",
+      "value": 9.916666666666666
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "episode_uid": "minimum_study/stem/full_map/terra/009",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "A",
+      "value": 10.983333333333333
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "A",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "A",
+      "reference": "myerson",
+      "value": 8.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "A",
+      "reference": "position_value",
+      "value": 9.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "A",
+      "reference": "balanced",
+      "value": 6.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/000",
+      "value": 13.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/001",
+      "value": 14.083333333333334
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/002",
+      "value": 13.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/003",
+      "value": 13.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/004",
+      "value": 14.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/005",
+      "value": 13.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/006",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/007",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/008",
+      "value": 14.083333333333334
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "episode_uid": "minimum_study/stem/full_map/terra/009",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "B",
+      "value": 13.01666666666667
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "B",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "B",
+      "reference": "myerson",
+      "value": 16.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "B",
+      "reference": "position_value",
+      "value": 15.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "B",
+      "reference": "balanced",
+      "value": 18.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/000",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/001",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/002",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/003",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/004",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/005",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/006",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/007",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/008",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_episode",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "episode_uid": "minimum_study/stem/full_map/terra/009",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_mean",
+      "network_id": "stem",
+      "knowledge": "full_map",
+      "node_class": "C|D",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "C|D",
+      "reference": "equal_split",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "C|D",
+      "reference": "myerson",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "C|D",
+      "reference": "position_value",
+      "value": 12.0
+    },
+    {
+      "figure": "earnings_reference",
+      "network_id": "stem",
+      "node_class": "C|D",
+      "reference": "balanced",
+      "value": 12.0
+    }
+  ],
+  "knowledge_difference_coordinates": [
+    {
+      "window": "primary",
+      "network_id": "line3",
+      "difference": 0.23055555555555562,
+      "ci_low": 0.1298611111111111,
+      "ci_high": 0.33333333333333326,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 2.7666666666666675
+    },
+    {
+      "window": "primary",
+      "network_id": "line4",
+      "difference": 0.0427083333333333,
+      "ci_low": -0.010442708333333274,
+      "ci_high": 0.1041666666666666,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 0.1708333333333332
+    },
+    {
+      "window": "primary",
+      "network_id": "line5",
+      "difference": 0.08194444444444449,
+      "ci_low": 0.02948784722222223,
+      "ci_high": 0.13263888888888895,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 0.9833333333333338
+    },
+    {
+      "window": "primary",
+      "network_id": "star3",
+      "difference": 0.1284722222222221,
+      "ci_low": 0.07847222222222194,
+      "ci_high": 0.1819791666666664,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 1.5416666666666652
+    },
+    {
+      "window": "primary",
+      "network_id": "star4",
+      "difference": 0.057638888888888906,
+      "ci_low": 0.025694444444444464,
+      "ci_high": 0.10277777777777775,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 0.6916666666666669
+    },
+    {
+      "window": "primary",
+      "network_id": "stem",
+      "difference": 0.0527777777777778,
+      "ci_low": -0.08194444444444443,
+      "ci_high": 0.1875,
+      "n_full": 10,
+      "n_own": 10,
+      "points_difference": 0.31666666666666676
+    },
+    {
+      "window": "primary",
+      "measure": "H5_difference",
+      "estimate": 0.09901620370370372,
+      "ci_low": 0.06695312499999988,
+      "ci_high": 0.13154369212962966,
+      "n_defined_bootstrap": 2000
+    }
+  ],
+  "topologies": {
+    "width_inches": 6.5,
+    "height_inches": 2.05,
+    "minimum_label_pt": 6.8,
+    "text_outside_canvas": [],
+    "networks": [
+      {
+        "network": "pair",
+        "nodes": [
+          "A",
+          "B"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "positions": {
+          "A": [
+            -0.33,
+            0
+          ],
+          "B": [
+            0.33,
+            0
+          ]
+        }
+      },
+      {
+        "network": "line3",
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "positions": {
+          "A": [
+            -0.66,
+            0
+          ],
+          "B": [
+            0.0,
+            0
+          ],
+          "C": [
+            0.66,
+            0
+          ]
+        }
+      },
+      {
+        "network": "line4",
+        "nodes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "positions": {
+          "A": [
+            -0.9,
+            0
+          ],
+          "B": [
+            -0.30000000000000004,
+            0
+          ],
+          "C": [
+            0.29999999999999993,
+            0
+          ],
+          "D": [
+            0.9,
+            0
+          ]
+        }
+      },
+      {
+        "network": "line5",
+        "nodes": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ],
+          [
+            "D",
+            "E"
+          ]
+        ],
+        "positions": {
+          "A": [
+            -0.96,
+            0
+          ],
+          "B": [
+            -0.48,
+            0
+          ],
+          "C": [
+            0.0,
+            0
+          ],
+          "D": [
+            0.48,
+            0
+          ],
+          "E": [
+            0.96,
+            0
+          ]
+        }
+      },
+      {
+        "network": "star3",
+        "nodes": [
+          "H",
+          "L1",
+          "L2",
+          "L3"
+        ],
+        "links": [
+          [
+            "H",
+            "L1"
+          ],
+          [
+            "H",
+            "L2"
+          ],
+          [
+            "H",
+            "L3"
+          ]
+        ],
+        "positions": {
+          "H": [
+            0,
+            0
+          ],
+          "L1": [
+            0,
+            0.78
+          ],
+          "L2": [
+            -0.78,
+            -0.64
+          ],
+          "L3": [
+            0.78,
+            -0.64
+          ]
+        }
+      },
+      {
+        "network": "star4",
+        "nodes": [
+          "H",
+          "L1",
+          "L2",
+          "L3",
+          "L4"
+        ],
+        "links": [
+          [
+            "H",
+            "L1"
+          ],
+          [
+            "H",
+            "L2"
+          ],
+          [
+            "H",
+            "L3"
+          ],
+          [
+            "H",
+            "L4"
+          ]
+        ],
+        "positions": {
+          "H": [
+            0,
+            0
+          ],
+          "L1": [
+            0,
+            0.78
+          ],
+          "L2": [
+            0.78,
+            0
+          ],
+          "L3": [
+            0,
+            -0.78
+          ],
+          "L4": [
+            -0.78,
+            0
+          ]
+        }
+      },
+      {
+        "network": "stem",
+        "nodes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "positions": {
+          "A": [
+            -0.9,
+            0
+          ],
+          "B": [
+            -0.15,
+            0
+          ],
+          "C": [
+            0.78,
+            0.68
+          ],
+          "D": [
+            0.78,
+            -0.68
+          ]
+        }
+      },
+      {
+        "network": "triangle",
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "links": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "positions": {
+          "A": [
+            0,
+            0.78
+          ],
+          "B": [
+            -0.78,
+            -0.68
+          ],
+          "C": [
+            0.78,
+            -0.68
+          ]
+        }
+      }
+    ]
+  },
+  "maximum_matchings": [
+    {
+      "network": "line3",
+      "matching": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "excluded": [
+        "C"
+      ]
+    },
+    {
+      "network": "line3",
+      "matching": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "excluded": [
+        "A"
+      ]
+    },
+    {
+      "network": "line5",
+      "matching": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "excluded": [
+        "E"
+      ]
+    },
+    {
+      "network": "line5",
+      "matching": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "excluded": [
+        "C"
+      ]
+    },
+    {
+      "network": "line5",
+      "matching": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "excluded": [
+        "A"
+      ]
+    }
+  ],
+  "outside_options": {
+    "points": {
+      "A": 8,
+      "B": 16,
+      "C": 16,
+      "D": 8
+    },
+    "outside_options": {
+      "A": 0,
+      "B": 8,
+      "C": 8,
+      "D": 0
+    },
+    "gains": {
+      "A": 8,
+      "B": 8,
+      "C": 8,
+      "D": 8
+    }
+  }
+}

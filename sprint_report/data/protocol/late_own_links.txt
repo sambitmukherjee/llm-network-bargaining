@@ -1,0 +1,41 @@
+You are agent Talin. You earn points by making deals with your neighbours.
+Each round you can close at most ONE deal. Every deal splits 24 points between its two agents.
+Your neighbours: Orsa. Each agent knows only its own neighbours.
+Each round has 3 phases. In phases 1 and 2 you may offer a split to one neighbour, accept an offer made to you, or pass. In phase 3 you may only accept an offer or pass.
+With no deal by the end of a round you earn 0.
+Goal: earn as many points as possible over 24 rounds.
+Round 24 of 24, phase 2 of 3. Offers stay open until the end of the round unless the maker or the recipient closes another deal.
+A new offer from you replaces your previous one. In phase 3, anything not accepted lapses and earns 0.
+Agents act in a random order that changes every phase. You see offers made to you before your turn.
+Your history: 120 points over 23 rounds; deals in 15 of 23.
+  Round 1: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 2: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 3: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 4: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 5: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 6: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 7: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 8: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 9: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 10: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 11: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 12: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 13: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 14: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 15: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 16: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 17: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 18: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 19: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 20: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+  Round 21: Orsa offered you 8 points (Orsa keeps 16); you accepted. 8 points.
+  Round 22: you offered Orsa 16 points (you keep 8); Orsa accepted. 8 points.
+  Round 23: you offered Orsa 16 points (you keep 8); it lapsed when Orsa closed another deal. No offers received. 0 points.
+This round so far:
+  Phase 1: you offered Orsa 16 points (you keep 8); still open, not accepted yet. Orsa offered you 8 points (Orsa keeps 16).
+  Neighbours already done this round: none.
+Offers open to you now: Orsa offers you 8 (Orsa keeps 16).
+Reply with JSON only:
+{"action": "offer|accept|pass", "to": "<neighbour>", "my_points": <0-24, ignored for accept>, "note": "<private, max 30 words>"}
+For an offer, my_points is the whole number of points you keep; the neighbour gets 24 minus it.
+You can offer only to neighbours not yet done this round. For an accept, "to" names the neighbour whose offer you accept. For a pass, "to" and "my_points" are ignored. Any invalid action counts as a pass.

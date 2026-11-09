@@ -1,0 +1,42 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "rules_quiz",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "q1": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "q2": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "q3": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      },
+      "required": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

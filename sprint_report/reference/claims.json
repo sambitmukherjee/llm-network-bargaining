@@ -1,0 +1,2893 @@
+{
+  "policy": "Comparison targets extracted from already reviewed references; not substitutes for fresh computation.",
+  "input_values_are_csv_strings": true,
+  "tolerance": {
+    "absolute": 1e-10,
+    "relative": 0
+  },
+  "dataset_origins": {
+    "class_earnings": {
+      "source": "data/derived/section_6/class_earnings.csv",
+      "sha256": "dcc08783620b57735b07a2c4f1e8a9e1b4621ae526ca12df868adb31b9615307"
+    },
+    "hypotheses": {
+      "source": "data/derived/section_6/hypothesis_summary.csv",
+      "sha256": "712066c418e68cc155555ad0e00ee054d8665977320909f15e595e4748d8bcc1"
+    },
+    "h1_constituents": {
+      "source": "data/derived/section_6/h1_networks.csv",
+      "sha256": "e9c021649faf795210a90c0fc22393ebeea0f15a9c4838a0b7117f2da14529d3"
+    },
+    "effect_intervals": {
+      "source": "data/derived/section_6/effect_intervals.csv",
+      "sha256": "8266b52ddd89e3c83e769db0c9b323f68e88b67de2614f8c939bb91c20842c99"
+    },
+    "overall_rmse": {
+      "source": "data/derived/section_6/h2_overall_both_windows.csv",
+      "sha256": "d1edf7110073e2429620b3fa2abe611782030184b5823b56f89f50a78f642aaa"
+    },
+    "network_rmse": {
+      "source": "data/derived/section_6/rmse.csv",
+      "sha256": "d0eb75c565b6c58cd326297fff179a99d19c5d3509227e6abbc157909a0769a8"
+    },
+    "power_use": {
+      "source": "data/derived/appendices/knowledge/power_use_summary.csv",
+      "sha256": "f2c7640ac7b06f45123bf22b68c93d313bd0564914a2cdb38175bb1521ccabe2"
+    },
+    "power_use_differences": {
+      "source": "data/derived/appendices/knowledge/power_use_differences.csv",
+      "sha256": "e8629bc2452bb9ad206ed8a56719bbcf006a75823e0ce4232ee545136dc1666b"
+    },
+    "efficiency": {
+      "source": "data/derived/section_6/efficiency_counts.csv",
+      "sha256": "07dafc91e413be026c566d32779e9b2d08d2e808ba4096f6d06f97a008eea503"
+    },
+    "pair_splits": {
+      "source": "data/derived/section_6/pair_splits.csv",
+      "sha256": "c45941d4ae9c124dab34742e6dffd37361d26c01aae46805afb1b5dae53252da"
+    },
+    "inefficient_rounds": {
+      "source": "data/derived/appendices/health/inefficient_rounds.csv",
+      "sha256": "86ff30a1c66b2c4ded6151d7fcd691fee41b847e7c9c85a1994b956d52be6803"
+    },
+    "null_audit": {
+      "source": "data/derived/appendices/statistics/null_audit.csv",
+      "sha256": "fcd6d28bdf584a92c6bf8eafd9e3a3ab988d0f966199e7d67f3c34962f948040"
+    },
+    "holm_steps": {
+      "source": "data/derived/appendices/statistics/holm_steps.csv",
+      "sha256": "d2e7947f3eac9e014587159c6f6634774737308c29b013ff1cc978d38d00b39e"
+    },
+    "theory": {
+      "source": "data/derived/appendices/theoretical_allocations.csv",
+      "sha256": "dedb1bbe4e9afa34c431d45718e1db22e960a5408bb587da8b33835fb5952ece"
+    },
+    "triangle_example": {
+      "source": "data/derived/appendices/individual/triangle_worked_example.csv",
+      "sha256": "940351c8f6ea80b74a736aea79eaf754f13a7acc54920ed39c005995756bde5c"
+    }
+  },
+  "expected": {
+    "class_earnings": [
+      {
+        "network_id": "line3",
+        "knowledge": "full_map",
+        "node_class": "A|C",
+        "points_mean": "1.0791666666666666",
+        "points_mean_ci_low": "0.75",
+        "points_mean_ci_high": "1.5291666666666663",
+        "share_mean": "0.0937251984126984",
+        "share_mean_ci_low": "0.06408862433862433",
+        "share_mean_ci_high": "0.13686739417989413",
+        "deal_rate": "0.5",
+        "deal_rate_ci_low": "0.5",
+        "deal_rate_ci_high": "0.5"
+      },
+      {
+        "network_id": "line3",
+        "knowledge": "full_map",
+        "node_class": "B",
+        "points_mean": "21.84166666666667",
+        "points_mean_ci_low": "20.96666666666667",
+        "points_mean_ci_high": "22.499999999999996",
+        "share_mean": "0.9100694444444445",
+        "share_mean_ci_low": "0.872907986111111",
+        "share_mean_ci_high": "0.9371527777777777",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line4",
+        "knowledge": "full_map",
+        "node_class": "A|D",
+        "points_mean": "11.820833333333335",
+        "points_mean_ci_low": "11.633333333333335",
+        "points_mean_ci_high": "11.979166666666668",
+        "share_mean": "0.4925347222222222",
+        "share_mean_ci_low": "0.48420138888888886",
+        "share_mean_ci_high": "0.4994791666666666",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line4",
+        "knowledge": "full_map",
+        "node_class": "B|C",
+        "points_mean": "12.179166666666665",
+        "points_mean_ci_low": "12.020833333333332",
+        "points_mean_ci_high": "12.379166666666666",
+        "share_mean": "0.5074652777777778",
+        "share_mean_ci_low": "0.5005208333333334",
+        "share_mean_ci_high": "0.515798611111111",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "full_map",
+        "node_class": "A|E",
+        "points_mean": "6.125",
+        "points_mean_ci_low": "5.587291666666667",
+        "points_mean_ci_high": "6.658541666666666",
+        "share_mean": "0.33404017857142854",
+        "share_mean_ci_low": "0.3162236483134921",
+        "share_mean_ci_high": "0.35563206845238093",
+        "deal_rate": "0.7583333333333334",
+        "deal_rate_ci_low": "0.7208333333333333",
+        "deal_rate_ci_high": "0.8"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "full_map",
+        "node_class": "B|D",
+        "points_mean": "16.054166666666667",
+        "points_mean_ci_low": "15.5665625",
+        "points_mean_ci_high": "16.508333333333333",
+        "share_mean": "0.6689236111111112",
+        "share_mean_ci_low": "0.6480859375",
+        "share_mean_ci_high": "0.6880208333333332",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "full_map",
+        "node_class": "C",
+        "points_mean": "3.6416666666666666",
+        "points_mean_ci_low": "2.958125",
+        "points_mean_ci_high": "4.275",
+        "share_mean": "0.3155357142857143",
+        "share_mean_ci_low": "0.29206001984126984",
+        "share_mean_ci_high": "0.3389595734126984",
+        "deal_rate": "0.4833333333333333",
+        "deal_rate_ci_low": "0.39166666666666666",
+        "deal_rate_ci_high": "0.5666666666666667"
+      },
+      {
+        "network_id": "pair",
+        "knowledge": "full_map",
+        "node_class": "A|B",
+        "points_mean": "12.0",
+        "points_mean_ci_low": "12.0",
+        "points_mean_ci_high": "12.0",
+        "share_mean": "0.5",
+        "share_mean_ci_low": "0.5",
+        "share_mean_ci_high": "0.5",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star3",
+        "knowledge": "full_map",
+        "node_class": "H",
+        "points_mean": "22.9",
+        "points_mean_ci_low": "22.7",
+        "points_mean_ci_high": "23.0",
+        "share_mean": "0.9541666666666668",
+        "share_mean_ci_low": "0.9458333333333334",
+        "share_mean_ci_high": "0.9583333333333334",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star3",
+        "knowledge": "full_map",
+        "node_class": "L1|L2|L3",
+        "points_mean": "0.3666666666666667",
+        "points_mean_ci_low": "0.33333333333333337",
+        "points_mean_ci_high": "0.4333333333333333",
+        "share_mean": "0.04560185185185185",
+        "share_mean_ci_low": "0.04166666666666667",
+        "share_mean_ci_high": "0.05347222222222222",
+        "deal_rate": "0.33333333333333337",
+        "deal_rate_ci_low": "0.33333333333333337",
+        "deal_rate_ci_high": "0.33333333333333337"
+      },
+      {
+        "network_id": "star4",
+        "knowledge": "full_map",
+        "node_class": "H",
+        "points_mean": "23.0",
+        "points_mean_ci_low": "23.0",
+        "points_mean_ci_high": "23.0",
+        "share_mean": "0.9583333333333334",
+        "share_mean_ci_low": "0.9583333333333334",
+        "share_mean_ci_high": "0.9583333333333334",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star4",
+        "knowledge": "full_map",
+        "node_class": "L1|L2|L3|L4",
+        "points_mean": "0.25",
+        "points_mean_ci_low": "0.25",
+        "points_mean_ci_high": "0.25",
+        "share_mean": "0.04166666666666667",
+        "share_mean_ci_low": "0.04166666666666667",
+        "share_mean_ci_high": "0.04166666666666667",
+        "deal_rate": "0.25",
+        "deal_rate_ci_low": "0.25",
+        "deal_rate_ci_high": "0.25"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "full_map",
+        "node_class": "A",
+        "points_mean": "10.983333333333333",
+        "points_mean_ci_low": "10.475",
+        "points_mean_ci_high": "11.491666666666665",
+        "share_mean": "0.45763888888888893",
+        "share_mean_ci_low": "0.4364583333333333",
+        "share_mean_ci_high": "0.47881944444444435",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "full_map",
+        "node_class": "B",
+        "points_mean": "13.01666666666667",
+        "points_mean_ci_low": "12.508333333333333",
+        "points_mean_ci_high": "13.533333333333331",
+        "share_mean": "0.5423611111111111",
+        "share_mean_ci_low": "0.5211805555555555",
+        "share_mean_ci_high": "0.5638888888888889",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "full_map",
+        "node_class": "C|D",
+        "points_mean": "12.0",
+        "points_mean_ci_low": "12.0",
+        "points_mean_ci_high": "12.0",
+        "share_mean": "0.5",
+        "share_mean_ci_low": "0.5",
+        "share_mean_ci_high": "0.5",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "triangle",
+        "knowledge": "full_map",
+        "node_class": "A|B|C",
+        "points_mean": "8.0",
+        "points_mean_ci_low": "8.0",
+        "points_mean_ci_high": "8.0",
+        "share_mean": "0.48924222382555715",
+        "share_mean_ci_low": "0.482843711169232",
+        "share_mean_ci_high": "0.49644735174162263",
+        "deal_rate": "0.6666666666666667",
+        "deal_rate_ci_low": "0.6666666666666667",
+        "deal_rate_ci_high": "0.6666666666666667"
+      },
+      {
+        "network_id": "line3",
+        "knowledge": "own_links",
+        "node_class": "A|C",
+        "points_mean": "2.4625000000000004",
+        "points_mean_ci_low": "2.0125",
+        "points_mean_ci_high": "2.975",
+        "share_mean": "0.21523561507936506",
+        "share_mean_ci_low": "0.18281163194444444",
+        "share_mean_ci_high": "0.25316815476190474",
+        "deal_rate": "0.5",
+        "deal_rate_ci_low": "0.5",
+        "deal_rate_ci_high": "0.5"
+      },
+      {
+        "network_id": "line3",
+        "knowledge": "own_links",
+        "node_class": "B",
+        "points_mean": "19.074999999999996",
+        "points_mean_ci_low": "18.133333333333333",
+        "points_mean_ci_high": "19.999999999999996",
+        "share_mean": "0.7947916666666667",
+        "share_mean_ci_low": "0.7531163194444445",
+        "share_mean_ci_high": "0.831953125",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line4",
+        "knowledge": "own_links",
+        "node_class": "A|D",
+        "points_mean": "11.991666666666667",
+        "points_mean_ci_low": "11.85",
+        "points_mean_ci_high": "12.141666666666667",
+        "share_mean": "0.4996527777777778",
+        "share_mean_ci_low": "0.49340277777777775",
+        "share_mean_ci_high": "0.5059027777777777",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line4",
+        "knowledge": "own_links",
+        "node_class": "B|C",
+        "points_mean": "12.008333333333333",
+        "points_mean_ci_low": "11.858333333333333",
+        "points_mean_ci_high": "12.150208333333332",
+        "share_mean": "0.5003472222222223",
+        "share_mean_ci_low": "0.49409722222222224",
+        "share_mean_ci_high": "0.5065972222222221",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "own_links",
+        "node_class": "A|E",
+        "points_mean": "6.35",
+        "points_mean_ci_low": "5.7790625",
+        "points_mean_ci_high": "6.9",
+        "share_mean": "0.3711554533429533",
+        "share_mean_ci_low": "0.35300634507275136",
+        "share_mean_ci_high": "0.38876595756673876",
+        "deal_rate": "0.7041666666666668",
+        "deal_rate_ci_low": "0.6666666666666666",
+        "deal_rate_ci_high": "0.7458333333333333"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "own_links",
+        "node_class": "B|D",
+        "points_mean": "15.070833333333331",
+        "points_mean_ci_low": "14.65",
+        "points_mean_ci_high": "15.462604166666669",
+        "share_mean": "0.6279513888888889",
+        "share_mean_ci_low": "0.6104123263888891",
+        "share_mean_ci_high": "0.6439279513888889",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "line5",
+        "knowledge": "own_links",
+        "node_class": "C",
+        "points_mean": "5.158333333333333",
+        "points_mean_ci_low": "4.4",
+        "points_mean_ci_high": "5.941666666666667",
+        "share_mean": "0.3663062169312169",
+        "share_mean_ci_low": "0.33201240079365085",
+        "share_mean_ci_high": "0.3928111772486772",
+        "deal_rate": "0.5916666666666668",
+        "deal_rate_ci_low": "0.5083333333333333",
+        "deal_rate_ci_high": "0.6666666666666667"
+      },
+      {
+        "network_id": "pair",
+        "knowledge": "own_links",
+        "node_class": "A|B",
+        "points_mean": "12.0",
+        "points_mean_ci_low": "12.0",
+        "points_mean_ci_high": "12.0",
+        "share_mean": "0.5",
+        "share_mean_ci_low": "0.5",
+        "share_mean_ci_high": "0.5",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star3",
+        "knowledge": "own_links",
+        "node_class": "H",
+        "points_mean": "21.358333333333334",
+        "points_mean_ci_low": "20.741666666666667",
+        "points_mean_ci_high": "21.925208333333337",
+        "share_mean": "0.8899305555555556",
+        "share_mean_ci_low": "0.8638888888888889",
+        "share_mean_ci_high": "0.9135503472222223",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star3",
+        "knowledge": "own_links",
+        "node_class": "L1|L2|L3",
+        "points_mean": "0.8805555555555555",
+        "points_mean_ci_low": "0.6833333333333333",
+        "points_mean_ci_high": "1.086111111111111",
+        "share_mean": "0.1140518278018278",
+        "share_mean_ci_low": "0.09371735960798461",
+        "share_mean_ci_high": "0.13713403379028377",
+        "deal_rate": "0.33333333333333337",
+        "deal_rate_ci_low": "0.33333333333333337",
+        "deal_rate_ci_high": "0.33333333333333337"
+      },
+      {
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "node_class": "H",
+        "points_mean": "22.30833333333333",
+        "points_mean_ci_low": "21.791666666666664",
+        "points_mean_ci_high": "22.691666666666666",
+        "share_mean": "0.9371843434343434",
+        "share_mean_ci_low": "0.9278716856060605",
+        "share_mean_ci_high": "0.9461805555555556",
+        "deal_rate": "0.9916666666666666",
+        "deal_rate_ci_low": "0.9749999999999999",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "node_class": "L1|L2|L3|L4",
+        "points_mean": "0.3729166666666667",
+        "points_mean_ci_low": "0.32291666666666663",
+        "points_mean_ci_high": "0.4291666666666667",
+        "share_mean": "0.0647511574074074",
+        "share_mean_ci_low": "0.05474942129629629",
+        "share_mean_ci_high": "0.07504774305555556",
+        "deal_rate": "0.24791666666666665",
+        "deal_rate_ci_low": "0.24374999999999997",
+        "deal_rate_ci_high": "0.25"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "node_class": "A",
+        "points_mean": "11.3",
+        "points_mean_ci_low": "10.6",
+        "points_mean_ci_high": "11.8",
+        "share_mean": "0.4708333333333334",
+        "share_mean_ci_low": "0.4416666666666667",
+        "share_mean_ci_high": "0.4958333333333333",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "node_class": "B",
+        "points_mean": "12.7",
+        "points_mean_ci_low": "12.2",
+        "points_mean_ci_high": "13.4",
+        "share_mean": "0.5291666666666667",
+        "share_mean_ci_low": "0.5041666666666667",
+        "share_mean_ci_high": "0.5541666666666667",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "node_class": "C|D",
+        "points_mean": "12.0",
+        "points_mean_ci_low": "12.0",
+        "points_mean_ci_high": "12.0",
+        "share_mean": "0.5",
+        "share_mean_ci_low": "0.5",
+        "share_mean_ci_high": "0.5",
+        "deal_rate": "1.0",
+        "deal_rate_ci_low": "1.0",
+        "deal_rate_ci_high": "1.0"
+      },
+      {
+        "network_id": "triangle",
+        "knowledge": "own_links",
+        "node_class": "A|B|C",
+        "points_mean": "8.0",
+        "points_mean_ci_low": "8.0",
+        "points_mean_ci_high": "8.0",
+        "share_mean": "0.49025432900432897",
+        "share_mean_ci_low": "0.48484325021043767",
+        "share_mean_ci_high": "0.4961401966089466",
+        "deal_rate": "0.6666666666666667",
+        "deal_rate_ci_low": "0.6666666666666667",
+        "deal_rate_ci_high": "0.6666666666666667"
+      }
+    ],
+    "hypotheses": [
+      {
+        "window": "primary",
+        "test": "H1",
+        "statistic": "0.1689236111111111",
+        "p_value": "0.0009765625",
+        "p_adjusted": "0.0009765625",
+        "decision": "supported",
+        "method": "exact",
+        "n_episodes": "40",
+        "n_resamples": "1024"
+      },
+      {
+        "window": "primary",
+        "test": "H3",
+        "statistic": "0.024131944444444442",
+        "p_value": "2.9999850000749997e-05",
+        "p_adjusted": "5.9999700001499995e-05",
+        "decision": "supported",
+        "method": "monte_carlo",
+        "n_episodes": "30",
+        "n_resamples": "200000"
+      },
+      {
+        "window": "primary",
+        "test": "H4",
+        "statistic": "5.695833333333335",
+        "p_value": "5.412544112234515e-06",
+        "p_adjusted": "2.165017644893806e-05",
+        "decision": "supported",
+        "method": "exact",
+        "n_episodes": "20",
+        "n_resamples": "184756"
+      },
+      {
+        "window": "primary",
+        "test": "H5",
+        "statistic": "0.09901620370370372",
+        "p_value": "9.99990000099999e-06",
+        "p_adjusted": "2.999970000299997e-05",
+        "decision": "supported",
+        "method": "monte_carlo",
+        "n_episodes": "120",
+        "n_resamples": "100000"
+      },
+      {
+        "window": "no_last",
+        "test": "H1",
+        "statistic": "0.16515151515151516",
+        "p_value": "0.0009765625",
+        "p_adjusted": "0.0009765625",
+        "decision": "supported",
+        "method": "exact",
+        "n_episodes": "40",
+        "n_resamples": "1024"
+      },
+      {
+        "window": "no_last",
+        "test": "H3",
+        "statistic": "0.025757575757575833",
+        "p_value": "2.9999850000749997e-05",
+        "p_adjusted": "5.9999700001499995e-05",
+        "decision": "supported",
+        "method": "monte_carlo",
+        "n_episodes": "30",
+        "n_resamples": "200000"
+      },
+      {
+        "window": "no_last",
+        "test": "H4",
+        "statistic": "5.727272727272727",
+        "p_value": "5.412544112234515e-06",
+        "p_adjusted": "2.165017644893806e-05",
+        "decision": "supported",
+        "method": "exact",
+        "n_episodes": "20",
+        "n_resamples": "184756"
+      },
+      {
+        "window": "no_last",
+        "test": "H5",
+        "statistic": "0.10239898989898993",
+        "p_value": "9.99990000099999e-06",
+        "p_adjusted": "2.999970000299997e-05",
+        "decision": "supported",
+        "method": "monte_carlo",
+        "n_episodes": "120",
+        "n_resamples": "100000"
+      }
+    ],
+    "h1_constituents": [
+      {
+        "window": "primary",
+        "network_id": "line3",
+        "node_class": "B",
+        "n": "10",
+        "mean": "0.9100694444444445",
+        "ci_low": "0.8715104166666668",
+        "ci_high": "0.9381944444444444",
+        "statistic": "0.4100694444444445",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "primary",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "n": "10",
+        "mean": "0.6689236111111112",
+        "ci_low": "0.648611111111111",
+        "ci_high": "0.6881944444444444",
+        "statistic": "0.1689236111111111",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "primary",
+        "network_id": "star3",
+        "node_class": "H",
+        "n": "10",
+        "mean": "0.9541666666666668",
+        "ci_low": "0.9458333333333334",
+        "ci_high": "0.9583333333333334",
+        "statistic": "0.4541666666666666",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "primary",
+        "network_id": "star4",
+        "node_class": "H",
+        "n": "10",
+        "mean": "0.9583333333333334",
+        "ci_low": "0.9583333333333334",
+        "ci_high": "0.9583333333333334",
+        "statistic": "0.4583333333333333",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line3",
+        "node_class": "B",
+        "n": "10",
+        "mean": "0.9068181818181819",
+        "ci_low": "0.8670359848484848",
+        "ci_high": "0.9363636363636363",
+        "statistic": "0.40681818181818186",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "n": "10",
+        "mean": "0.6651515151515152",
+        "ci_low": "0.6448863636363635",
+        "ci_high": "0.684469696969697",
+        "statistic": "0.16515151515151516",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star3",
+        "node_class": "H",
+        "n": "10",
+        "mean": "0.9537878787878789",
+        "ci_low": "0.9446969696969697",
+        "ci_high": "0.9583333333333336",
+        "statistic": "0.4537878787878789",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star4",
+        "node_class": "H",
+        "n": "10",
+        "mean": "0.9583333333333336",
+        "ci_low": "0.9583333333333336",
+        "ci_high": "0.9583333333333336",
+        "statistic": "0.4583333333333336",
+        "p_value": "0.0009765625",
+        "method": "exact",
+        "n_resamples": "1024",
+        "alternative": "greater",
+        "n_a": "",
+        "n_b": "",
+        "p_adjusted": "0.00390625",
+        "reject": "True",
+        "decision": "supported"
+      }
+    ],
+    "effect_intervals": [
+      {
+        "window": "primary",
+        "measure": "H5_full_map",
+        "estimate": "0.5328703703703702",
+        "ci_low": "0.5122685185185185",
+        "ci_high": "0.552779224537037",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "primary",
+        "measure": "H5_own_links",
+        "estimate": "0.43385416666666665",
+        "ci_low": "0.40908420138888885",
+        "ci_high": "0.45995515046296287",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "primary",
+        "measure": "H5_difference",
+        "estimate": "0.09901620370370372",
+        "ci_low": "0.06695312499999988",
+        "ci_high": "0.13154369212962966",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "primary",
+        "measure": "H3",
+        "estimate": "0.024131944444444442",
+        "ci_low": "0.00954861111111105",
+        "ci_high": "0.04218749999999999",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "primary",
+        "measure": "H4",
+        "estimate": "5.695833333333335",
+        "ci_low": "5.120833333333335",
+        "ci_high": "6.250104166666665",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "no_last",
+        "measure": "H5_full_map",
+        "estimate": "0.5291035353535353",
+        "ci_low": "0.5095912247474746",
+        "ci_high": "0.5493686868686868",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "no_last",
+        "measure": "H5_own_links",
+        "estimate": "0.42670454545454545",
+        "ci_low": "0.40233428030303026",
+        "ci_high": "0.4532859848484848",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "no_last",
+        "measure": "H5_difference",
+        "estimate": "0.10239898989898993",
+        "ci_low": "0.06937815656565656",
+        "ci_high": "0.13403251262626262",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "no_last",
+        "measure": "H3",
+        "estimate": "0.025757575757575868",
+        "ci_low": "0.011742424242424332",
+        "ci_high": "0.04450757575757586",
+        "n_defined_bootstrap": "2000"
+      },
+      {
+        "window": "no_last",
+        "measure": "H4",
+        "estimate": "5.727272727272727",
+        "ci_low": "5.163636363636364",
+        "ci_high": "6.254659090909091",
+        "n_defined_bootstrap": "2000"
+      }
+    ],
+    "overall_rmse": [
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "predictor": "equal_split",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "5.308640755096041",
+        "ci_low": "5.1720298057384975",
+        "ci_high": "5.432369754141021"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "predictor": "myerson",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "2.867693614503939",
+        "ci_low": "2.7055531616657817",
+        "ci_high": "3.0297857954488436"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "predictor": "position_value",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "5.500151513064587",
+        "ci_low": "5.359619456889072",
+        "ci_high": "5.627217890588246"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "predictor": "balanced",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "3.6606769258643346",
+        "ci_low": "3.508374737602094",
+        "ci_high": "3.8252288117019564"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "predictor": "equal_split",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.429069852053863",
+        "ci_low": "4.241607041144277",
+        "ci_high": "4.6027051022331396"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "predictor": "myerson",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "2.1589804981540395",
+        "ci_low": "1.9610482698870664",
+        "ci_high": "2.3535522867459484"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "predictor": "position_value",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.6536716423027125",
+        "ci_low": "4.462375152116354",
+        "ci_high": "4.826368875802575"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "predictor": "balanced",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.287826494935252",
+        "ci_low": "4.116476070473606",
+        "ci_high": "4.46840659879079"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "full_map",
+        "predictor": "equal_split",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "5.279481625312957",
+        "ci_low": "5.137441113396305",
+        "ci_high": "5.406451128131896"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "full_map",
+        "predictor": "myerson",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "2.8389493307778864",
+        "ci_low": "2.6712097660477356",
+        "ci_high": "3.002423020358899"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "full_map",
+        "predictor": "position_value",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "5.469104867361656",
+        "ci_low": "5.322645547157376",
+        "ci_high": "5.603364401050255"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "full_map",
+        "predictor": "balanced",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "3.696243926110677",
+        "ci_low": "3.5438534800003865",
+        "ci_high": "3.861292976669719"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "own_links",
+        "predictor": "equal_split",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.356318995410753",
+        "ci_low": "4.169473733173244",
+        "ci_high": "4.533735009522516"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "own_links",
+        "predictor": "myerson",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "2.101495388180575",
+        "ci_low": "1.9027937629329217",
+        "ci_high": "2.301925817159399"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "own_links",
+        "predictor": "position_value",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.581246360989504",
+        "ci_low": "4.390457852050172",
+        "ci_high": "4.758472258689315"
+      },
+      {
+        "window": "second_half_no_last",
+        "knowledge": "own_links",
+        "predictor": "balanced",
+        "n_classes": "15",
+        "n_episodes": "70",
+        "rmse": "4.339929715704081",
+        "ci_low": "4.172930763717857",
+        "ci_high": "4.5193177549104515"
+      }
+    ],
+    "network_rmse": [
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line3",
+        "predictor": "equal_split",
+        "rmse": "7.780520659705951",
+        "ci_low": "7.108371954958702",
+        "ci_high": "8.294390779483312"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line3",
+        "predictor": "myerson",
+        "rmse": "4.618242999537571",
+        "ci_low": "3.9460942947903233",
+        "ci_high": "5.1321131193149325"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line3",
+        "predictor": "position_value",
+        "rmse": "7.780520659705951",
+        "ci_low": "7.108371954958702",
+        "ci_high": "8.294390779483312"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line3",
+        "predictor": "balanced",
+        "rmse": "1.706312320799187",
+        "ci_low": "1.192442201021826",
+        "ci_high": "2.3784610255464345"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line4",
+        "predictor": "equal_split",
+        "rmse": "0.17916666666666536",
+        "ci_low": "0.02083333333333215",
+        "ci_high": "0.37083333333333185"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line4",
+        "predictor": "myerson",
+        "rmse": "1.8208333333333346",
+        "ci_low": "1.6291666666666682",
+        "ci_high": "1.9833333333333325"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line4",
+        "predictor": "position_value",
+        "rmse": "1.8208333333333346",
+        "ci_low": "1.6291666666666682",
+        "ci_high": "1.9833333333333325"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line4",
+        "predictor": "balanced",
+        "rmse": "3.8208333333333346",
+        "ci_low": "3.629166666666668",
+        "ci_high": "3.9833333333333325"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line5",
+        "predictor": "equal_split",
+        "rmse": "3.6030987499445324",
+        "ci_low": "3.2619147217523676",
+        "ci_high": "3.945028491323305"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line5",
+        "predictor": "myerson",
+        "rmse": "2.1792171228490567",
+        "ci_low": "1.8064947094050052",
+        "ci_high": "2.656463031780185"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line5",
+        "predictor": "position_value",
+        "rmse": "4.382932623213552",
+        "ci_low": "4.0299088313022615",
+        "ci_high": "4.760212756973498"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "line5",
+        "predictor": "balanced",
+        "rmse": "6.162078341821105",
+        "ci_low": "5.835445549339199",
+        "ci_high": "6.532988534944533"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "pair",
+        "predictor": "equal_split",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "pair",
+        "predictor": "myerson",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "pair",
+        "predictor": "position_value",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "pair",
+        "predictor": "balanced",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star3",
+        "predictor": "equal_split",
+        "rmse": "8.124380318249235",
+        "ci_low": "7.97530911974925",
+        "ci_high": "8.19891591749923"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star3",
+        "predictor": "myerson",
+        "rmse": "3.6522443632496557",
+        "ci_low": "3.50317316474967",
+        "ci_high": "3.7267799624996494"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star3",
+        "predictor": "position_value",
+        "rmse": "8.124380318249235",
+        "ci_low": "7.97530911974925",
+        "ci_high": "8.19891591749923"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star3",
+        "predictor": "balanced",
+        "rmse": "0.8198915917499239",
+        "ci_low": "0.7453559924999299",
+        "ci_high": "0.9689627902499094"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star4",
+        "predictor": "equal_split",
+        "rmse": "8.017558855412288",
+        "ci_low": "8.017558855412288",
+        "ci_high": "8.017558855412288"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star4",
+        "predictor": "myerson",
+        "rmse": "2.7697021500515158",
+        "ci_low": "2.7697021500515158",
+        "ci_high": "2.7697021500515158"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star4",
+        "predictor": "position_value",
+        "rmse": "8.017558855412288",
+        "ci_low": "8.017558855412288",
+        "ci_high": "8.017558855412288"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "star4",
+        "predictor": "balanced",
+        "rmse": "0.7288689868556626",
+        "ci_low": "0.7288689868556626",
+        "ci_high": "0.7288689868556626"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "stem",
+        "predictor": "equal_split",
+        "rmse": "0.8301048572765228",
+        "ci_low": "0.41505242863826036",
+        "ci_high": "1.2451572859147824"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "stem",
+        "predictor": "myerson",
+        "rmse": "2.435881466434381",
+        "ci_low": "2.0208290377961218",
+        "ci_high": "2.8509338950726435"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "stem",
+        "predictor": "position_value",
+        "rmse": "1.6193848855066553",
+        "ci_low": "1.2043324568683955",
+        "ci_high": "2.0344373141449177"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "stem",
+        "predictor": "balanced",
+        "rmse": "4.068874628289834",
+        "ci_low": "3.653822199651574",
+        "ci_high": "4.483927056928096"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "triangle",
+        "predictor": "equal_split",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "triangle",
+        "predictor": "myerson",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "triangle",
+        "predictor": "position_value",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line3",
+        "predictor": "equal_split",
+        "rmse": "5.593278611422821",
+        "ci_low": "4.743251788291102",
+        "ci_high": "6.2850268495846535"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line3",
+        "predictor": "myerson",
+        "rmse": "2.431000951254441",
+        "ci_low": "1.5809741281227228",
+        "ci_high": "3.122749189416274"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line3",
+        "predictor": "position_value",
+        "rmse": "5.593278611422821",
+        "ci_low": "4.743251788291102",
+        "ci_high": "6.2850268495846535"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line3",
+        "predictor": "balanced",
+        "rmse": "3.8935543690823176",
+        "ci_low": "3.2018061309204846",
+        "ci_high": "4.743581192214036"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line4",
+        "predictor": "equal_split",
+        "rmse": "0.00833333333333286",
+        "ci_low": "0.0",
+        "ci_high": "0.15833333333333321"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line4",
+        "predictor": "myerson",
+        "rmse": "1.9916666666666671",
+        "ci_low": "1.8416666666666668",
+        "ci_high": "2.1416666666666675"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line4",
+        "predictor": "position_value",
+        "rmse": "1.9916666666666671",
+        "ci_low": "1.8416666666666668",
+        "ci_high": "2.1416666666666675"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line4",
+        "predictor": "balanced",
+        "rmse": "3.991666666666667",
+        "ci_low": "3.841666666666667",
+        "ci_high": "4.1416666666666675"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line5",
+        "predictor": "equal_split",
+        "rmse": "2.596638006188999",
+        "ci_low": "2.2853103712617555",
+        "ci_high": "2.930941259504644"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line5",
+        "predictor": "myerson",
+        "rmse": "1.3549399501522272",
+        "ci_low": "0.8518369107484881",
+        "ci_high": "1.8918796526658634"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line5",
+        "predictor": "position_value",
+        "rmse": "3.3313787672284785",
+        "ci_low": "2.9591267263430328",
+        "ci_high": "3.7360000039104286"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "line5",
+        "predictor": "balanced",
+        "rmse": "6.991922008977906",
+        "ci_low": "6.692274930072247",
+        "ci_high": "7.300066018057868"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "pair",
+        "predictor": "equal_split",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "pair",
+        "predictor": "myerson",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "pair",
+        "predictor": "position_value",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "pair",
+        "predictor": "balanced",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star3",
+        "predictor": "equal_split",
+        "rmse": "6.975289829811842",
+        "ci_low": "6.490808434686889",
+        "ci_high": "7.403869525499301"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star3",
+        "predictor": "myerson",
+        "rmse": "2.503153874812263",
+        "ci_low": "2.0186724796873095",
+        "ci_high": "2.931733570499722"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star3",
+        "predictor": "position_value",
+        "rmse": "6.975289829811842",
+        "ci_low": "6.490808434686889",
+        "ci_high": "7.403869525499301"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star3",
+        "predictor": "balanced",
+        "rmse": "1.9689820801873166",
+        "ci_low": "1.5404023844998576",
+        "ci_high": "2.4534634753122697"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star4",
+        "predictor": "equal_split",
+        "rmse": "7.522077603674031",
+        "ci_low": "7.1329396552193005",
+        "ci_high": "7.786750342907995"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star4",
+        "predictor": "myerson",
+        "rmse": "2.2744013444628535",
+        "ci_low": "1.8871481460129202",
+        "ci_high": "2.538893637547223"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star4",
+        "predictor": "position_value",
+        "rmse": "7.522077603674031",
+        "ci_low": "7.1329396552193005",
+        "ci_high": "7.786750342907995"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "star4",
+        "predictor": "balanced",
+        "rmse": "1.2249087621918802",
+        "ci_low": "0.9596774993599555",
+        "ci_high": "1.617506761964225"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "stem",
+        "predictor": "equal_split",
+        "rmse": "0.5715476066494076",
+        "ci_low": "0.16329931618554464",
+        "ci_high": "1.1430952132988168"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "stem",
+        "predictor": "myerson",
+        "rmse": "2.6944387170614963",
+        "ci_low": "2.122891110412087",
+        "ci_high": "3.1026870075253594"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "stem",
+        "predictor": "position_value",
+        "rmse": "1.8779421361337705",
+        "ci_low": "1.3063945294843613",
+        "ci_high": "2.2861904265976336"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "stem",
+        "predictor": "balanced",
+        "rmse": "4.327431878916949",
+        "ci_low": "3.755884272267539",
+        "ci_high": "4.735680169380812"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "triangle",
+        "predictor": "equal_split",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "triangle",
+        "predictor": "myerson",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "triangle",
+        "predictor": "position_value",
+        "rmse": "0.0",
+        "ci_low": "0.0",
+        "ci_high": "0.0"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "overall",
+        "predictor": "equal_split",
+        "rmse": "5.308640755096041",
+        "ci_low": "5.1720298057384975",
+        "ci_high": "5.432369754141021"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "overall",
+        "predictor": "myerson",
+        "rmse": "2.867693614503939",
+        "ci_low": "2.7055531616657817",
+        "ci_high": "3.0297857954488436"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "overall",
+        "predictor": "position_value",
+        "rmse": "5.500151513064587",
+        "ci_low": "5.359619456889072",
+        "ci_high": "5.627217890588246"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "full_map",
+        "scope": "overall",
+        "predictor": "balanced",
+        "rmse": "3.6606769258643346",
+        "ci_low": "3.508374737602094",
+        "ci_high": "3.8252288117019564"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "overall",
+        "predictor": "equal_split",
+        "rmse": "4.429069852053863",
+        "ci_low": "4.241607041144277",
+        "ci_high": "4.6027051022331396"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "overall",
+        "predictor": "myerson",
+        "rmse": "2.1589804981540395",
+        "ci_low": "1.9610482698870664",
+        "ci_high": "2.3535522867459484"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "overall",
+        "predictor": "position_value",
+        "rmse": "4.6536716423027125",
+        "ci_low": "4.462375152116354",
+        "ci_high": "4.826368875802575"
+      },
+      {
+        "window": "second_half",
+        "knowledge": "own_links",
+        "scope": "overall",
+        "predictor": "balanced",
+        "rmse": "4.287826494935252",
+        "ci_low": "4.116476070473606",
+        "ci_high": "4.46840659879079"
+      }
+    ],
+    "power_use": [
+      {
+        "window": "primary",
+        "network_id": "line3",
+        "node_class": "B",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.820138888888889",
+        "ci_low": "0.7486111111111112",
+        "ci_high": "0.8757118055555555"
+      },
+      {
+        "window": "primary",
+        "network_id": "line3",
+        "node_class": "B",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.5895833333333333",
+        "ci_low": "0.5069270833333334",
+        "ci_high": "0.6646006944444445"
+      },
+      {
+        "window": "primary",
+        "network_id": "line4",
+        "node_class": "B|C",
+        "balanced": "16.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.044791666666666605",
+        "ci_low": "0.004166666666666696",
+        "ci_high": "0.09169270833333322"
+      },
+      {
+        "window": "primary",
+        "network_id": "line4",
+        "node_class": "B|C",
+        "balanced": "16.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.002083333333333304",
+        "ci_low": "-0.035416666666666693",
+        "ci_high": "0.039583333333333304"
+      },
+      {
+        "window": "primary",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.33784722222222224",
+        "ci_low": "0.29756076388888897",
+        "ci_high": "0.37639756944444447"
+      },
+      {
+        "window": "primary",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.25590277777777776",
+        "ci_low": "0.22186631944444446",
+        "ci_high": "0.2885416666666667"
+      },
+      {
+        "window": "primary",
+        "network_id": "star3",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.9083333333333332",
+        "ci_low": "0.8916666666666666",
+        "ci_high": "0.9166666666666666"
+      },
+      {
+        "window": "primary",
+        "network_id": "star3",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.7798611111111111",
+        "ci_low": "0.7243055555555555",
+        "ci_high": "0.8270833333333332"
+      },
+      {
+        "window": "primary",
+        "network_id": "star4",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.9166666666666666",
+        "ci_low": "0.9166666666666666",
+        "ci_high": "0.9166666666666666"
+      },
+      {
+        "window": "primary",
+        "network_id": "star4",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.8590277777777777",
+        "ci_low": "0.8152777777777777",
+        "ci_high": "0.8916666666666666"
+      },
+      {
+        "window": "primary",
+        "network_id": "stem",
+        "node_class": "B",
+        "balanced": "18.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.16944444444444445",
+        "ci_low": "0.08333333333333333",
+        "ci_high": "0.2541666666666667"
+      },
+      {
+        "window": "primary",
+        "network_id": "stem",
+        "node_class": "B",
+        "balanced": "18.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.11666666666666665",
+        "ci_low": "0.03333333333333333",
+        "ci_high": "0.2333333333333333"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line3",
+        "node_class": "B",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.8136363636363637",
+        "ci_low": "0.7393939393939394",
+        "ci_high": "0.8719886363636361"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line3",
+        "node_class": "B",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.5681818181818181",
+        "ci_low": "0.48636363636363644",
+        "ci_high": "0.6446969696969697"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line4",
+        "node_class": "B|C",
+        "balanced": "16.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.03977272727272725",
+        "ci_low": "-0.001136363636363713",
+        "ci_high": "0.08863636363636367"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line4",
+        "node_class": "B|C",
+        "balanced": "16.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.0022727272727272483",
+        "ci_low": "-0.03522727272727275",
+        "ci_high": "0.03977272727272725"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.3303030303030304",
+        "ci_low": "0.28976325757575766",
+        "ci_high": "0.36931818181818193"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line5",
+        "node_class": "B|D",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.25037878787878787",
+        "ci_low": "0.21590909090909097",
+        "ci_high": "0.28295454545454546"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star3",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.9075757575757575",
+        "ci_low": "0.8893939393939394",
+        "ci_high": "0.9166666666666666"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star3",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.7689393939393939",
+        "ci_low": "0.7113446969696968",
+        "ci_high": "0.8189393939393937"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star4",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.9166666666666666",
+        "ci_low": "0.9166666666666666",
+        "ci_high": "0.9166666666666666"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star4",
+        "node_class": "H",
+        "balanced": "24.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.8537878787878788",
+        "ci_low": "0.806060606060606",
+        "ci_high": "0.8893939393939394"
+      },
+      {
+        "window": "no_last",
+        "network_id": "stem",
+        "node_class": "B",
+        "balanced": "18.0",
+        "knowledge": "full_map",
+        "n": "10",
+        "mean": "0.16666666666666666",
+        "ci_low": "0.08333333333333333",
+        "ci_high": "0.24999999999999994"
+      },
+      {
+        "window": "no_last",
+        "network_id": "stem",
+        "node_class": "B",
+        "balanced": "18.0",
+        "knowledge": "own_links",
+        "n": "10",
+        "mean": "0.11666666666666665",
+        "ci_low": "0.03333333333333333",
+        "ci_high": "0.2333333333333333"
+      }
+    ],
+    "power_use_differences": [
+      {
+        "window": "primary",
+        "network_id": "line3",
+        "difference": "0.23055555555555562",
+        "ci_low": "0.1298611111111111",
+        "ci_high": "0.33333333333333326",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "2.7666666666666675"
+      },
+      {
+        "window": "primary",
+        "network_id": "line4",
+        "difference": "0.0427083333333333",
+        "ci_low": "-0.010442708333333274",
+        "ci_high": "0.1041666666666666",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.1708333333333332"
+      },
+      {
+        "window": "primary",
+        "network_id": "line5",
+        "difference": "0.08194444444444449",
+        "ci_low": "0.02948784722222223",
+        "ci_high": "0.13263888888888895",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.9833333333333338"
+      },
+      {
+        "window": "primary",
+        "network_id": "star3",
+        "difference": "0.1284722222222221",
+        "ci_low": "0.07847222222222194",
+        "ci_high": "0.1819791666666664",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "1.5416666666666652"
+      },
+      {
+        "window": "primary",
+        "network_id": "star4",
+        "difference": "0.057638888888888906",
+        "ci_low": "0.025694444444444464",
+        "ci_high": "0.10277777777777775",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.6916666666666669"
+      },
+      {
+        "window": "primary",
+        "network_id": "stem",
+        "difference": "0.0527777777777778",
+        "ci_low": "-0.08194444444444443",
+        "ci_high": "0.1875",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.31666666666666676"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line3",
+        "difference": "0.2454545454545456",
+        "ci_low": "0.1431818181818183",
+        "ci_high": "0.34772727272727266",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "2.945454545454547"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line4",
+        "difference": "0.037500000000000006",
+        "ci_low": "-0.015909090909090966",
+        "ci_high": "0.09886363636363642",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.15000000000000002"
+      },
+      {
+        "window": "no_last",
+        "network_id": "line5",
+        "difference": "0.07992424242424251",
+        "ci_low": "0.02726325757575753",
+        "ci_high": "0.13069128787878798",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.9590909090909101"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star3",
+        "difference": "0.13863636363636356",
+        "ci_low": "0.08482954545454534",
+        "ci_high": "0.19547348484848484",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "1.6636363636363627"
+      },
+      {
+        "window": "no_last",
+        "network_id": "star4",
+        "difference": "0.06287878787878787",
+        "ci_low": "0.028030303030303183",
+        "ci_high": "0.11212121212121218",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.7545454545454544"
+      },
+      {
+        "window": "no_last",
+        "network_id": "stem",
+        "difference": "0.05",
+        "ci_low": "-0.08333333333333333",
+        "ci_high": "0.18333333333333332",
+        "n_full": "10",
+        "n_own": "10",
+        "points_difference": "0.30000000000000004"
+      }
+    ],
+    "efficiency": [
+      {
+        "window": "all",
+        "n_network_rounds": "3840",
+        "n_efficient_rounds": "3830",
+        "n_inefficient_rounds": "10",
+        "n_deals": "5270",
+        "maximum_deals": "5280"
+      },
+      {
+        "window": "primary",
+        "n_network_rounds": "1920",
+        "n_efficient_rounds": "1919",
+        "n_inefficient_rounds": "1",
+        "n_deals": "2639",
+        "maximum_deals": "2640"
+      },
+      {
+        "window": "no_last",
+        "n_network_rounds": "1760",
+        "n_efficient_rounds": "1759",
+        "n_inefficient_rounds": "1",
+        "n_deals": "2419",
+        "maximum_deals": "2420"
+      }
+    ],
+    "pair_splits": [
+      {
+        "window": "all",
+        "knowledge": "full_map",
+        "deals": "240",
+        "equal_deals": "240",
+        "unequal_deals": "0",
+        "mean_maker_share": "0.5"
+      },
+      {
+        "window": "all",
+        "knowledge": "own_links",
+        "deals": "240",
+        "equal_deals": "232",
+        "unequal_deals": "8",
+        "mean_maker_share": "0.5013888888888889"
+      },
+      {
+        "window": "primary",
+        "knowledge": "full_map",
+        "deals": "120",
+        "equal_deals": "120",
+        "unequal_deals": "0",
+        "mean_maker_share": "0.5"
+      },
+      {
+        "window": "primary",
+        "knowledge": "own_links",
+        "deals": "120",
+        "equal_deals": "116",
+        "unequal_deals": "4",
+        "mean_maker_share": "0.5013888888888889"
+      },
+      {
+        "window": "no_last",
+        "knowledge": "full_map",
+        "deals": "110",
+        "equal_deals": "110",
+        "unequal_deals": "0",
+        "mean_maker_share": "0.5"
+      },
+      {
+        "window": "no_last",
+        "knowledge": "own_links",
+        "deals": "110",
+        "equal_deals": "107",
+        "unequal_deals": "3",
+        "mean_maker_share": "0.5011363636363636"
+      }
+    ],
+    "inefficient_rounds": [
+      {
+        "episode_uid": "own_links_arm/line4/own_links/terra/007",
+        "network_id": "line4",
+        "knowledge": "own_links",
+        "episode_index": "7",
+        "round": "2",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/007",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "7",
+        "round": "14",
+        "deals": "0",
+        "maximum_deals": "1",
+        "points": "0",
+        "primary_window": "True",
+        "sensitivity_window": "True"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/000",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "0",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/001",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "1",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/002",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "2",
+        "round": "4",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/003",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "3",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/005",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "5",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/007",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "7",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/007",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "7",
+        "round": "3",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      },
+      {
+        "episode_uid": "own_links_arm/stem/own_links/terra/009",
+        "network_id": "stem",
+        "knowledge": "own_links",
+        "episode_index": "9",
+        "round": "1",
+        "deals": "1",
+        "maximum_deals": "2",
+        "points": "24",
+        "primary_window": "False",
+        "sensitivity_window": "False"
+      }
+    ],
+    "null_audit": [
+      {
+        "window": "primary",
+        "test": "H1/line3",
+        "observed_statistic": "0.4100694444444445",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "primary",
+        "test": "H1/line5",
+        "observed_statistic": "0.1689236111111111",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "primary",
+        "test": "H1/star3",
+        "observed_statistic": "0.4541666666666666",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "primary",
+        "test": "H1/star4",
+        "observed_statistic": "0.4583333333333333",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "primary",
+        "test": "H3",
+        "observed_statistic": "0.024131944444444463",
+        "method": "monte_carlo",
+        "n_assignments": "200000",
+        "tail_count": "5",
+        "p_value": "2.9999850000749997e-05",
+        "assignment_space": "5550996791340"
+      },
+      {
+        "window": "primary",
+        "test": "H4",
+        "observed_statistic": "5.695833333333335",
+        "method": "exact",
+        "n_assignments": "184756",
+        "tail_count": "1",
+        "p_value": "5.412544112234515e-06",
+        "assignment_space": "184756"
+      },
+      {
+        "window": "primary",
+        "test": "H5",
+        "observed_statistic": "0.09901620370370372",
+        "method": "monte_carlo",
+        "n_assignments": "100000",
+        "tail_count": "0",
+        "p_value": "9.99990000099999e-06",
+        "assignment_space": "39773270762567891136671884742656"
+      },
+      {
+        "window": "no_last",
+        "test": "H1/line3",
+        "observed_statistic": "0.40681818181818186",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "no_last",
+        "test": "H1/line5",
+        "observed_statistic": "0.16515151515151516",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "no_last",
+        "test": "H1/star3",
+        "observed_statistic": "0.4537878787878789",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "no_last",
+        "test": "H1/star4",
+        "observed_statistic": "0.4583333333333336",
+        "method": "exact",
+        "n_assignments": "1024",
+        "tail_count": "1",
+        "p_value": "0.0009765625",
+        "assignment_space": "1024"
+      },
+      {
+        "window": "no_last",
+        "test": "H3",
+        "observed_statistic": "0.025757575757575823",
+        "method": "monte_carlo",
+        "n_assignments": "200000",
+        "tail_count": "5",
+        "p_value": "2.9999850000749997e-05",
+        "assignment_space": "5550996791340"
+      },
+      {
+        "window": "no_last",
+        "test": "H4",
+        "observed_statistic": "5.727272727272727",
+        "method": "exact",
+        "n_assignments": "184756",
+        "tail_count": "1",
+        "p_value": "5.412544112234515e-06",
+        "assignment_space": "184756"
+      },
+      {
+        "window": "no_last",
+        "test": "H5",
+        "observed_statistic": "0.10239898989898993",
+        "method": "monte_carlo",
+        "n_assignments": "100000",
+        "tail_count": "0",
+        "p_value": "9.99990000099999e-06",
+        "assignment_space": "39773270762567891136671884742656"
+      }
+    ],
+    "holm_steps": [
+      {
+        "window": "primary",
+        "family": "main",
+        "test": "H4",
+        "rank": "1",
+        "p_value": "5.412544112234515e-06",
+        "multiplier": "4",
+        "product": "2.165017644893806e-05",
+        "p_adjusted": "2.165017644893806e-05"
+      },
+      {
+        "window": "primary",
+        "family": "main",
+        "test": "H5",
+        "rank": "2",
+        "p_value": "9.99990000099999e-06",
+        "multiplier": "3",
+        "product": "2.999970000299997e-05",
+        "p_adjusted": "2.999970000299997e-05"
+      },
+      {
+        "window": "primary",
+        "family": "main",
+        "test": "H3",
+        "rank": "3",
+        "p_value": "2.9999850000749997e-05",
+        "multiplier": "2",
+        "product": "5.9999700001499995e-05",
+        "p_adjusted": "5.9999700001499995e-05"
+      },
+      {
+        "window": "primary",
+        "family": "main",
+        "test": "H1",
+        "rank": "4",
+        "p_value": "0.0009765625",
+        "multiplier": "1",
+        "product": "0.0009765625",
+        "p_adjusted": "0.0009765625"
+      },
+      {
+        "window": "primary",
+        "family": "H1_networks",
+        "test": "line3",
+        "rank": "1",
+        "p_value": "0.0009765625",
+        "multiplier": "4",
+        "product": "0.00390625",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "primary",
+        "family": "H1_networks",
+        "test": "line5",
+        "rank": "2",
+        "p_value": "0.0009765625",
+        "multiplier": "3",
+        "product": "0.0029296875",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "primary",
+        "family": "H1_networks",
+        "test": "star3",
+        "rank": "3",
+        "p_value": "0.0009765625",
+        "multiplier": "2",
+        "product": "0.001953125",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "primary",
+        "family": "H1_networks",
+        "test": "star4",
+        "rank": "4",
+        "p_value": "0.0009765625",
+        "multiplier": "1",
+        "product": "0.0009765625",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "no_last",
+        "family": "main",
+        "test": "H4",
+        "rank": "1",
+        "p_value": "5.412544112234515e-06",
+        "multiplier": "4",
+        "product": "2.165017644893806e-05",
+        "p_adjusted": "2.165017644893806e-05"
+      },
+      {
+        "window": "no_last",
+        "family": "main",
+        "test": "H5",
+        "rank": "2",
+        "p_value": "9.99990000099999e-06",
+        "multiplier": "3",
+        "product": "2.999970000299997e-05",
+        "p_adjusted": "2.999970000299997e-05"
+      },
+      {
+        "window": "no_last",
+        "family": "main",
+        "test": "H3",
+        "rank": "3",
+        "p_value": "2.9999850000749997e-05",
+        "multiplier": "2",
+        "product": "5.9999700001499995e-05",
+        "p_adjusted": "5.9999700001499995e-05"
+      },
+      {
+        "window": "no_last",
+        "family": "main",
+        "test": "H1",
+        "rank": "4",
+        "p_value": "0.0009765625",
+        "multiplier": "1",
+        "product": "0.0009765625",
+        "p_adjusted": "0.0009765625"
+      },
+      {
+        "window": "no_last",
+        "family": "H1_networks",
+        "test": "line3",
+        "rank": "1",
+        "p_value": "0.0009765625",
+        "multiplier": "4",
+        "product": "0.00390625",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "no_last",
+        "family": "H1_networks",
+        "test": "line5",
+        "rank": "2",
+        "p_value": "0.0009765625",
+        "multiplier": "3",
+        "product": "0.0029296875",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "no_last",
+        "family": "H1_networks",
+        "test": "star3",
+        "rank": "3",
+        "p_value": "0.0009765625",
+        "multiplier": "2",
+        "product": "0.001953125",
+        "p_adjusted": "0.00390625"
+      },
+      {
+        "window": "no_last",
+        "family": "H1_networks",
+        "test": "star4",
+        "rank": "4",
+        "p_value": "0.0009765625",
+        "multiplier": "1",
+        "product": "0.0009765625",
+        "p_adjusted": "0.00390625"
+      }
+    ],
+    "theory": [
+      {
+        "Network": "Pair",
+        "Node class": "A, B",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "12",
+        "Position value": "12",
+        "Balanced outcome reference": "12"
+      },
+      {
+        "Network": "Three-node line",
+        "Node class": "A, C",
+        "Equal-split earnings reference": "6",
+        "Myerson value": "4",
+        "Position value": "6",
+        "Balanced outcome reference": "0"
+      },
+      {
+        "Network": "Three-node line",
+        "Node class": "B",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "16",
+        "Position value": "12",
+        "Balanced outcome reference": "24"
+      },
+      {
+        "Network": "Four-node line",
+        "Node class": "A, D",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "10",
+        "Position value": "10",
+        "Balanced outcome reference": "8"
+      },
+      {
+        "Network": "Four-node line",
+        "Node class": "B, C",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "14",
+        "Position value": "14",
+        "Balanced outcome reference": "16"
+      },
+      {
+        "Network": "Five-node line",
+        "Node class": "A, E",
+        "Equal-split earnings reference": "8",
+        "Myerson value": "5.2",
+        "Position value": "7",
+        "Balanced outcome reference": "0"
+      },
+      {
+        "Network": "Five-node line",
+        "Node class": "B, D",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "15.2",
+        "Position value": "12",
+        "Balanced outcome reference": "24"
+      },
+      {
+        "Network": "Five-node line",
+        "Node class": "C",
+        "Equal-split earnings reference": "8",
+        "Myerson value": "7.2",
+        "Position value": "10",
+        "Balanced outcome reference": "0"
+      },
+      {
+        "Network": "Three-leaf star",
+        "Node class": "H",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "18",
+        "Position value": "12",
+        "Balanced outcome reference": "24"
+      },
+      {
+        "Network": "Three-leaf star",
+        "Node class": "Leaves L1–L3",
+        "Equal-split earnings reference": "4",
+        "Myerson value": "2",
+        "Position value": "4",
+        "Balanced outcome reference": "0"
+      },
+      {
+        "Network": "Four-leaf star",
+        "Node class": "H",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "19.2",
+        "Position value": "12",
+        "Balanced outcome reference": "24"
+      },
+      {
+        "Network": "Four-leaf star",
+        "Node class": "Leaves L1–L4",
+        "Equal-split earnings reference": "3",
+        "Myerson value": "1.2",
+        "Position value": "3",
+        "Balanced outcome reference": "0"
+      },
+      {
+        "Network": "Stem",
+        "Node class": "A",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "8",
+        "Position value": "9",
+        "Balanced outcome reference": "6"
+      },
+      {
+        "Network": "Stem",
+        "Node class": "B",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "16",
+        "Position value": "15",
+        "Balanced outcome reference": "18"
+      },
+      {
+        "Network": "Stem",
+        "Node class": "C, D",
+        "Equal-split earnings reference": "12",
+        "Myerson value": "12",
+        "Position value": "12",
+        "Balanced outcome reference": "12"
+      },
+      {
+        "Network": "Triangle",
+        "Node class": "A, B, C",
+        "Equal-split earnings reference": "8",
+        "Myerson value": "8",
+        "Position value": "8",
+        "Balanced outcome reference": "Undefined"
+      }
+    ],
+    "triangle_example": [
+      {
+        "node": "A",
+        "points_mean": "13.083333333333334",
+        "total_points": "157"
+      },
+      {
+        "node": "B",
+        "points_mean": "4.25",
+        "total_points": "51"
+      },
+      {
+        "node": "C",
+        "points_mean": "6.666666666666667",
+        "total_points": "80"
+      }
+    ]
+  },
+  "design": {
+    "episodes": 160,
+    "networks": 8,
+    "knowledge_settings": 2,
+    "episodes_per_condition": 10,
+    "conditions": 16,
+    "rounds": 24,
+    "deal_points": 24,
+    "primary_rounds": [
+      13,
+      24
+    ],
+    "sensitivity_rounds": [
+      13,
+      23
+    ],
+    "bootstrap_repetitions": 2000
+  },
+  "operational": {
+    "quizzes": 600,
+    "perfect_quizzes": 600,
+    "requested_game_turns": 17001,
+    "automatic_passes": 8503,
+    "participant_api_attempts": 17601,
+    "invalid_actions": 0,
+    "retries": 0,
+    "model": "gpt-6.1-terra",
+    "replayed_episodes": 160
+  },
+  "histories": {
+    "no_late_deal_cases": [
+      {
+        "episode_uid": "minimum_study/star3/full_map/terra/007",
+        "network_id": "star3",
+        "knowledge": "full_map",
+        "episode_index": "7",
+        "node": "L1",
+        "node_class": "L1|L2|L3"
+      },
+      {
+        "episode_uid": "minimum_study/star4/full_map/terra/008",
+        "network_id": "star4",
+        "knowledge": "full_map",
+        "episode_index": "8",
+        "node": "L1",
+        "node_class": "L1|L2|L3|L4"
+      },
+      {
+        "episode_uid": "own_links_arm/star3/own_links/terra/005",
+        "network_id": "star3",
+        "knowledge": "own_links",
+        "episode_index": "5",
+        "node": "L3",
+        "node_class": "L1|L2|L3"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/005",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "5",
+        "node": "L3",
+        "node_class": "L1|L2|L3|L4"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/006",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "6",
+        "node": "L3",
+        "node_class": "L1|L2|L3|L4"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/006",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "6",
+        "node": "L4",
+        "node_class": "L1|L2|L3|L4"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/007",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "7",
+        "node": "L1",
+        "node_class": "L1|L2|L3|L4"
+      },
+      {
+        "episode_uid": "own_links_arm/star4/own_links/terra/009",
+        "network_id": "star4",
+        "knowledge": "own_links",
+        "episode_index": "9",
+        "node": "L2",
+        "node_class": "L1|L2|L3|L4"
+      }
+    ],
+    "agents_trading_somewhere_in_full_episode": 600,
+    "star4_full_map_leaf_made_accepted_offers": 94,
+    "star4_full_map_deals": 120,
+    "star4_full_map_every_accepted_deal_hub_points": 23,
+    "star4_full_map_every_accepted_deal_leaf_points": 1
+  },
+  "core_claim": {
+    "expected": "Every full-map star episode earnings vector lies outside the continuous core",
+    "verification": "Fresh primary per-node episode allocations checked with tracked in_core",
+    "verified_from_fresh_episode_vectors": true
+  },
+  "teaching": {
+    "three_line_equal_split": [
+      6,
+      12,
+      6
+    ],
+    "three_line_myerson": [
+      4,
+      16,
+      4
+    ],
+    "three_line_position": [
+      6,
+      12,
+      6
+    ],
+    "three_line_core": [
+      0,
+      24,
+      0
+    ],
+    "four_round_sequence": [
+      [
+        "A",
+        "B",
+        6,
+        18,
+        0
+      ],
+      [
+        "A",
+        "B",
+        6,
+        18,
+        0
+      ],
+      [
+        "A",
+        "B",
+        6,
+        18,
+        0
+      ],
+      [
+        "B",
+        "C",
+        0,
+        6,
+        18
+      ]
+    ],
+    "A_participation": 0.75,
+    "A_conditional_share": 0.25,
+    "A_earnings": 4.5,
+    "C_participation": 0.25,
+    "C_conditional_share": 0.75,
+    "C_earnings": 4.5,
+    "pooled_end_class_participation": 0.5,
+    "equal_member_mean_conditional_share": 0.5,
+    "episode_toy_rows": [
+      [
+        2,
+        20
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        1,
+        22
+      ]
+    ],
+    "bootstrap_indices_one_based": [
+      2,
+      2,
+      3
+    ],
+    "bootstrap_end_mean": 2.3333333333333335,
+    "bootstrap_centre_mean": 19.333333333333332,
+    "rmse_squared_error_mean": 10,
+    "four_line_core_counterexample": [
+      24,
+      0,
+      0,
+      24
+    ],
+    "four_line_equal_payoffs": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "four_line_equal_payoffs_outside_options": [
+      0,
+      12,
+      12,
+      0
+    ],
+    "continuous_deviation": [
+      23.5,
+      0.5
+    ],
+    "integer_improvement_points_required": 25,
+    "triangle_worth": 24,
+    "triangle_core_required_total": 36
+  }
+}
